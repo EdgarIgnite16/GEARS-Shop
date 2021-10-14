@@ -1,0 +1,35 @@
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    height: 46px;
+    background-color: orange;
+}
+
+.subTab-item {
+    background-color: aquamarine;
+    text-align: center;
+    padding: 40px;
+    font-size: 1.6rem;
+    border-radius: 12px;
+
+}
+
+.item {
+    text-align: center;
+    background-color: aqua;
+    font-size: 1.6rem;
+    margin-top: 4px;
+    padding: 32px;
+    border-radius: 12px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    height: 46px;
+    background-color: orange;
+}
