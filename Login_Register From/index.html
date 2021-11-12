@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href=" https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="shortcut icon" href="./code.png">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./btn.css">
+    <title>Login and Register Form</title>
+</head>
+<body>
+    <div class="btn_wrap">
+        <button type="button" class="btn jsHandlerLR">Tài khoản</button>
+    </div>
+
+
+    <div class="LR-wrap ">
+        <div class="LR-main">
+            <!-- close btn -->
+            <div class="reg-btn__close js-close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <!-- header-select Login or Register  -->
+            <div class="LR-header">
+                <div class="LR-header--item isActive isHoverBG">Đăng nhập</div>
+                <div class="LR-header--item">Đăng kí</div>
+                <div class="line"></div>
+            </div>
+            <div class="LR-container">
+                <!-- Login  -->
+                <form id="login" class="LR-container--item isActive" method="get">
+                    <div class="LR-body">
+                        <div class="login-group">
+                            <input type="text" class="input-field" placeholder="Tên Đăng Nhập" maxlength="24" required>
+                            <input type="password" class="input-field" placeholder="Mật khẩu" maxlength="12"required>
+                            <div class="checkbox-form">
+                                <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
+                            </div>
+                            <button type="submit" class="sumbit-btn">Đăng Nhập</button>
+                        </div>
+                    </div>
+                    <div class="LR-footer">
+                        <div class="border-div">
+                            <div class="border-line"></div>
+                            <div class="border-name">Hoặc</div>
+                            <div class="border-line"></div>
+                        </div>
+
+                        <ul class="supLogin-list">
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>   
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-google"></i>
+                                    Google
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+
+                <!-- Register -->
+                <form id="register" class="LR-container--item" method="get">
+                    <div class="LR-body">
+                        <div class="login-group">
+                            <input id="email" type="email" class="input-field" placeholder="Nhập vào gmail" required>
+                            <input id="account" type="text" class="input-field" placeholder="Tên đăng nhập" maxlength="24" required>
+                            <input id="password" type="password" class="input-field" placeholder="Nhập mật khẩu" maxlength="12"required>
+                            <input id="rePassword" type="password" class="input-field" placeholder="Nhập lại mật khẩu"  maxlength="12" required>
+                            <div class="checkbox-form">
+                                <input id="radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
+                            </div>
+                            <button type="submit" class="sumbit-btn">Đăng Kí</button>
+                        </div>
+                    </div>
+                    <div class="LR-footer">
+                        <div class="border-div">
+                            <div class="border-line"></div>
+                            <div class="border-name">Hoặc</div>
+                            <div class="border-line"></div>
+                        </div>
+
+                        <ul class="supLogin-list">
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>   
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-google"></i>
+                                    Google
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>

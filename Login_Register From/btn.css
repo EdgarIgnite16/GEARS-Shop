@@ -1,0 +1,16 @@
+.btn_wrap {
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 1.6rem; 
+}
