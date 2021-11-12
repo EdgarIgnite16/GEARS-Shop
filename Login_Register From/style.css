@@ -5,8 +5,7 @@
 }
 
 body {
-    font-size: 62.5%;
-    /*font size = 10 px  */
+    font-size: 62.5%; /*font size = 10 px  */
     line-height: 1.6rem;
     font-family: "Quicksand", sans-serif;
 }
@@ -30,7 +29,6 @@ body {
         opacity: 1;
     }
 }
-
 
 .isActive {
     pointer-events: none;
