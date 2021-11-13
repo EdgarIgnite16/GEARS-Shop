@@ -95,6 +95,7 @@ body {
 .LR-container--item {
     pointer-events: auto !important;
     display: none;
+    padding-bottom: 12px;
 }
 
 .LR-header {
@@ -207,7 +208,6 @@ body {
 }
 
 .LR-footer {
-    padding-bottom: 12px;
 }
 
 .border-div {
