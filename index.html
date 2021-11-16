@@ -6,74 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/img/code.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href=" https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./assets/css/Base.css">
-    <link rel="stylesheet" href="./assets/css/Grid.css">
-    <link rel="stylesheet" href="./assets/css/Style_Demo.css"> <!-- demo css -->
-    <title>Demo Web No-Static</title>
+    <link rel="shortcut icon" href="./assets/img/code.png">
+    <link rel="stylesheet" href="./assets/css/Base.css"> <!-- CSS Base -->
+    <link rel="stylesheet" href="./assets/css/Grid.css"> <!-- Grid System -->
+    <link rel="stylesheet" href="./assets/css/Header.css">
+    <link rel="stylesheet" href="./assets/css/Container.css">
+    <link rel="stylesheet" href="./assets/css/LoginRegister.css">
+    <link rel="stylesheet" href="./assets/css/Responsive.css">
+    <title>GE∆RS</title>
 </head>
 
 <body>
     <div class="main_body">
         <!-- Phần Header -->
-        <div class="header">
+        <div class="header js-OpenHeaderForMobile">
             <div class="grid wide">
                 <div class="header-content">
-                    Đây là phần header
+                    <div class="header-logo">
+                        GE∆RS
+                    </div>
+                    <div class="header-navbar--list">
+                        <div class="header-navbar--item js-TabHeader headerActive">Trang chủ</div>
+                        <div class="header-navbar--item js-TabHeader">Sản phẩm</div>
+                        <div class="header-navbar--item js-TabHeader">Giỏ hàng</div>
+                        <div class="header-navbar--item js-HandlerLR">
+                            <i class="header-user--icon far fa-user"></i>
+                            Tài khoản
+                        </div>
+                        <div class="line"></div>
+                    </div>
+                    <div class="header-mobile--btn js-mobile-bars">
+                        <i class="fas fa-bars"></i>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Phần Container -->
         <div class="container">
-            <div class="grid wide">
-                <div class="row sm-gutter">
-                    <div class="col l-2">
-                        <div class="subTab-item">
-                            Đây là phần menu
+            <!-- phần giới thiệu sản phẩm (Trang chủ)  -->
+            <div class="container-Introduction js-Container headerActive">
+                <div class="grid wide">
+                    <div class="row sm-gutter">
+                        <div class="col l-12">
+                            Đây là phần giới thiệu sản phẩm
                         </div>
                     </div>
-                    <div class="col l-10">
-                        <div class="home-product">
-                            <div class="row sm-gutter">
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                                <div class="col l-2-4">
-                                    <div class="item">item</div>
-                                </div>
-                            </div>
+                </div>
+            </div>
+
+            <!-- phần bán sản phẩm (Sản Phẩm)  -->
+            <div class="container-Production js-Container">
+                <div class="grid wide">
+                    <div class="row sm-gutter">
+                        <div class="col l-12">
+                            Đây là phần bán sản phẩm
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- phần bán sản phẩm (Sản Phẩm)  -->
+            <div class="container-Cart js-Container">
+                <div class="grid wide">
+                    <div class="row sm-gutter">
+                        <div class="col l-12">
+                            Đây là phần giỏ hàng
                         </div>
                     </div>
                 </div>
@@ -81,7 +88,7 @@
         </div>
 
         <!-- Phần Footer -->
-        <div class="footer">
+        <!-- <div class="footer">
             <div class="grid wide">
                 <div class="row">
                     <div class="col l-12">
@@ -91,7 +98,89 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+
+        <!-- Form đăng kí - đăng nhập -->
+        <div class="LR-wrap ">
+            <div class="LR-main">
+                <!-- close btn -->
+                <div class="reg-btn__close js-close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+
+                <!-- header-select Login or Register  -->
+                <div class="LR-header">
+                    <div class="LR-header--item isActive isHoverBG">Đăng nhập</div>
+                    <div class="LR-header--item">Đăng kí</div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="LR-container">
+                    <!-- Login  -->
+                    <form id="login" class="LR-container--item isActive" method="get">
+                        <div class="LR-body">
+                            <div class="login-group">
+                                <input type="text" class="input-field" placeholder="Tên Đăng Nhập" maxlength="24"
+                                    required>
+                                <input type="password" class="input-field" placeholder="Mật khẩu" maxlength="12"
+                                    required>
+                                <div class="checkbox-form">
+                                    <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
+                                </div>
+                                <button type="submit" class="sumbit-btn">Đăng Nhập</button>
+                            </div>
+                        </div>
+                        <div class="LR-footer">
+                            <div class="border-div">
+                                <div class="border-line"></div>
+                                <div class="border-name">Hoặc</div>
+                                <div class="border-line"></div>
+                            </div>
+
+                            <ul class="supLogin-list">
+                                <li class="supLogin--item">
+                                    <a class="supLogin--item-link" href="">
+                                        <i class="supLogin--icon fab fa-facebook"></i>
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li class="supLogin--item">
+                                    <a class="supLogin--item-link" href="">
+                                        <i class="supLogin--icon fab fa-google"></i>
+                                        Google
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+
+                    <!-- Register -->
+                    <form id="register" class="LR-container--item" method="get">
+                        <div class="LR-body">
+                            <div class="login-group">
+                                <input id="account" type="text" class="input-field"
+                                    placeholder="Nhập vào tên người dùng" maxlength="24" required>
+                                <input id="email" type="email" class="input-field" placeholder="Nhập vào gmail"
+                                    required>
+                                <input id="password" type="password" class="input-field" placeholder="Nhập mật khẩu"
+                                    maxlength="12" required>
+                                <input id="rePassword" type="password" class="input-field"
+                                    placeholder="Nhập lại mật khẩu" maxlength="12" required>
+                                <div class="checkbox-form">
+                                    <input id="radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a
+                                            href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
+                                </div>
+                                <button type="submit" class="sumbit-btn">Đăng Kí</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
+
+        <script src="./assets/scripts/HeaderEvent.js"></script>
+        <script src="./assets/scripts/LoginRegister.js"></script>
 </body>
 
 </html>

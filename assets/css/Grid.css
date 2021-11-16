@@ -6,7 +6,7 @@
 }
 
 .grid.wide {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -22,7 +22,7 @@
     padding-right: 4px;
 }
 
-/* Use this class when you don't want any gutter  */
+/* dùng class này nếu muốn giữa 2 col ko có khoảng c */
 .row.no-gutters {
     margin-left: 0;
     margin-right: 0;
@@ -34,12 +34,11 @@
 }
 
 /* Collum */
-/* c mean collum and this prefix class using for mobile */
-/* m mean medium and this prefix class using for table  */
-/* l mean large and this prefix class using for PC */
+/* c là class dùng cho mobile */
+/* m là class dùng cho table  */
+/* l là class dùng cho PC */
 
-
-/* Mobile Grid  */
+/* Mobile Grid */
 .c-0 {
     display: none;
 }
@@ -117,7 +116,6 @@
 }
 
 /* offset option  */
-
 .c-o-1 {
     --width: calc((100% / 12) * 1);
     margin-left: var(--width);
@@ -275,7 +273,6 @@
 
 
     /* offset option  */
-
     .m-o-1 {
         --width: calc((100% / 12) * 1);
         margin-left: var(--width);
@@ -332,7 +329,7 @@
     }
 }
 
-/*  PC Low Res > */
+/* PC */
 @media (min-width: 1113px) {
     .row {
         margin-left: -12px;

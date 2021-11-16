@@ -9,4 +9,49 @@
 
 /* Mobile */
 @media (max-width: 739px) {
+    .header {
+        overflow: hidden;
+        transition: all 0.3s;
+    }
+
+    .header-content {
+        flex-direction: column;
+        box-shadow: 0 2px 12px #939393;
+    }
+
+    .header-logo {
+        width: 75%;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .header-navbar--list {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .header-navbar--item {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .header-navbar--list .line {
+        display: none;
+    }
+
+    .header-mobile--btn {
+        display: block;
+    }
+
+
+    /* Form Login Register */
+    .LR-wrap {
+        min-height: 460px;
+        transform: scale(1);
+    }
+
+    .input-field {
+        min-width: 100%;
+    }
 }

@@ -1,0 +1,78 @@
+.header {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: var(--heade-height);
+    z-index: 999;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    font-size: 1.9rem;
+    line-height: var(--heade-height);
+    color: var(--text-color);
+    font-weight: 500;
+    cursor: default;
+}
+
+.header-navbar--list {
+    display: flex;
+    position: relative;
+}
+
+.header-navbar--item {
+    padding: 0 12px;
+    margin: 0 4px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--text-color);
+    transition: all 0.3s;
+    line-height: var(--heade-height);
+}
+
+.header-navbar--item:hover {
+    color: #ffb327;
+    cursor: pointer;
+}
+
+.header-user--icon {
+    font-size: 1.3rem;
+}
+
+.header-navbar--list .line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    border-radius: 24px;
+    background-color: #ffb339;
+    transition: all 0.2s ease;
+}
+
+.js-TabHeader.headerActive {
+    color: #ffb327;
+}
+
+.js-Container.headerActive {
+    display: block;
+}
+
+/* For mobile */
+.header-mobile--btn {
+    display: none;
+    line-height: var(--heade-height);
+    font-size: 2rem;
+    padding: 0 28px;
+    transition: all 0.1s;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
