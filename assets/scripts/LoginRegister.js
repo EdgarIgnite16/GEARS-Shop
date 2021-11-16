@@ -43,6 +43,7 @@ function OpenCloseForm() {
     var LR_wrap = document.querySelector('.LR-wrap');
     var LR_main = document.querySelector('.LR-main');
     var closeBtn = document.querySelector('.js-close-btn');
+    var HeaderMobileBtn = document.querySelector('.js-mobile-bars');
 
     // thực thi khi ấn vào button gỡ modal
     btnLR.addEventListener('click', () => {
@@ -53,6 +54,10 @@ function OpenCloseForm() {
     closeBtn.addEventListener('click', () => {
         LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của modal
     });
+    
+    HeaderMobileBtn.addEventListener('click', () => {
+        LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của modal
+    })
 
     // sử lí việc user bấm ra ngoài modal => đóng modal form
     // LR_wrap.addEventListener('click', () => {
