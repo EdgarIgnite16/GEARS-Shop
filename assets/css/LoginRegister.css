@@ -1,7 +1,7 @@
 @keyframes LR_FadeIn {
     from {
         opacity: 0.7;
-        transform: translateY(-120px);
+        transform: translateY(-16%);
     }
 
     to {

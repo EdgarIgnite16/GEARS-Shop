@@ -8,6 +8,7 @@ body {
     font-size: 62.5%; /* 1rem = 10px */
     line-height: 1.6rem;
     box-sizing: border-box;
+    scroll-behavior: smooth;
     font-family: "Quicksand", sans-serif;
 }
 

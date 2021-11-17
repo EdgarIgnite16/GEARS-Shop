@@ -67,7 +67,7 @@ function OpenCloseForm() {
 
 // --------------------------------------------------------------------------- //
 // xử lí form register
-function PushValueForm() {
+function checkRegister() {
     document.querySelector("#register").onsubmit = () => {
         var password = document.querySelector('#password');
         var REpassword = document.querySelector('#rePassword');
@@ -87,6 +87,9 @@ function PushValueForm() {
     };
 }
 
+// --------------------------------------------------------------------------- //
+// xử lí form login (chưa làm)
+
 AnimationHeader();
 OpenCloseForm();
-PushValueForm();
+checkRegister();

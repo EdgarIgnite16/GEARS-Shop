@@ -31,6 +31,7 @@
     }
 
     .header-navbar--item {
+        font-size: 1.5rem;
         text-align: center;
         margin: 0;
         padding: 0;
@@ -53,5 +54,12 @@
 
     .input-field {
         min-width: 100%;
+    }
+
+
+    /* Login and Registed */
+    .LR-main {
+        width: 410px;
+        max-width: calc(100% - 40px);
     }
 }

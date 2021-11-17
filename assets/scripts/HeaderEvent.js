@@ -27,6 +27,10 @@ function TabHeaderAnimation() {
             pane.classList.add('headerActive');
         }
     })
+
+    document.querySelector(".headerActive").addEventListener('click', (e) => {
+        e.preventDefault();
+    })   
 }
 
 function OpenMenuMobile() {
