@@ -7,10 +7,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .btn {
     cursor: pointer;
     padding: 8px 12px;
     font-size: 1.6rem; 
+    margin-bottom: 34px;
+}
+
+#userlist {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.delete {
+    width: 40px;
+    height: 40px;
+    font-size: 2.2rem;
 }

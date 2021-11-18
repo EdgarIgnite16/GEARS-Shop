@@ -1,0 +1,267 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%; /* 1rem = 10px */
+    line-height: 1.6rem;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Quicksand", sans-serif;
+}
+
+@keyframes LR_FadeIn {
+    from {
+        opacity: 0.7;
+        transform: translateY(-16%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes LR_Change {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.isActive {
+    pointer-events: none;
+    display: block !important;
+    opacity: 1 !important;
+    animation: LR_Change ease-in-out 0.4s;
+}
+
+.isOpenLR {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+.isHoverBG {
+    background-color: rgb(246, 246, 246);
+}
+
+.reg-btn__close {
+    position: absolute;
+    font-size: 2rem;
+    line-height: 1.2rem;
+    padding: 8px;
+    background-color: white;
+    top: 12px;
+    right: 12px;
+    z-index: 2;
+    opacity: 0.3;
+    transition: all 0.3s;
+}
+
+.reg-btn__close:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+/* Login and Register Header */
+.LR-wrap {
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.15);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: scale(1.36);
+}
+
+.LR-main {
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px 32px;
+    box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+    min-height: 420px;
+    max-width: calc(100% - 32px);
+    transition: all 0.3s;
+    animation: LR_FadeIn ease 0.4s;
+}
+
+.LR-container--item {
+    pointer-events: auto !important;
+    display: none;
+    padding-bottom: 12px;
+}
+
+.LR-header {
+    position: relative;
+    display: flex;
+}
+
+.LR-header--item {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 20px 12px 8px;
+    min-width: 80px;
+    opacity: 0.3;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 5px solid transparent;
+    transition: all 0.4s ease;
+}
+
+.LR-header--item:hover {
+    opacity: 1;
+    background-color: rgb(246, 246, 246);
+}
+
+.LR-header--item:first-child::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    height: 50%;
+    transform: translateY(65%);
+    background-color: #e9e9e9;
+}
+
+.LR-header .line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    transition: all 0.3s ease;
+    background-color: rgb(216, 216, 216);
+}
+
+
+/* Login and Register Container */
+.login-group {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.input-field {
+    outline: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #d6d6d6;
+    padding: 16px 12px 2px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+    min-width: 400px
+}
+
+.input-field::placeholder {
+    opacity: 0.5;
+}
+
+.checkbox-form {
+    position: relative;
+    padding: 16px 0px;
+    left: 12px;
+}
+
+.checkbox-form>span {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.checkbox-form a {
+    color: rgb(56, 55, 55);
+}
+
+.sumbit-btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    padding: 12px 20px;
+    border-radius: 20px;
+    background-color: rgb(216, 216, 216);
+    box-shadow: 0 2px 4px #cacaca;
+    transition: all 0.3s;
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 70%;
+}
+
+.sumbit-btn:hover {
+    background-color: rgb(240, 240, 240);
+    color: #000000;
+}
+
+.LR-footer {}
+
+.border-div {
+    margin: 20px 0 8px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border-line {
+    flex: 1;
+    height: 1px;
+    width: 100%;
+    background-color: #cacaca;
+}
+
+.border-name {
+    color: #ccc;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.supLogin-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.supLogin--item {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+}
+
+.supLogin--item-link {
+    display: block;
+    color: rgb(98, 98, 98);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.supLogin--icon {
+    font-size: 1.5rem;
+    color: rgb(98, 98, 98);
+}
+
+.supLogin--item-link:hover,
+.supLogin--icon:hover {
+    opacity: 0.6;
+}
