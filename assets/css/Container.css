@@ -1,15 +1,15 @@
 .container  {
     margin-top: var(--heade-height);
     min-height: 1200px;
-    background-color: gray;
+    /*background-color: gray;*/
 }
 
 .container-Introduction,
 .container-Production,
 .container-Cart {
-    padding-top: 20px;
+    /* padding-top: 20px; */
     display: none;
-    background-color: gray;
+    /*background-color: gray;*/
     margin: 0 auto;
     font-size: 2rem;
 }
