@@ -69,9 +69,9 @@ function OpenCloseForm() {
 // xử lí form register
 function checkRegister() {
     document.querySelector("#register").onsubmit = () => {
-        var password = document.querySelector('#password');
-        var REpassword = document.querySelector('#rePassword');
-        var RadioOption = document.querySelector("#radio");
+        var password = document.querySelector('#js-RG_password');
+        var REpassword = document.querySelector('#js-RG_RePassword');
+        var RadioOption = document.querySelector("#js-RG_radio");
 
         if (REpassword.value != password.value) {
             alert("Mật khẩu và mật khẩu xác nhận phải giống nhau !");

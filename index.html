@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="./assets/css/LoginRegister.css">
     <link rel="stylesheet" href="./assets/css/Responsive.css">
     <title>GE∆RS</title>
+
+    <script src="./assets/scripts/LR_LocalStorage.js"></script>
 </head>
 
 <body>
@@ -107,27 +109,24 @@
                 <div class="reg-btn__close js-close-btn">
                     <i class="fas fa-times"></i>
                 </div>
-
+    
                 <!-- header-select Login or Register  -->
                 <div class="LR-header">
                     <div class="LR-header--item isActive isHoverBG">Đăng nhập</div>
                     <div class="LR-header--item">Đăng kí</div>
                     <div class="line"></div>
                 </div>
-
                 <div class="LR-container">
                     <!-- Login  -->
                     <form id="login" class="LR-container--item isActive" method="get">
                         <div class="LR-body">
                             <div class="login-group">
-                                <input type="text" class="input-field" placeholder="Tên Đăng Nhập" maxlength="24"
-                                    required>
-                                <input type="password" class="input-field" placeholder="Mật khẩu" maxlength="12"
-                                    required>
+                                <input id="js-LG_account" type="text" class="input-field" placeholder="Tên Đăng Nhập" maxlength="24" required>
+                                <input id="js-LG_password" type="password" class="input-field" placeholder="Mật khẩu" maxlength="12"required>
                                 <div class="checkbox-form">
                                     <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
                                 </div>
-                                <button type="submit" class="sumbit-btn">Đăng Nhập</button>
+                                <button id="js-btn-login" type="submit" class="sumbit-btn">Đăng Nhập</button>
                             </div>
                         </div>
                         <div class="LR-footer">
@@ -136,16 +135,16 @@
                                 <div class="border-name">Hoặc</div>
                                 <div class="border-line"></div>
                             </div>
-
+    
                             <ul class="supLogin-list">
                                 <li class="supLogin--item">
-                                    <a class="supLogin--item-link" href="#">
+                                    <a class="supLogin--item-link" href="">
                                         <i class="supLogin--icon fab fa-facebook"></i>
                                         Facebook
                                     </a>
-                                </li>
+                                </li>   
                                 <li class="supLogin--item">
-                                    <a class="supLogin--item-link" href="#">
+                                    <a class="supLogin--item-link" href="">
                                         <i class="supLogin--icon fab fa-google"></i>
                                         Google
                                     </a>
@@ -153,28 +152,23 @@
                             </ul>
                         </div>
                     </form>
-
+    
                     <!-- Register -->
                     <form id="register" class="LR-container--item" method="get">
                         <div class="LR-body">
                             <div class="login-group">
-                                <input id="account" type="text" class="input-field"
-                                    placeholder="Nhập vào tên người dùng" maxlength="24" required>
-                                <input id="email" type="email" class="input-field" placeholder="Nhập vào gmail"
-                                    required>
-                                <input id="password" type="password" class="input-field" placeholder="Nhập mật khẩu"
-                                    maxlength="12" required>
-                                <input id="rePassword" type="password" class="input-field"
-                                    placeholder="Nhập lại mật khẩu" maxlength="12" required>
+                                <input id="js-RG_email" type="email" class="input-field" placeholder="Nhập vào gmail" required>
+                                <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập" maxlength="24" required>
+                                <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu" maxlength="12"required>
+                                <input id="js-RG_RePassword" type="password" class="input-field" placeholder="Nhập lại mật khẩu"  maxlength="12" required>
                                 <div class="checkbox-form">
-                                    <input id="radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a
-                                            href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
+                                    <input id="js-RG_radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
                                 </div>
-                                <button type="submit" class="sumbit-btn">Đăng Kí</button>
+                                <button id="js-btn-register" type="submit" class="sumbit-btn">Đăng Kí</button>
                             </div>
                         </div>
                     </form>
-
+    
                 </div>
             </div>
         </div>
