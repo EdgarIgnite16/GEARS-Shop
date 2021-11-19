@@ -61,7 +61,9 @@ function login(){
 				alert('Chào mừng quản trị viên đã đăng nhập');
 			} else {
 				if(userArray[i].username == username && userArray[i].password == password) {
-					document.querySelector(".js-HandlerLR").innerHTML = `<i class="header-user--icon far fa-user"></i>${userArray[i].username}`
+					document.querySelector(".js-HandlerLR").innerHTML = `
+							<i class="header-user--icon far fa-user"></i>
+							${userArray[i].username}`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 					document.getElementById("LR-form").remove();
 					break;
