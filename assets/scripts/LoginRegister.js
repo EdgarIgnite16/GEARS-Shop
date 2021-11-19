@@ -44,24 +44,25 @@ function OpenCloseForm() {
     var LR_main = document.querySelector('.LR-main');
     var closeBtn = document.querySelector('.js-close-btn');
     var HeaderMobileBtn = document.querySelector('.js-mobile-bars');
-
-    // thực thi khi ấn vào button gỡ modal
+    var isLogin = document.querySelector(".js-isLogin");
+   
     btnLR.addEventListener('click', () => {
-        LR_wrap.classList.add('isOpenLR'); // gỡ bỏ class open của modal
+        LR_wrap.classList.add('isOpenLR'); 
     });
 
-    // thực thi khi ấn vào button gỡ modal
     closeBtn.addEventListener('click', () => {
-        LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của modal
+        LR_wrap.classList.remove('isOpenLR');
     });
     
     HeaderMobileBtn.addEventListener('click', () => {
-        LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của modal
+        LR_wrap.classList.remove('isOpenLR'); 
     })
 
-    // sử lí việc user bấm ra ngoài modal => đóng modal form
+
+
+    // sử lí việc user bấm ra ngoài form => đóng form
     // LR_wrap.addEventListener('click', () => {
-    //     LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của modal
+    //     LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của form
     // })
 }
 
@@ -69,11 +70,23 @@ function OpenCloseForm() {
 // xử lí form register
 function checkRegister() {
     document.querySelector("#register").onsubmit = () => {
-        var password = document.querySelector('#js-RG_password');
-        var REpassword = document.querySelector('#js-RG_RePassword');
+        var email = document.getElementById("js-RG_email").value;
+		var username = document.getElementById("js-RG_account").value;
+        var password = document.querySelector('#js-RG_password').value;
+        var REpassword = document.querySelector('#js-RG_RePassword').value;
         var RadioOption = document.querySelector("#js-RG_radio");
+        if(username.length > 24) {
+            alert("Độ dài account không được lớn hơn 24 kí tự !");
+            username.focus();
+            return false;
+        }
+        if(password.length > 12) {
+            alert("Độ dài password không được lớn hơn 24 kí tự !");
+            password.focus();
+            return false;
+        }
 
-        if (REpassword.value != password.value) {
+        if (REpassword != password) {
             alert("Mật khẩu và mật khẩu xác nhận phải giống nhau !");
             REpassword.focus();
             return false;
@@ -83,13 +96,33 @@ function checkRegister() {
             alert("Bạn phải xác nhận chấp nhận điều khoảng của chúng tôi !");
             return false;
         }
-        return true;
+        return false;
     };
 }
 
 // --------------------------------------------------------------------------- //
-// xử lí form login (chưa làm)
+// xử lí form login
+function checkLogin() {
+    document.querySelector("#login").onsubmit = () => {
+        var account = document.querySelector('#js-LG_account').value;
+        var password = document.querySelector('#js-LG_password').value;
+
+        if(account.length === 0) {
+            alert("vui lòng nhập tên tài khoản !");
+            account.focus();
+            return false;
+        }
+
+        if(password.length === 0) {
+            alert("vui lòng nhập mật khẩu !");
+            password.focus();
+            return false;
+        }
+        return false;
+    };
+}
 
 AnimationHeader();
 OpenCloseForm();
 checkRegister();
+checkLogin();

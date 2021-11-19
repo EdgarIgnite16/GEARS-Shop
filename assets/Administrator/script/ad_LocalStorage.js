@@ -18,7 +18,7 @@ function showUserList(){
 	if(localStorage.getItem('user') === null) return false;
 	var userArray = JSON.parse(localStorage.getItem('user'));
 	var tr = `<tr>
-				<th>STT</th>
+				<th>ID</th>
 				<th>Username</th>
 				<th>Gmail</th>
 				<th>Register Day</th>
@@ -60,52 +60,8 @@ function deleteuser(usernamedelete){
 	//showUserList(); // cập nhật lại show user
 }
 
-function register(){
-	var btnRegister = document.querySelector('#js-btn-register');
-	btnRegister.addEventListener('click', () => {
-		var today = new Date();
-		var userArray = JSON.parse(localStorage.getItem('user'));
-		var email = document.getElementById("js-RG_email").value;
-		var username = document.getElementById("js-RG_account").value;
-		var password = document.getElementById("js-RG_password").value;
-		var RegisterDay = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
-	
-		var user = { 
-			username: username, 
-			password: password, 
-			gmail: email,
-			RegisterDay: RegisterDay,
-			userType: 'user'
-		};
-
-		userArray.push(user);	
-		localStorage.setItem('user',JSON.stringify(userArray));
-	})
-	showUserList();
-}
-
-function login(){
-	var btnLogin = document.querySelector('#js-btn-login');
-	btnLogin.addEventListener('click', () => {
-		var username = document.getElementById("js-LG_account").value;
-		var password = document.getElementById("js-LG_password").value;
-		var userArray = JSON.parse(localStorage.getItem('user'));
-		for(i=0;i<userArray.length;i++) {
-			if(userArray[i].username==username && userArray[i].password==password && userArray[i].userType === 'admin') {
-				alert('Chào mừng quản trị viên đã đăng nhập');
-			} else {
-				if(userArray[i].username==username && userArray[i].password==password) {
-					alert('Chào mừng người dùng đã đăng nhập');
-				}
-			}
-	
-		}
-	})
-}
-
 window.onload = () => {
 	createAdmin();
-	// showUserList();
-	login();
-	register();
+    showUserList();
+    deleteuser();
 }

@@ -5,6 +5,7 @@
     right: 0;
     left: 0;
     height: var(--heade-height);
+    box-shadow: 0 2px 12px #ccc;
     z-index: 999;
 }
 
