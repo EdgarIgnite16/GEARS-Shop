@@ -44,7 +44,6 @@ function OpenCloseForm() {
     var LR_main = document.querySelector('.LR-main');
     var closeBtn = document.querySelector('.js-close-btn');
     var HeaderMobileBtn = document.querySelector('.js-mobile-bars');
-    var isLogin = document.querySelector(".js-isLogin");
    
     btnLR.addEventListener('click', () => {
         LR_wrap.classList.add('isOpenLR'); 
@@ -57,7 +56,6 @@ function OpenCloseForm() {
     HeaderMobileBtn.addEventListener('click', () => {
         LR_wrap.classList.remove('isOpenLR'); 
     })
-
 
 
     // sử lí việc user bấm ra ngoài form => đóng form
@@ -80,6 +78,7 @@ function checkRegister() {
             username.focus();
             return false;
         }
+
         if(password.length > 12) {
             alert("Độ dài password không được lớn hơn 24 kí tự !");
             password.focus();
@@ -96,7 +95,7 @@ function checkRegister() {
             alert("Bạn phải xác nhận chấp nhận điều khoảng của chúng tôi !");
             return false;
         }
-        return false;
+        return true;
     };
 }
 
@@ -118,7 +117,8 @@ function checkLogin() {
             password.focus();
             return false;
         }
-        return false;
+
+        return true;
     };
 }
 

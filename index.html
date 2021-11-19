@@ -23,8 +23,8 @@
     <link rel="stylesheet" href="./assets/css/LoginRegister.css">
     <link rel="stylesheet" href="./assets/css/Responsive.css">
     <link rel="stylesheet" href="./assets/css/Introduction.css">
+    <script src="./assets/scripts/LR_Handler.js"></script>
     <title>GE∆RS</title>
-
 </head>
 
 <body>
@@ -102,7 +102,7 @@
         </div> -->
 
         <!-- Form đăng kí - đăng nhập -->
-        <div class="LR-wrap ">
+        <div id="LR-form" class="LR-wrap">
             <div class="LR-main">
                 <!-- close btn -->
                 <div class="reg-btn__close js-close-btn">
@@ -125,7 +125,7 @@
                                 <div class="checkbox-form">
                                     <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
                                 </div>
-                                <button id="js-btn-login" type="submit" class="sumbit-btn">Đăng Nhập</button>
+                                <button id="js-btn-login" type="button" class="sumbit-btn">Đăng Nhập</button>
                             </div>
                         </div>
                         <div class="LR-footer">
@@ -174,7 +174,6 @@
 
         <script src="./assets/scripts/HeaderEvent.js"></script>
         <script src="./assets/scripts/LoginRegister.js"></script>
-        <script src="./assets/scripts/LR_Handler.js"></script>
 </body>
 
 </html>
