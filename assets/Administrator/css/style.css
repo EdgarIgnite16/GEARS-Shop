@@ -24,6 +24,29 @@
     cursor: default;
 }
 
+.header-btn--out {
+    position: absolute;
+    right: 10%;
+    background-color: #ffa310;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 3rem;
+    width: 120px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px #8f8f8f;
+}
+
+.header-btn--out a {
+    color: white;
+    transition: all 0.3s;
+}
+
+.header-btn--out a:hover {
+    background-color: white;
+    color: #ffa310;
+}
+
 .container  {
     margin-top: var(--heade-height);
     min-height: 1200px;
@@ -41,6 +64,11 @@
     line-height: initial;
     text-align: center;
     padding-bottom: 8px;
+}
+
+.container-table {
+    max-height: 40vh;
+    overflow: auto;
 }
 
 /* table  */

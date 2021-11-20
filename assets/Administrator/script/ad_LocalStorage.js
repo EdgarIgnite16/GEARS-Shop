@@ -1,18 +1,4 @@
 var userArray = [];
-function createAdmin(){
-	if(localStorage.getItem('user') == null){		
-		var admin = {	
-			username: 'admin', 
-			password: '987', 
-			gmail: 'admin1704@gmail.com',
-			RegisterDay: `1/1/1999`,
-			userType: 'admin',
-		};
-		userArray.push(admin);
-		localStorage.setItem('user',JSON.stringify(userArray));
-	}
-}
-
 //----------------------show user----------------------------------
 function showUserList(){
 	if(localStorage.getItem('user') === null) return false;
@@ -57,11 +43,10 @@ function deleteuser(usernamedelete){
 		}
 	}
 	localStorage.setItem('user',JSON.stringify(userArray));
-	//showUserList(); // cập nhật lại show user
+	showUserList(); // cập nhật lại show user
 }
 
 window.onload = () => {
-	createAdmin();
     showUserList();
     deleteuser();
 }
