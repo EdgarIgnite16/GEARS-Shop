@@ -1,128 +1,176 @@
-// ---------------------------------------------------------------------------- //
-// xử lí chuyển động line trên thanh line
-function AnimationHeader() {
-    var $ = document.querySelector.bind(document);
-    var $$ = document.querySelectorAll.bind(document);
-
-    var header_item = $$('.LR-header--item');
-    var container_item = $$('.LR-container--item');
-    var tabActive = $('.LR-header--item.isActive');
-    var line = $('.LR-header .line');
-
-    line.style.width = tabActive.offsetWidth + 'px';
-    line.style.left = tabActive.offsetLeft + 'px';
-
-    header_item.forEach((header_item, index) => {
-        var pane = container_item[index];
-        
-        header_item.onclick = function () {
-            // gỡ class đã có trước khi add vào
-            $('.LR-header--item.isActive.isHoverBG').classList.remove('isActive', 'isHoverBG');
-            $('.LR-container--item.isActive').classList.remove('isActive');
-
-            line.style.width = this.offsetWidth + 'px';
-            line.style.left = this.offsetLeft + 'px';
-
-            //add class vào element
-            this.classList.add('isActive', 'isHoverBG');
-            pane.classList.add('isActive');
-        }
-
-        document.querySelector(".isActive").addEventListener('click', (e) => {
-            e.preventDefault();
-        })    
-    })
-
-
-}
-
-// ---------------------------------------------------------------------------- //
-// xử lí công việc đóng form Login / Register
-function OpenCloseForm() {
-    var btnLR = document.querySelector('.js-HandlerLR');
-    var LR_wrap = document.querySelector('.LR-wrap');
-    var LR_main = document.querySelector('.LR-main');
-    var closeBtn = document.querySelector('.js-close-btn');
-    var HeaderMobileBtn = document.querySelector('.js-mobile-bars');
-   
-    btnLR.addEventListener('click', () => {
-        LR_wrap.classList.add('isOpenLR'); 
-    });
-
-    closeBtn.addEventListener('click', () => {
-        LR_wrap.classList.remove('isOpenLR');
-    });
-    
-    HeaderMobileBtn.addEventListener('click', () => {
-        LR_wrap.classList.remove('isOpenLR'); 
-    })
-
-
-    // sử lí việc user bấm ra ngoài form => đóng form
-    // LR_wrap.addEventListener('click', () => {
-    //     LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của form
-    // })
+// --------------------------------------------------------------------------- //
+var userArray = [];
+function createAdmin() {
+	if (localStorage.getItem('user') == null) {
+		var admin = {
+			username: 'admin',
+			password: '987',
+			gmail: 'admin1704@gmail.com',
+			RegisterDay: `1/1/1999`,
+			userType: 'admin',
+		};
+		userArray.push(admin);
+		localStorage.setItem('user', JSON.stringify(userArray));
+	}
 }
 
 // --------------------------------------------------------------------------- //
-// xử lí form register
-function checkRegister() {
-    document.querySelector("#register").onsubmit = () => {
-        var email = document.getElementById("js-RG_email").value;
-		var username = document.getElementById("js-RG_account").value;
-        var password = document.querySelector('#js-RG_password').value;
-        var REpassword = document.querySelector('#js-RG_RePassword').value;
+// Xử lí form đăng kí
+function register() {
+	var btnRegister = document.querySelector('#js-btn-register');
+	btnRegister.addEventListener('click', () => {
+		var today = new Date();
+		var userArray = JSON.parse(localStorage.getItem('user'));
+		var email = document.getElementById("js-RG_email");
+		var username = document.getElementById("js-RG_account");
+		var password = document.getElementById("js-RG_password");
+        var REpassword = document.querySelector('#js-RG_RePassword');
         var RadioOption = document.querySelector("#js-RG_radio");
-        if(username.length > 24) {
-            alert("Độ dài account không được lớn hơn 24 kí tự !");
-            username.focus();
-            return false;
-        }
+		var RegisterDay = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
 
-        if(password.length > 12) {
-            alert("Độ dài password không được lớn hơn 24 kí tự !");
-            password.focus();
-            return false;
-        }
+		var checkAcc = userArray.some((item) => {
+			return item.username == username;
+		});
 
-        if (REpassword != password) {
-            alert("Mật khẩu và mật khẩu xác nhận phải giống nhau !");
-            REpassword.focus();
-            return false;
-        }
+		if(checkAcc) {
+			alert("Tên tài khoản đã tồn tại !");
+		} else {
+			if(email.value.length == 0) {
+				alert("Email ko được để trống !");
+				email.focus();
+				return false;
+			}
 
-        if (!RadioOption.checked) {
-            alert("Bạn phải xác nhận chấp nhận điều khoảng của chúng tôi !");
-            return false;
-        }
-        return true;
-    };
+			if(username.value.length == 0) {
+				alert("Tên người dùng ko được để trống !");
+				username.focus();
+				return false;
+			}
+
+			if(password.value.length == 0) {
+				alert("Mật khẩu ko được để trống !");
+				password.focus();
+				return false;
+			}
+
+			if (REpassword.value != password.value) {
+				alert("Mật khẩu và mật khẩu xác nhận phải giống nhau !");
+				REpassword.focus();
+				return false;
+			}
+
+			if (!RadioOption.checked) {
+				alert("Bạn phải xác nhận chấp nhận điều khoảng của chúng tôi !");
+				return false;
+			}
+	
+			var user = { 
+				username: username.value, 
+				password: password.value, 
+				gmail: email.value,
+				RegisterDay: RegisterDay,
+				userType: 'user'
+			};
+			userArray.push(user);	
+			localStorage.setItem('user',JSON.stringify(userArray));
+	
+			// đóng form đăng kí 
+			document.querySelector(".LR-wrap").classList.remove('isOpenLR');
+		}
+	});
+}
+
+// xử lí sự kiện logout
+function Handler_LogOut() {
+    var isLogin = document.querySelector(".js-isLogin");
+	var logout = document.querySelector(".header-navbar-logout");
+	var header = document.querySelector(".header");
+	var container = document.querySelector(".container");
+
+	isLogin.addEventListener("click", () => {
+		logout.classList.add('is-Logout');
+		event.stopPropagation();
+	})
+	
+	logout.onclick = () => {
+		window.location = "index.html"; // sau khi ấn nút thoát thì load lại trang index
+	}
+
+	// click ra ngoài form logout thì ẩn logout
+	header.addEventListener("click", () =>{
+		logout.classList.remove('is-Logout');
+	})
+
+	container.addEventListener("click", () =>{
+		logout.classList.remove('is-Logout'); //
+	})
+
 }
 
 // --------------------------------------------------------------------------- //
 // xử lí form login
-function checkLogin() {
-    document.querySelector("#login").onsubmit = () => {
-        var account = document.querySelector('#js-LG_account').value;
-        var password = document.querySelector('#js-LG_password').value;
+function login() {
+	var btnLogin = document.querySelector('#js-btn-login');
+	btnLogin.addEventListener('click', () => {
+		var username = document.getElementById("js-LG_account");
+		var password = document.getElementById("js-LG_password");
+		var userArray = JSON.parse(localStorage.getItem('user'));
 
-        if(account.length === 0) {
-            alert("vui lòng nhập tên tài khoản !");
-            account.focus();
-            return false;
-        }
+		if(username.value.length === 0) {
+			alert("vui lòng nhập tên tài khoản !");
+			account.focus();
+			return false;
+		}
 
-        if(password.length === 0) {
-            alert("vui lòng nhập mật khẩu !");
-            password.focus();
-            return false;
-        }
+		if(password.value.length === 0) {
+			alert("vui lòng nhập mật khẩu !");
+			password.focus();
+			return false;
+		}
 
-        return true;
-    };
+		var checkAcc = userArray.some((item) => {
+			return item.username == username.value;
+		});
+
+		if(!checkAcc) {
+			alert("Tên tài khoản không tồn tại !");
+		} else{
+			for(i=0;i<userArray.length;i++) {
+				if(userArray[i].username == username.value && userArray[i].password == password.value && userArray[i].userType === 'admin') {
+					document.querySelector(".js-HandlerLR").innerHTML = `
+							<a href="./assets/Administrator/index.html" style="color: black; text-decoration: none;">
+								<i class="header-user--icon fas fa-user-cog"></i>
+							</a> ${userArray[i].username}
+							<div class="header-navbar-logout is-absoluted">Đăng xuất</div>
+					`;
+					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
+					document.getElementById("LR-form").remove();
+					Handler_LogOut();
+					break;
+				} else {
+					if(userArray[i].username == username.value && userArray[i].password != password.value) {
+						alert('Sai mật khẩu !');
+						break;
+					}
+					if(userArray[i].username == username.value && userArray[i].password == password.value) {
+						document.querySelector(".js-HandlerLR").innerHTML = `
+								<i class="header-user--icon far fa-user"></i>
+								${userArray[i].username}
+								<div class="header-navbar-logout is-absoluted">Đăng xuất</div>
+						`;
+						document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
+						document.getElementById("LR-form").remove();
+						Handler_LogOut();
+						break;
+					}
+				}
+			}
+		}
+	});
 }
 
-AnimationHeader();
-OpenCloseForm();
-checkRegister();
-checkLogin();
+window.onload = () => {
+	createAdmin();
+	login();
+	register();
+}
