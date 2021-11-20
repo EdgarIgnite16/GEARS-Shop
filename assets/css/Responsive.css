@@ -9,6 +9,7 @@
 
 /* Mobile */
 @media (max-width: 739px) {
+    /* header  */
     .header {
         overflow: hidden;
         transition: all 0.3s;
@@ -46,16 +47,18 @@
     }
 
 
+    /* introduct */
+
+    
     /* Form Login Register */
     .LR-wrap {
         min-height: 460px;
-        transform: scale(1);
+        transform: scale(1) !important;
     }
 
     .input-field {
         min-width: 100%;
     }
-
 
     /* Login and Registed */
     .LR-main {
