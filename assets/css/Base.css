@@ -19,3 +19,17 @@ body {
     /* height css  */
     --heade-height: 68px;
 }
+
+.is-Logout {
+    opacity: 1 !important;
+    pointer-events: initial !important;
+    transform: translate(25%, 0) !important;
+}
+
+.is-relatived {
+    position: relative;
+}
+
+.is-absoluted {
+    position: absolute;
+}

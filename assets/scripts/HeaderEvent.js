@@ -52,8 +52,9 @@ function OpenMenuMobile() {
             header.style.height = null;
         })
     }
-
 }
+
+
 
 OpenMenuMobile();
 TabHeaderAnimation();
