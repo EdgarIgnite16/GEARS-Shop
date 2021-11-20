@@ -23,7 +23,6 @@
 .introduce-title2 {
     color: white;
     font-weight: bold;
-    
     text-shadow: 0px 4px 20px #ffb339;
     padding: 16px 0
 }
@@ -34,4 +33,55 @@
 
 .introduce-title2 {
     font-size: 2rem;
+}
+
+
+.product-introduces {
+    padding: 40px 20px 0;
+}
+
+.product-introduce {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 28px 40px;
+    background-color: #7b7b7b33;
+    border-radius: 36px;
+    margin-bottom: 40px;
+}
+
+.product-introduces--title {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.product-introduce-image {
+    width: 365px;
+    object-fit: contain;
+    border: 2px gray;
+    border-radius: 30px;
+    padding: 8px 20px;
+}
+
+.product-introduce-content {
+    padding: 8px 32px;
+}
+
+.product-introduce--content-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem 0;
+    color: orange;
+}
+
+.product-introduce--content-contents {
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-align: justify;
+    padding: 16px 8px 0;
+    line-height: 1.8rem;
 }
