@@ -55,14 +55,47 @@
         <div class="container">
             <!-- phần giới thiệu sản phẩm (Trang chủ)  -->
             <div class="container-Introduction js-Container headerActive">
-                <div class="introduction-slider">    
+                <div class="introduction-slider">
                 </div>
-                 <div class="introduce-content">
-                        <h2 class="introduce-title1">GEARS chuyên cung cấp sản phẩm keycaps</h2> 
-                        <h5 class="introduce-title2 "> Giá rẻ - Chất lượng - Đáng tin cậy</h5> 
-                    </div>
-            </div>
+                <div class="introduce-content">
+                    <h2 class="introduce-title1">GEARS chuyên cung cấp sản phẩm keycaps</h2>
+                    <h5 class="introduce-title2 "> Giá rẻ - Chất lượng - Đáng tin cậy</h5>
+                </div>
+                <div class="product-introduces">
+                    <div class="grid wide">
+                        <div class="product-introduces--title">
+                            Sản phẩm của chúng tôi
+                        </div>
 
+                        <div class="product-introduce">
+                            <img class="product-introduce-image" src="./assets/img/keycapartisan.jpg" />
+                            <div class="product-introduce-content">
+                                <p class="product-introduce--content-title">Keycap Artisan</p>
+                                <p class="product-introduce--content-contents">
+                                    <strong>Keycap Artisan</strong> hay còn gọi là keycap nghệ thuật được làm
+                                    bởi các nghệ nhân làm keycap. Đặc điểm của chúng đó là không được sản
+                                    xuất đại trà. Mỗi một keycap artisan đều được thiết kế và làm theo một
+                                    cách riêng biệt.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="product-introduce">
+                            <div class="product-introduce-content">
+                                <p class="product-introduce--content-title">Keycap Pudding</p>
+                                <p class="product-introduce--content-contents">
+                                    <strong>Pudding keycap</strong> là loại phím có thiết kế hai lớp với phần trên bằng
+                                    nhựa đục không xuyên LED (opaque plastic), phần dưới là nhựa trong suốt (translucent
+                                    plastic) hoặc trong mờ cho phép ánh sáng xuyên qua, hai lớp này gắn kết với nhau làm
+                                    thành một khối nhờ kỹ thuật doubleshot molding process
+                                </p>
+                            </div>
+                            <img class="product-introduce-image" src="./assets/img/keycappudding.jpg" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
             <!-- phần bán sản phẩm (Sản Phẩm)  -->
             <div class="container-Production js-Container">
                 <div class="grid wide">
@@ -85,9 +118,12 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Phần Footer -->
-        <!-- <div class="footer">
+
+
+    <!-- Phần Footer -->
+    <!-- <div class="footer">
             <div class="grid wide">
                 <div class="row">
                     <div class="col l-12">
@@ -99,78 +135,85 @@
             </div>
         </div> -->
 
-        <!-- Form đăng kí - đăng nhập -->
-        <div id="LR-form" class="LR-wrap">
-            <div class="LR-main">
-                <!-- close btn -->
-                <div class="reg-btn__close js-close-btn">
-                    <i class="fas fa-times"></i>
-                </div>
-    
-                <!-- header-select Login or Register  -->
-                <div class="LR-header">
-                    <div class="LR-header--item isActive isHoverBG">Đăng nhập</div>
-                    <div class="LR-header--item">Đăng kí</div>
-                    <div class="line"></div>
-                </div>
-                <div class="LR-container">
-                    <!-- Login  -->
-                    <form id="login" class="LR-container--item isActive" method="get">
-                        <div class="LR-body">
-                            <div class="login-group">
-                                <input id="js-LG_account" type="text" class="input-field" placeholder="Tên Đăng Nhập" maxlength="24" required>
-                                <input id="js-LG_password" type="password" class="input-field" placeholder="Mật khẩu" maxlength="12"required>
-                                <div class="checkbox-form">
-                                    <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
-                                </div>
-                                <button id="js-btn-login" type="button" class="sumbit-btn">Đăng Nhập</button>
+    <!-- Form đăng kí - đăng nhập -->
+    <div id="LR-form" class="LR-wrap">
+        <div class="LR-main">
+            <!-- close btn -->
+            <div class="reg-btn__close js-close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <!-- header-select Login or Register  -->
+            <div class="LR-header">
+                <div class="LR-header--item isActive isHoverBG">Đăng nhập</div>
+                <div class="LR-header--item">Đăng kí</div>
+                <div class="line"></div>
+            </div>
+            <div class="LR-container">
+                <!-- Login  -->
+                <form id="login" class="LR-container--item isActive" method="get">
+                    <div class="LR-body">
+                        <div class="login-group">
+                            <input id="js-LG_account" type="text" class="input-field" placeholder="Tên Đăng Nhập"
+                                maxlength="24" required>
+                            <input id="js-LG_password" type="password" class="input-field" placeholder="Mật khẩu"
+                                maxlength="12" required>
+                            <div class="checkbox-form">
+                                <input type="checkbox" class="check-box"><span>Ghi nhớ mật khẩu</span>
                             </div>
+                            <button id="js-btn-login" type="button" class="sumbit-btn">Đăng Nhập</button>
                         </div>
-                        <div class="LR-footer">
-                            <div class="border-div">
-                                <div class="border-line"></div>
-                                <div class="border-name">Hoặc</div>
-                                <div class="border-line"></div>
+                    </div>
+                    <div class="LR-footer">
+                        <div class="border-div">
+                            <div class="border-line"></div>
+                            <div class="border-name">Hoặc</div>
+                            <div class="border-line"></div>
+                        </div>
+
+                        <ul class="supLogin-list">
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-facebook"></i>
+                                    Facebook
+                                </a>
+                            </li>
+                            <li class="supLogin--item">
+                                <a class="supLogin--item-link" href="">
+                                    <i class="supLogin--icon fab fa-google"></i>
+                                    Google
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+
+                <!-- Register -->
+                <form id="register" class="LR-container--item" method="get">
+                    <div class="LR-body">
+                        <div class="login-group">
+                            <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail"
+                                required>
+                            <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập"
+                                maxlength="24" required>
+                            <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu"
+                                maxlength="12" required>
+                            <input id="js-RG_RePassword" type="password" class="input-field"
+                                placeholder="Nhập lại mật khẩu" maxlength="12" required>
+                            <div class="checkbox-form">
+                                <input id="js-RG_radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a
+                                        href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
                             </div>
-    
-                            <ul class="supLogin-list">
-                                <li class="supLogin--item">
-                                    <a class="supLogin--item-link" href="">
-                                        <i class="supLogin--icon fab fa-facebook"></i>
-                                        Facebook
-                                    </a>
-                                </li>   
-                                <li class="supLogin--item">
-                                    <a class="supLogin--item-link" href="">
-                                        <i class="supLogin--icon fab fa-google"></i>
-                                        Google
-                                    </a>
-                                </li>
-                            </ul>
+                            <button id="js-btn-register" type="button" class="sumbit-btn">Đăng Kí</button>
                         </div>
-                    </form>
-    
-                    <!-- Register -->
-                    <form id="register" class="LR-container--item" method="get">
-                        <div class="LR-body">
-                            <div class="login-group">
-                                <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail" required>
-                                <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập" maxlength="24" required>
-                                <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu" maxlength="12"required>
-                                <input id="js-RG_RePassword" type="password" class="input-field" placeholder="Nhập lại mật khẩu"  maxlength="12" required>
-                                <div class="checkbox-form">
-                                    <input id="js-RG_radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
-                                </div>
-                                <button id="js-btn-register" type="button" class="sumbit-btn">Đăng Kí</button>
-                            </div>
-                        </div>
-                    </form>
-    
-                </div>
+                    </div>
+                </form>
+
             </div>
         </div>
-        <script src="./assets/scripts/EventHandler.js"></script>
-        <script src="./assets/scripts/HeaderEvent.js"></script>
+    </div>
+    <script src="./assets/scripts/EventHandler.js"></script>
+    <script src="./assets/scripts/HeaderEvent.js"></script>
 </body>
 
 </html>
