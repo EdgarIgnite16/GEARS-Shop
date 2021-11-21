@@ -6,7 +6,7 @@ function createAccount() {
 			username: 'admin',
 			password: '987',
 			gmail: 'admin1704@gmail.com',
-			RegisterDay: `1/1/1999`,
+			RegisterDay: `1-1-1999`,
 			userType: 'admin',
 		};
 		userArray.push(admin);
@@ -17,7 +17,7 @@ function createAccount() {
 				username: `user${i}`, 
 				password: `${124 + i}`, 
 				gmail: `user${i}@gmail.com`,
-				RegisterDay: `1/1/1999`,
+				RegisterDay: `${i}-1-1999`,
 				userType: 'user',
 			};
 		userArray.push(temp);
@@ -112,6 +112,7 @@ function Handler_LogOut() {
 	var logout = document.querySelector(".header-navbar-logout");
 	var header = document.querySelector(".header");
 	var container = document.querySelector(".container");
+	var temp = document.querySelector(".js-isLogin > a");
 
 	isLogin.addEventListener("click", () => {
 		logout.classList.add('is-Logout');
@@ -129,6 +130,12 @@ function Handler_LogOut() {
 
 	container.addEventListener("click", () =>{
 		logout.classList.remove('is-Logout'); //
+	})
+
+	// ngăn sự kiện mở button logOut khi ấn vào biểu tượng Admin
+	// vì biểu tượng admin chỉ dùng để mở vào trang quản trị (performance UI)
+	temp.addEventListener('click', () => {
+		event.stopPropagation();
 	})
 
 }
@@ -167,8 +174,8 @@ function login() {
 				if(userArray[i].username == username.value && userArray[i].password == password.value && userArray[i].userType === 'admin') {
 					document.querySelector(".js-HandlerLR").innerHTML = `
 							<a href="./assets/Administrator/index.html" style="color: black; text-decoration: none;" target="_blank">
-								<i class="header-user--icon fas fa-user-cog"></i> ${userArray[i].username}
-							</a>
+								<i class="header-user--icon fas fa-user-cog"></i>
+							</a> ${userArray[i].username}
 							<div class="header-navbar-logout is-absoluted">Đăng xuất</div>
 					`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
