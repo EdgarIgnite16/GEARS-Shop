@@ -1,33 +1,3 @@
-// --------------------------------------------------------------------------- //
-var userArray = [];
-function createAccount() {
-	if (localStorage.getItem('user') == null) {
-		var admin = {
-			username: 'admin',
-			password: '987',
-			gmail: 'admin1704@gmail.com',
-			RegisterDay: `1-1-1999`,
-			userType: 'admin',
-		};
-		userArray.push(admin);
-
-		// Tạo thêm 3 tài khoản ảo để test
-		for(var i=1;i<=3;i++) {
-			var temp = {	
-				username: `user${i}`, 
-				password: `${124 + i}`, 
-				gmail: `user${i}@gmail.com`,
-				RegisterDay: `${i}-1-1999`,
-				userType: 'user',
-			};
-		userArray.push(temp);
-		}
-		localStorage.setItem('user', JSON.stringify(userArray)); // đẩy dữ liệu lên Local Storage
-	}
-}
-
-
-// --------------------------------------------------------------------------- //
 // Xử lí form đăng kí
 function register() {
 	var btnRegister = document.querySelector('#js-btn-register');
@@ -106,6 +76,7 @@ function register() {
 	});
 }
 
+// --------------------------------------------------------------------------- //
 // xử lí sự kiện logout
 function Handler_LogOut() {
     var isLogin = document.querySelector(".js-isLogin");
@@ -137,7 +108,6 @@ function Handler_LogOut() {
 	temp.addEventListener('click', () => {
 		event.stopPropagation();
 	})
-
 }
 
 // --------------------------------------------------------------------------- //
@@ -207,8 +177,5 @@ function login() {
 	});
 }
 
-window.onload = () => {
-	createAccount();
-	login();
-	register();
-}
+login();
+register();

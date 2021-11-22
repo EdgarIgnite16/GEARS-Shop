@@ -46,7 +46,54 @@ function deleteuser(usernamedelete){
 	showUserList(); // cập nhật lại show user
 }
 
+
+//----------------------show products----------------------------------
+function showProductList(){
+	if(localStorage.getItem('product') === null) return false;
+	var ProductArray = JSON.parse(localStorage.getItem('product'));
+	var tr = `<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Price</th>
+				<th>Image</th>
+				<th>Delete</th>
+			</tr>`;
+	for(var i=0; i<ProductArray.length;i++){
+		tr += `
+			<tr>
+				<td>${i}</td>
+				<td>${ProductArray[i].id}</td>
+				<td>${ProductArray[i].name}</td>
+				<td>${ProductArray[i].type}</td>
+				<td>${ProductArray[i].price}</td>
+				<td><img src="${ProductArray[i].img}" class="container-img"></td>
+				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')">&times;</button></td>
+			</tr>
+		`;
+	}
+	document.querySelector('#productlist').innerHTML=tr;
+}
+
+function deleteProduct(ProductName){
+	var ProductArray = JSON.parse(localStorage.getItem('product'));
+	for(var i=0;i<ProductArray.length;i++){
+		if(ProductArray[i].name == ProductName){
+			if(confirm('Bạn có muốn xóa sản phẩm này ?')){
+				ProductArray.splice(i, 1);
+			}
+		}
+	}
+	localStorage.setItem('product' ,JSON.stringify(ProductArray));
+	showProductList(); // cập nhật lại show user
+}
+
 window.onload = () => {
+	// user
     showUserList();
     deleteuser();
+
+	// product
+	showProductList();
+	deleteProduct();
 }

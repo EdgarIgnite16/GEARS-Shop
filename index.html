@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="./assets/css/Introduction.css">
     <link rel="stylesheet" href="./assets/css/Responsive.css">
     <link rel="stylesheet" href="./assets/css/LoginRegister.css">
-    <script src="./assets/scripts/LoginRegister.js"></script>
+    <!-- JavaScript -->
+    <script src="./assets/scripts/LocalStorage.js"></script>
     <title>GE∆RS</title>
 </head>
 
@@ -111,7 +112,7 @@
                 </div>
 
             </div>
-            
+
             <!-- phần bán sản phẩm (Sản Phẩm)  -->
             <div class="container-Production js-Container">
                 <div class="grid wide">
@@ -208,14 +209,10 @@
                 <form id="register" class="LR-container--item" method="get">
                     <div class="LR-body">
                         <div class="login-group">
-                            <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail"
-                                required>
-                            <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập"
-                                maxlength="24" required>
-                            <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu"
-                                maxlength="12" required>
-                            <input id="js-RG_RePassword" type="password" class="input-field"
-                                placeholder="Nhập lại mật khẩu" maxlength="12" required>
+                            <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail" required>
+                            <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập" maxlength="24" required>
+                            <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu" maxlength="12" required>
+                            <input id="js-RG_RePassword" type="password" class="input-field" placeholder="Nhập lại mật khẩu" maxlength="12" required>
                             <div class="checkbox-form">
                                 <input id="js-RG_radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a
                                         href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>
@@ -228,8 +225,9 @@
             </div>
         </div>
     </div>
+
     <script src="./assets/scripts/EventHandler.js"></script>
-    <script src="./assets/scripts/HeaderEvent.js"></script>
+    <script src="./assets/scripts/LoginRegister.js"></script>
 </body>
 
 </html>
