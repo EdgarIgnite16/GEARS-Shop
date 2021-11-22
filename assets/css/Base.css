@@ -34,8 +34,12 @@ body {
     position: absolute;
 }
 
+.removePageNum {
+    display: none;
+}
 
 
+/* container  */
 .container  {
     margin-top: var(--heade-height);
     min-height: 1200px;
