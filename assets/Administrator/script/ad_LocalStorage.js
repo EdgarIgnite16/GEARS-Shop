@@ -62,7 +62,6 @@ function showProductList(){
 	for(var i=0; i<ProductArray.length;i++){
 		tr += `
 			<tr>
-				<td>${i}</td>
 				<td>${ProductArray[i].id}</td>
 				<td>${ProductArray[i].name}</td>
 				<td>${ProductArray[i].type}</td>
