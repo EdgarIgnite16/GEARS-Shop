@@ -59,13 +59,14 @@ function showProductList(){
 				<th>Image</th>
 				<th>Delete</th>
 			</tr>`;
+
 	for(var i=0; i<ProductArray.length;i++){
 		tr += `
 			<tr>
 				<td>${ProductArray[i].id}</td>
 				<td>${ProductArray[i].name}</td>
 				<td>${ProductArray[i].type}</td>
-				<td>${ProductArray[i].price}</td>
+				<td>${ProductArray[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
 				<td><img src="${ProductArray[i].img}" class="container-img"></td>
 				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')">&times;</button></td>
 			</tr>
