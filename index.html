@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="./assets/css/Base.css"> <!-- CSS Base -->
     <link rel="stylesheet" href="./assets/css/Grid.css"> <!-- Grid System -->
     <link rel="stylesheet" href="./assets/css/Header.css">
-    <link rel="stylesheet" href="./assets/css/Introduction.css">
+    <link rel="stylesheet" href="./assets/css/Introduce.css">
+    <link rel="stylesheet" href="./assets/css/Product.css">
     <link rel="stylesheet" href="./assets/css/Responsive.css">
     <link rel="stylesheet" href="./assets/css/LoginRegister.css">
     <!-- JavaScript -->
@@ -54,8 +55,8 @@
         <!-- Phần Container -->
         <div class="container">
             <!-- phần giới thiệu sản phẩm (Trang chủ)  -->
-            <div class="container-Introduction js-Container headerActive">
-                <div class="introduction-slider">
+            <div class="container-Introduce js-Container headerActive">
+                <div class="Introduce-slider">
                 </div>
                 <div class="introduce-content">
                     <h2 class="introduce-title1">GEARS chuyên cung cấp sản phẩm keycaps</h2>
@@ -114,11 +115,19 @@
             </div>
 
             <!-- phần bán sản phẩm (Sản Phẩm)  -->
-            <div class="container-Production js-Container">
+            <div class="container-Product js-Container">
                 <div class="grid wide">
                     <div class="row sm-gutter">
-                        <div class="col l-12">
-                            Đây là phần bán sản phẩm
+                        <div class="col l-2">
+                            <div class="category">
+                                <h3 class="category-header">Danh Mục</h3>
+                                <ul class="product-list"></ul>
+                            </div>
+                        </div>
+                        <div class="col l-10">
+                            <div class="main-product">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,6 +237,7 @@
 
     <script src="./assets/scripts/EventHandler.js"></script>
     <script src="./assets/scripts/LoginRegister.js"></script>
+    <script src="./assets/scripts/Products.js"></script>
 </body>
 
 </html>

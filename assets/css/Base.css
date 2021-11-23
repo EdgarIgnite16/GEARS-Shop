@@ -39,19 +39,18 @@ body {
 }
 
 
+
 /* container  */
 .container  {
     margin-top: var(--heade-height);
-    min-height: 1200px;
-    /* background-color: gray; */
 }
 
-.container-Introduction,
-.container-Production,
+.container-Introduce,
+.container-Product,
 .container-Cart {
     display: none;
-    /*background-color: gray;*/
     margin: 0 auto;
-    font-size: 2rem;
+    /* font-size: 2rem; */
 }
+
 
