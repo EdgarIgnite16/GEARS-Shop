@@ -15,11 +15,11 @@ var types = [
 function categoryActive() {
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
-    var temp = $$(".product-list--item-link");
+    var temp = $$(".category-list--item-link");
 
     temp.forEach(items => {
         items.onclick = function() {
-            $(".product-list--item-link.catagory-Active").classList.remove("catagory-Active")
+            $(".category-list--item-link.catagory-Active").classList.remove("catagory-Active")
             this.classList.add('catagory-Active');
         }
     })
@@ -30,19 +30,19 @@ function CreateSubMenu() {
     for(var i=0;i<types.length;i++) {
         if(i != types.length - 1) {
             tempArray += `
-            <li class="product-list--item js-Product-item">
-                <a id=${types[i].id} class="product-list--item-link" href="#">${types[i].name}</a>
+            <li class="category-list--item js-category-item">
+                <a id=${types[i].id} class="category-list--item-link" href="#">${types[i].name}</a>
             </li>
             `;
         }else {
             tempArray += `
-            <li class="product-list--item js-Product-item">
-                <a id=${types[i].id} class="product-list--item-link catagory-Active" href="#">${types[i].name}</a>
+            <li class="category-list--item js-category-item">
+                <a id=${types[i].id} class="category-list--item-link catagory-Active" href="#">${types[i].name}</a>
             </li>
             `;
         }
     }
-    document.querySelector(".product-list").innerHTML = tempArray;
+    document.querySelector(".category-list").innerHTML = tempArray;
 }
 
 CreateSubMenu();

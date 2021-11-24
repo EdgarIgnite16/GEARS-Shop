@@ -24,15 +24,15 @@
     text-decoration: underline;
 }
 
-.product-list {
+.category-list {
     list-style: none;
 }
 
-.product-list--item {
+.category-list--item {
     padding-top: 4px;
 }
 
-.product-list--item-link {
+.category-list--item-link {
     display: block;
     position: relative;
     color: var(--text-color);
@@ -44,7 +44,7 @@
     transition: all 0.2s;
 }
 
-.product-list--item-link:hover {
+.category-list--item-link:hover {
     color: rgba(255, 179, 39, 0.692);
 }
 
