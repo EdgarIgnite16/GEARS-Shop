@@ -41,7 +41,6 @@ function paginationActive() {
     })
 }
 // -------------------------------------------------- // 
-
 function CreateSubMenu() {
     var tempArray = "";
     for (var i = 0; i < types.length; i++) {
@@ -84,6 +83,7 @@ function CreateSubMenu_Mobile() {
 
 // -------------------------------------------------- // 
 var productList = [];
+const NumOfItem = 8; // số lượng sản phẩm trên 1 trang
 productList = JSON.parse(localStorage.getItem('product'));
 var ShowProduct = document.querySelector('#js-product-list');
 
@@ -98,7 +98,7 @@ function InnerProductions(name) {
 
     // --------------------------------------- // 
     // in ra số trang
-    for (var i = 0; i < emptyObject.length / 8; i++) {
+    for (var i = 0; i < emptyObject.length / NumOfItem; i++) {
         if (i == 0) {
             tempArray += `
             <li class="pagination-item">
@@ -116,7 +116,7 @@ function InnerProductions(name) {
     document.querySelector('#page-num').innerHTML = tempArray;
 
     // --------------------------------------- // 
-    const numItemPage = emptyObject.length > 8 ? 8 : emptyObject.length; // kiểm tra số lượng phần tử mảng đã lọc
+    const numItemPage = emptyObject.length > NumOfItem ? NumOfItem : emptyObject.length; // kiểm tra số lượng phần tử mảng đã lọc
     // nếu bé hơn 8 thì lấy luôn chiều dài của obj còn không thì mặc định max là 8 sản phẩm 1 trang
 
     // --------------------------------------- // 
@@ -165,7 +165,7 @@ function InnerAllProductions() {
 
     // --------------------------------------- // 
     // in ra số trang
-    for (var i = 0; i <= productList.length / 8; i++) {
+    for (var i = 0; i <= productList.length / NumOfItem; i++) {
         if (i == 0) {
             tempArray += `
             <li class="pagination-item">
@@ -183,7 +183,7 @@ function InnerAllProductions() {
     document.querySelector('#page-num').innerHTML = tempArray;
 
     // --------------------------------------- // 
-    const numItemPage = productList.length > 8 ? 8 : productList.length; // kiểm tra số lượng phần tử mảng đã lọc
+    const numItemPage = productList.length > NumOfItem ? NumOfItem : productList.length; // kiểm tra số lượng phần tử mảng đã lọc
     // nếu bé hơn 8 thì lấy luôn chiều dài của obj còn không thì mặc định max là 8 sản phẩm 1 trang
 
     // --------------------------------------- // 
