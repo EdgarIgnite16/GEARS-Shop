@@ -51,14 +51,16 @@ function createProducts() {
             // pudding
             {id: 14, type: 'Pudding', name: 'Keycap PBT Pudding Black', img: '../img/Products/Pudding/011.jpg', price: 350000},
             {id: 15, type: 'Pudding', name: 'Keycap PBT Pudding White', img: '../img/Products/Pudding/012.jpg', price: 350000},
-            {id: 16, type: 'Pudding', name: 'Keycap PBT Pudding Pink', img: '../img/Products/Pudding/013.png', price: 350000},
+            {id: 16, type: 'Pudding', name: 'Keycap PBT Pudding Pink', img: '../img/Products/Pudding/013.png', price: 350000 },
+            {id: 17, type: 'Pudding', name: 'Keycap PBT Pudding Blue', img: '../img/Products/Pudding/blue.jpg', price: 350000 },
+            {id: 18, type: 'Pudding', name: 'Keycap PBT Pudding Purple', img: '../img/Products/Pudding/purple.jpg', price: 350000 },
             // anime
-            {id: 17, type: 'Anime', name: 'Kimetsu no Yaiba set Keycap', img: '../img/Products/Anime/014.png', price: 745000},
-            {id: 18, type: 'Anime', name: 'Re: Zero set Keycap', img: '../img/Products/Anime/015.png', price: 745000},
-            {id: 19, type: 'Anime', name: 'Pokemon Bulbasaur set keycap', img: '../img/Products/Anime/016.png', price: 790000},
-            {id: 20, type: 'Anime', name: 'Pokemon Charmander set keycap', img: '../img/Products/Anime/017.png', price: 790000},
-            {id: 21, type: 'Anime', name: 'Pokemon Squirtle set keycap', img: '../img/Products/Anime/018.png', price: 790000},
-            {id: 22, type: 'Anime', name: 'Hatsune Miku set keycap', img: '../img/Products/Anime/019.jpeg', price: 690000},
+            {id: 19, type: 'Anime', name: 'Kimetsu no Yaiba set Keycap', img: '../img/Products/Anime/014.png', price: 745000},
+            {id: 20, type: 'Anime', name: 'Re: Zero set Keycap', img: '../img/Products/Anime/015.png', price: 745000},
+            {id: 21, type: 'Anime', name: 'Pokemon Bulbasaur set keycap', img: '../img/Products/Anime/016.png', price: 790000},
+            {id: 22, type: 'Anime', name: 'Pokemon Charmander set keycap', img: '../img/Products/Anime/017.png', price: 790000},
+            {id: 23, type: 'Anime', name: 'Pokemon Squirtle set keycap', img: '../img/Products/Anime/018.png', price: 790000},
+            {id: 24, type: 'Anime', name: 'Hatsune Miku set keycap', img: '../img/Products/Anime/019.jpeg', price: 690000},
         ];
 
         localStorage.setItem('product', JSON.stringify(productArray));
