@@ -12,6 +12,8 @@ var types = [
     new typeConstructor("All", "Xem tất cả...."),
 ];
 
+// -------------------------------------------------- // 
+// js animation
 function categoryActive() {
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
@@ -38,6 +40,7 @@ function paginationActive() {
         }
     })
 }
+// -------------------------------------------------- // 
 
 function CreateSubMenu() {
     var tempArray = "";
