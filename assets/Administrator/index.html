@@ -29,9 +29,6 @@
                     <div class="header-logo">
                         GE∆RS
                     </div>
-                    <!-- <div class="header-btn--out">
-                        <a href="../../index.html" style="display: block; text-decoration: none;">Trở về</a>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -75,7 +72,33 @@
                                 <option value="Other">Other</option>
                             </select>
                             <input type="file" class="input-field" required>
-                            <button id="js-btn-product" type="button" class="add-btn">Đăng Kí</button>
+                            <button id="js-btn-product" type="button" class="add-btn">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="ChangeProduct_Wrap">
+            <div class="Change_Product_main">
+                <div class="Change_Product_header">Sửa sản phẩm</div>
+                <div class="reg-btn__close js-close-btn2">
+                    <i class="fas fa-times"></i>
+                </div>
+    
+                <form id="changeProduct" class="change-container--item" method="get">
+                    <div class="CP-body">
+                        <div class="change-group">
+                            <input id="js-item-nameC" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
+                            <input id="js-item-priceC" type="text" class="input-field" placeholder="Nhập vào giá sản phẩm" required>
+                            <select id="AddOptionC" class="input-field" name="option">
+                                <option value="Artisan">Artisan</option>
+                                <option value="Anime">Anime</option>
+                                <option value="Pudding">Pudding</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <input type="file" class="input-field" required>
+                            <button id="js-btn-productC" type="button" class="change-btn">Thay đổi</button>
                         </div>
                     </div>
                 </form>
@@ -84,7 +107,5 @@
         
     </div>
 
-    <script src="./script/EventHandler.js"></script>
 </body>
-
 </html>

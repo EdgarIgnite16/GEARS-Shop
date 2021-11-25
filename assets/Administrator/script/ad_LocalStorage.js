@@ -1,4 +1,5 @@
-var userArray = [];
+const userArray = [];
+const ProductArray = [];
 //----------------------show user----------------------------------
 function showUserList(){
 	if(localStorage.getItem('user') === null) return false;
@@ -19,7 +20,7 @@ function showUserList(){
 				<td>${userArray[i].gmail}</td>
 				<td>${userArray[i].RegisterDay}</td>
 				<td>${userArray[i].userType}</td>
-				<td><button class="delete" onClick="deleteuser(\'${userArray[i].username}\')">&times;</button></td>
+				<td><button class="delete" onClick="deleteuser(\'${userArray[i].username}\')"><i class="fas fa-times-circle"></i></button></td>
 			</tr>
 		`;
 	}
@@ -46,6 +47,30 @@ function deleteuser(usernamedelete){
 	showUserList(); // cập nhật lại show user
 }
 
+// ---------------------------------------------------------------------------- //
+// xử lí công việc đóng form Add Product
+function OpenCloseForm() {
+    var btnAdd = document.querySelector('.js-HandlerAP');
+    var AP_wrap = document.querySelector('.AddProduct_Wrap');
+    var closeBtn = document.querySelector('.js-close-btn');
+    var closeBtn2 = document.querySelector('.js-close-btn2');
+   
+    btnAdd.addEventListener('click', () => {
+        AP_wrap.classList.add('isOpenAP'); 
+    });
+
+    btnAdd.addEventListener('click', () => {
+        AP_wrap.classList.add('isOpenAP'); 
+    });
+
+    closeBtn.addEventListener('click', () => {
+        AP_wrap.classList.remove('isOpenAP');
+    });
+
+	closeBtn2.addEventListener('click', () => {
+		document.querySelector(".ChangeProduct_Wrap").classList.remove('isOpenAP')
+	})
+}
 
 //----------------------show products----------------------------------
 function showProductList(){
@@ -57,6 +82,7 @@ function showProductList(){
 				<th>Type</th>
 				<th>Price</th>
 				<th>Image</th>
+				<th>Change</th>
 				<th>Delete</th>
 			</tr>`;
 
@@ -68,7 +94,8 @@ function showProductList(){
 				<td>${ProductArray[i].type}</td>
 				<td>${ProductArray[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
 				<td><img src="${ProductArray[i].img}" class="container-img"></td>
-				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')">&times;</button></td>
+				<td><button id="js-fix" class="fix" onClick="changeProduct(\'${ProductArray[i].name}\')"><i class="fas fa-wrench"></i></button></td>
+				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')"><i class="fas fa-times-circle"></i></button></td>
 			</tr>
 		`;
 	}
@@ -81,11 +108,12 @@ function deleteProduct(ProductName){
 		if(ProductArray[i].name == ProductName){
 			if(confirm('Bạn có muốn xóa sản phẩm này ?')){
 				ProductArray.splice(i, 1);
+				alert('Đã xoá sản phẩm thành công !');
+				window.location.reload(); // reset lại web sau khi nhập xong
 			}
 		}
 	}
 	localStorage.setItem('product' ,JSON.stringify(ProductArray));
-	showProductList(); // cập nhật lại show user
 }
 
 function Add_Product() {
@@ -130,9 +158,54 @@ function Add_Product() {
         itemName.value = "";
         itemPrice.value = "";
 		showProductList();
-
-        return true;
     })
+}
+
+function changeProduct(ProductName){
+	var ProductArray = JSON.parse(localStorage.getItem('product'));
+
+
+	for(var i=0;i<ProductArray.length;i++){
+		if(ProductArray[i].name == ProductName){
+			document.querySelector(".ChangeProduct_Wrap").classList.add("isOpenAP"); 		
+
+			document.querySelector("#js-btn-productC").addEventListener('click', () => {
+				var productArray = JSON.parse(localStorage.getItem('product'));
+				var itemName = document.getElementById("js-item-nameC");
+				var itemPrice = document.getElementById("js-item-priceC");
+				var OptionSelect = document.querySelector("#AddOptionC");
+				
+				if(itemName.value.length === 0) {
+					alert("vui lòng nhập tên sản phẩm !");
+					itemName.focus();
+					return false;
+				}
+		
+				if(itemPrice.value.length === 0) {
+					alert("vui lòng nhập giá tiền !");
+					itemPrice.focus();
+					return false;
+				}
+		
+				// tìm thể loại của sản phẩm
+				var OptionSelect = document.querySelector("#AddOption");
+				var valueType = OptionSelect.options[OptionSelect.selectedIndex].text;
+		
+				for(var i=0;i<ProductArray.length;i++){
+					if(ProductArray[i].name == ProductName){
+						productArray[i].name = itemName.value;
+						productArray[i].price = Number(itemPrice.value);
+						productArray[i].type = valueType;
+						productArray[i].img = '../img/UpdatingProduct.png';
+					}
+				}
+
+				localStorage.setItem('product',JSON.stringify(productArray));
+				alert("Sửa sản phẩm thành công !");
+				window.location.reload(); // reset lại web sau khi nhập xong
+			});
+		}
+	}
 }
 
 window.onload = () => {
@@ -144,6 +217,6 @@ window.onload = () => {
 	showProductList();
 	deleteProduct();
 
+	OpenCloseForm();
 	Add_Product();
-
 }
