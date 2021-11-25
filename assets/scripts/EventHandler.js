@@ -57,7 +57,6 @@ function OpenCloseForm() {
         LR_wrap.classList.remove('isOpenLR'); 
     })
 
-
     // sử lí việc user bấm ra ngoài form => đóng form
     // LR_wrap.addEventListener('click', () => {
     //     LR_wrap.classList.remove('isOpenLR'); // gỡ bỏ class open của form

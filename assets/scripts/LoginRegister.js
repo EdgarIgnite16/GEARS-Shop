@@ -90,7 +90,7 @@ function Handler_LogOut() {
 	})
 	
 	logout.onclick = () => {
-		window.location = "index.html"; // sau khi ấn nút thoát thì load lại trang index
+		window.location.reload(); // sau khi ấn nút thoát thì load lại trang
 	}
 
 	// click ra ngoài form logout thì ẩn button logout

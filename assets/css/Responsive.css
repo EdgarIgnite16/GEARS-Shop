@@ -64,6 +64,16 @@
         display: block;
     }
 
+    .header-navbar-logout {
+        top: 0;
+        opacity: 1;
+        pointer-events: initial;
+        transform: translate(-10%, 35%);
+        box-shadow: 0 2px 4px #8f8f8f;
+        line-height: 2.4rem;
+        width: 110px;
+        font-weight: 400;
+    }
 
     /* introduct */
     .introduce-content {
