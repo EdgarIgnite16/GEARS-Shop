@@ -14,10 +14,15 @@
         padding-top: 16px;
     }
 
+
+
 }
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
-
+    /* admin */
+    .btn-Product {
+        width: 30% !important;
+    }
 }
 
 /* Mobile */
@@ -77,5 +82,15 @@
     .LR-main {
         width: 410px;
         max-width: calc(100% - 40px);
+    }
+
+
+    /* admin */
+    .container-title {
+        font-size: 1.8rem !important;
+    }
+
+    .btn-Product {
+        width: 60% !important;
     }
 }

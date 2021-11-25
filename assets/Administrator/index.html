@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="../img/code.png">
     <link rel="stylesheet" href="../css/Base.css"> <!-- CSS Base -->
     <link rel="stylesheet" href="../css/Grid.css"> <!-- Grid System -->
+    <link rel="stylesheet" href="../css/Responsive.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Administrator</title>
     <script src="./script/ad_LocalStorage.js"></script>
@@ -65,16 +66,16 @@
                 <form id="addProduct" class="AP-container--item" method="get">
                     <div class="AP-body">
                         <div class="add-group">
-                            <input  type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
-                            <input  type="text" class="input-field" placeholder="Nhập vào giá sản phẩm" required>
-                            <select class="input-field" name="" id="">
-                                <option value="">Artisan</option>
-                                <option value="">Anime</option>
-                                <option value="">Pudding</option>
-                                <option value="">Other</option>
+                            <input id="js-item-name" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
+                            <input id="js-item-price" type="text" class="input-field" placeholder="Nhập vào giá sản phẩm" required>
+                            <select id="AddOption" class="input-field" name="option">
+                                <option value="Artisan">Artisan</option>
+                                <option value="Anime">Anime</option>
+                                <option value="Pudding">Pudding</option>
+                                <option value="Other">Other</option>
                             </select>
-                            <input  type="file" class="input-field" required>
-                            <button id="js-btn-register" type="button" class="add-btn">Đăng Kí</button>
+                            <input type="file" class="input-field" required>
+                            <button id="js-btn-product" type="button" class="add-btn">Đăng Kí</button>
                         </div>
                     </div>
                 </form>

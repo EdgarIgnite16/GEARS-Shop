@@ -63,10 +63,9 @@ function register() {
 			userArray.push(user);
 			localStorage.setItem('user',JSON.stringify(userArray));
 			alert("Đăng kí tài khoản thành công !\n Chúc bạn mua sắm vui vẻ");
-			// đóng form đăng kí 
+			
+	        // đóng form lẫn reset value trong form input
 			document.querySelector(".LR-wrap").classList.remove('isOpenLR');
-
-			// Xoá hết value trong form input
 			gmail.value = "";
 			username.value = "";
 			password.value = "";
@@ -121,7 +120,7 @@ function login() {
 
 		if(username.value.length === 0) {
 			alert("vui lòng nhập tên tài khoản !");
-			account.focus();
+			username.focus();
 			return false;
 		}
 

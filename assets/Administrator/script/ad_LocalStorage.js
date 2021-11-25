@@ -88,6 +88,53 @@ function deleteProduct(ProductName){
 	showProductList(); // cập nhật lại show user
 }
 
+function Add_Product() {
+    var add_btn = document.querySelector("#js-btn-product");
+    add_btn.addEventListener('click', () => {
+        var itemName = document.getElementById("js-item-name");
+		var itemPrice = document.getElementById("js-item-price");
+		var productArray = JSON.parse(localStorage.getItem('product'));
+        var OptionSelect = document.querySelector("#AddOption");
+        
+        if(itemName.value.length === 0) {
+			alert("vui lòng nhập tên sản phẩm !");
+			itemName.focus();
+			return false;
+		}
+
+		if(itemPrice.value.length === 0) {
+			alert("vui lòng nhập giá tiền !");
+			itemPrice.focus();
+			return false;
+		}
+        // tìm thể loại của sản phẩm
+        var OptionSelect = document.querySelector("#AddOption");
+        var valueType = OptionSelect.options[OptionSelect.selectedIndex].text;
+        // tìm id lớn nhất của sản phẩm
+        var maxID = Math.max(...productArray.map(item => item.id));
+
+        var item = {
+            id: maxID+1,
+            type: valueType,
+            name: itemName.value,
+            img: '../img/UpdatingProduct.png',
+            price: Number(itemPrice.value), // đổi chuỗi thành số
+        }
+
+        productArray.push(item);
+		localStorage.setItem('product',JSON.stringify(productArray));
+        alert("Thêm sản phẩm thành công !");
+
+        // đóng form lẫn reset value trong form input
+		document.querySelector(".AddProduct_Wrap").classList.remove('isOpenAP');
+        itemName.value = "";
+        itemPrice.value = "";
+		showProductList();
+
+        return true;
+    })
+}
+
 window.onload = () => {
 	// user
     showUserList();
@@ -96,4 +143,7 @@ window.onload = () => {
 	// product
 	showProductList();
 	deleteProduct();
+
+	Add_Product();
+
 }
