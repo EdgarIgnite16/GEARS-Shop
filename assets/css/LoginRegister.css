@@ -20,22 +20,6 @@
     }
 }
 
-.isActive {
-    pointer-events: none;
-    display: block !important;
-    opacity: 1 !important;
-    animation: LR_Change ease-in-out 0.4s;
-}
-
-.isOpenLR {
-    display: flex !important;
-    opacity: 1 !important;
-}
-
-.isHoverBG {
-    background-color: rgb(246, 246, 246);
-}
-
 .reg-btn__close {
     position: absolute;
     font-size: 2rem;

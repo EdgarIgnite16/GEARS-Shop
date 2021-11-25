@@ -83,9 +83,9 @@ function CreateSubMenu_Mobile() {
 
 // -------------------------------------------------- // 
 var productList = [];
-const NumOfItem = 8; // số lượng sản phẩm trên 1 trang
 productList = JSON.parse(localStorage.getItem('product'));
 var ShowProduct = document.querySelector('#js-product-list');
+const NumOfItem = 8; // số lượng sản phẩm trên 1 trang
 
 function InnerProductions(name) {
     var tempArray = '';
@@ -231,7 +231,7 @@ function ShowProductItem() {
     ListOPT.forEach(items => {
         items.addEventListener('click', (item) => {
             var innerID = item.target.id;
-            console.log(innerID);
+            // console.log(innerID);
             switch (innerID) {
                 case 'Anime':
                     InnerProductions(innerID);

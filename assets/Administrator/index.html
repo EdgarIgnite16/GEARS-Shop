@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,35 +19,71 @@
     <title>Administrator</title>
     <script src="./script/ad_LocalStorage.js"></script>
 </head>
+
 <body>
-    <div class="header">
-        <div class="grid wide">
-            <div class="header-content">
-                <div class="header-logo">
-                    GE∆RS
+    <div class="main-body">
+        <div class="header">
+            <div class="grid wide">
+                <div class="header-content">
+                    <div class="header-logo">
+                        GE∆RS
+                    </div>
+                    <!-- <div class="header-btn--out">
+                        <a href="../../index.html" style="display: block; text-decoration: none;">Trở về</a>
+                    </div> -->
                 </div>
-                <!-- <div class="header-btn--out">
-                    <a href="../../index.html" style="display: block; text-decoration: none;">Trở về</a>
-                </div> -->
             </div>
         </div>
+
+        <div class="container">
+            <div class="grid wide">
+                <div class="container-main">
+                    <div class="container-title">Manager Account</div>
+                    <div class="container-table">
+                        <table id="userlist"></table>
+                    </div>
+                </div>
+                <div class="container-main">
+                    <div class="container-title">Manager Product</div>
+                    <div class="container-table" style="max-height: 80vh;">
+                        <table id="productlist"></table>
+                    </div>
+                    <div class="btn_Admin js-HandlerAP">
+                        <div class="btn-Product">Thêm sản phẩm</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="AddProduct_Wrap">
+            <div class="Add_Product_main">
+                <div class="Add_Product_header">Thêm sản phẩm</div>
+                <div class="reg-btn__close js-close-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+    
+                <form id="addProduct" class="AP-container--item" method="get">
+                    <div class="AP-body">
+                        <div class="add-group">
+                            <input  type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
+                            <input  type="text" class="input-field" placeholder="Nhập vào giá sản phẩm" required>
+                            <select class="input-field" name="" id="">
+                                <option value="">Artisan</option>
+                                <option value="">Anime</option>
+                                <option value="">Pudding</option>
+                                <option value="">Other</option>
+                            </select>
+                            <input  type="file" class="input-field" required>
+                            <button id="js-btn-register" type="button" class="add-btn">Đăng Kí</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
     </div>
 
-    <div class="container">
-        <div class="grid wide">
-            <div class="container-main">
-                <div class="container-title">Manager Account</div>
-                <div class="container-table">
-                    <table id="userlist"></table>
-                </div>
-            </div>
-            <div class="container-main">
-                <div class="container-title">Manager Product</div>
-                <div class="container-table" style="max-height: 80vh;">
-                    <table id="productlist"></table>
-                </div>
-            </div>
-        </div>
-    </div>
+    <script src="./script/EventHandler.js"></script>
 </body>
+
 </html>
