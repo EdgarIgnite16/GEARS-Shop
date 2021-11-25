@@ -118,13 +118,20 @@
             <div class="container-Product js-Container">
                 <div class="grid wide">
                     <div class="row sm-gutter">
-                        <div class="col l-2">
+                        <div class="col l-2 m-0 c-0">
                             <div class="category">
                                 <h3 class="category-header">Danh Mục</h3>
                                 <ul class="category-list"></ul>
                             </div>
                         </div>
-                        <div class="col l-10">
+
+                        <div class="col l-10 m-12 c-12">
+                            <!-- category mobile -->
+                            <div class="mobile-category">
+                                <ul class="mobile-category-list"></ul>
+                            </div>
+
+                            <!-- show Product -->
                             <div id="show-Product" class="main-product">
                                 <div id="js-product-list" class="row sm-gutter"></div>
                                 <ul id="page-num" class="pagination home-product__pagination"></ul>
@@ -219,10 +226,14 @@
                 <form id="register" class="LR-container--item" method="get">
                     <div class="LR-body">
                         <div class="login-group">
-                            <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail" required>
-                            <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập" maxlength="24" required>
-                            <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu" maxlength="12" required>
-                            <input id="js-RG_RePassword" type="password" class="input-field" placeholder="Nhập lại mật khẩu" maxlength="12" required>
+                            <input id="js-RG_gmail" type="email" class="input-field" placeholder="Nhập vào gmail"
+                                required>
+                            <input id="js-RG_account" type="text" class="input-field" placeholder="Tên đăng nhập"
+                                maxlength="24" required>
+                            <input id="js-RG_password" type="password" class="input-field" placeholder="Nhập mật khẩu"
+                                maxlength="12" required>
+                            <input id="js-RG_RePassword" type="password" class="input-field"
+                                placeholder="Nhập lại mật khẩu" maxlength="12" required>
                             <div class="checkbox-form">
                                 <input id="js-RG_radio" type="checkbox" class="check-box"><span>Tôi đã đồng ý với <a
                                         href="#">điều khoản</a> và <a href="#">dịch vụ</a>.</span>

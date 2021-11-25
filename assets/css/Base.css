@@ -5,7 +5,8 @@
 }
 
 body {
-    font-size: 62.5%; /* 1rem = 10px */
+    font-size: 62.5%;
+    /* 1rem = 10px */
     line-height: 1.6rem;
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -41,7 +42,7 @@ body {
 
 
 /* container  */
-.container  {
+.container {
     margin-top: var(--heade-height);
 }
 
@@ -52,5 +53,3 @@ body {
     margin: 0 auto;
     /* font-size: 2rem; */
 }
-
-

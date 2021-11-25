@@ -58,7 +58,7 @@
     border-radius: 8px;
     top: 90%;
     right: 0;
-    box-shadow: 0 4px 8px #8f8f8f;    
+    box-shadow: 0 4px 8px #8f8f8f;
     opacity: 0;
     pointer-events: none;
     transform: translate(25%, -10px);

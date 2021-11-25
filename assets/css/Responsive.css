@@ -1,5 +1,18 @@
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
+    .main_body {
+        overflow-x: hidden;
+    }
+
+    /* Category Mobie and Tablet */
+    .mobile-category {
+        display: block;
+    }
+
+    /* Container */
+    .container-Product {
+        padding-top: 16px;
+    }
 
 }
 /* Tablet */
