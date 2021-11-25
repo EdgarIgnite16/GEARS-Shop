@@ -66,7 +66,49 @@
 
 
     /* introduct */
+    .introduce-content {
+        display: none;
+    }
 
+    .product-introduce {
+        flex-direction: column;
+        padding: 28px 0;
+        border-radius: 12px;
+    }
+
+    .product-introduces {
+        padding: 20px 20px 0;
+    }
+
+    .product-introduces--title {
+        padding: 28px 0;
+        font-size: 1.8rem;
+    }
+    
+    .product-introduce-image {
+        order: 1;
+        width: 100%;
+    }
+
+    .product-introduce-image:hover {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .product-introduce-content {
+        order: 2;
+        padding: 0 12px;
+    }
+
+    .product-introduce--content-title {
+        font-size: 2rem;
+    }
+
+    .product-introduce--content-contents {
+        padding: 4px 8px 0;
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
     
     /* Form Login Register */
     .LR-wrap {
@@ -83,7 +125,6 @@
         width: 410px;
         max-width: calc(100% - 40px);
     }
-
 
     /* admin */
     .container-title {

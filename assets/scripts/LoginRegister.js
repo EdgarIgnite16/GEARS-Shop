@@ -142,7 +142,7 @@ function login() {
 				// nếu người đăng nhập là Admin
 				if(userArray[i].username == username.value && userArray[i].password == password.value && userArray[i].userType === 'admin') {
 					document.querySelector(".js-HandlerLR").innerHTML = `
-							<a href="./assets/Administrator/index.html" style="color: black; text-decoration: none;" target="_blank">
+							<a href="./assets/Admin/index.html" style="color: black; text-decoration: none;" target="_blank">
 								<i class="header-user--icon fas fa-user-cog"></i>
 							</a> ${userArray[i].username}
 							<div class="header-navbar-logout is-absoluted">Đăng xuất</div>

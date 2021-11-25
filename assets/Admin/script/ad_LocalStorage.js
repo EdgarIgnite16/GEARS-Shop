@@ -40,11 +40,11 @@ function deleteuser(usernamedelete){
 			}
 			if(confirm('Bạn có muốn xóa tài khoản này?')){
 				userArray.splice(i, 1);
+				window.location.reload(); // reset lại web sau khi nhập xong
 			}
 		}
 	}
 	localStorage.setItem('user',JSON.stringify(userArray));
-	showUserList(); // cập nhật lại show user
 }
 
 // ---------------------------------------------------------------------------- //
@@ -108,7 +108,6 @@ function deleteProduct(ProductName){
 		if(ProductArray[i].name == ProductName){
 			if(confirm('Bạn có muốn xóa sản phẩm này ?')){
 				ProductArray.splice(i, 1);
-				alert('Đã xoá sản phẩm thành công !');
 				window.location.reload(); // reset lại web sau khi nhập xong
 			}
 		}

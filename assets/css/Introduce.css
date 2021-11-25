@@ -62,8 +62,14 @@
     width: 365px;
     object-fit: contain;
     border: 2px gray;
-    border-radius: 30px;
+    border-radius: 8px;
     padding: 8px 20px;
+    transition: all 0.3s;
+}
+
+.product-introduce-image:hover {
+    opacity: 0.8;
+    transform: scale(1.05);
 }
 
 .product-introduce-content {
