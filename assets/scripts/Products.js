@@ -195,6 +195,7 @@ function InnerAllProductions() {
                 <h2>id: ${productList[i].id}</h2>
                 <h3>name: ${productList[i].name}</h3>
                 <h4>price: ${productList[i].price}</h4>
+                <button type="button" class="js-product" style="padding: 20px; font-size: 1.4rem" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
             </div>
         </div>
         `
@@ -217,6 +218,7 @@ function InnerAllProductions() {
                             <h2>id: ${productList[i].id}</h2>
                             <h3>name: ${productList[i].name}</h3>
                             <h4>price: ${productList[i].price}</h4>
+                            <button type="button" class="js-product" style="padding: 20px; font-size: 1.4rem" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
                         </div>
                     </div>
                 `

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./assets/css/Header.css">
     <link rel="stylesheet" href="./assets/css/Introduce.css">
     <link rel="stylesheet" href="./assets/css/Product.css">
+    <link rel="stylesheet" href="./assets/css/Cart.css">
     <link rel="stylesheet" href="./assets/css/Responsive.css">
     <link rel="stylesheet" href="./assets/css/LoginRegister.css">
     <!-- JavaScript -->
@@ -139,15 +140,18 @@
                         </div>
                     </div>
                 </div>
+            
             </div>
 
             <!-- Phần giỏ hàng (Giỏ hàng)  -->
             <div class="container-Cart js-Container">
                 <div class="grid wide">
                     <div class="row sm-gutter">
-                        <div class="col l-12">
-                            Đây là phần giỏ hàng
-                        </div>
+                       <div class="cart">
+                            <!-- Khi không có sản phẩm hoặc chưa add sản phẩm -->
+                            <img class="no-cart" src="./assets/img/empty-cart.png" alt="">
+                            <!-- Sau khi đăng nhập và mua hàng thì tự động Inner đè lên Form  -->
+                       </div>
                     </div>
                 </div>
             </div>
@@ -248,6 +252,7 @@
     <script src="./assets/scripts/EventHandler.js"></script>
     <script src="./assets/scripts/LoginRegister.js"></script>
     <script src="./assets/scripts/Products.js"></script>
+    <script src="./assets/scripts/Cart.js"></script>
 </body>
 
 </html>

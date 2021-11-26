@@ -93,7 +93,7 @@ function showProductList(){
 				<td>${ProductArray[i].name}</td>
 				<td>${ProductArray[i].type}</td>
 				<td>${ProductArray[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
-				<td><img src="${ProductArray[i].img}" class="container-img"></td>
+				<td><img src="..${ProductArray[i].img}" class="container-img"></td>
 				<td><button id="js-fix" class="fix" onClick="changeProduct(\'${ProductArray[i].name}\')"><i class="fas fa-wrench"></i></button></td>
 				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')"><i class="fas fa-times-circle"></i></button></td>
 			</tr>
@@ -162,8 +162,6 @@ function Add_Product() {
 
 function changeProduct(ProductName){
 	var ProductArray = JSON.parse(localStorage.getItem('product'));
-
-
 	for(var i=0;i<ProductArray.length;i++){
 		if(ProductArray[i].name == ProductName){
 			document.querySelector(".ChangeProduct_Wrap").classList.add("isOpenAP"); 		
