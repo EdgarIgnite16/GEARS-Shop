@@ -45,11 +45,8 @@ function addCart(nameProduct) {
 }
 
 function deleteCart(nameProduct) {
-    console.log(nameProduct);
     for (var i = 0; i < tempArray.length; i++) {
         if (tempArray[i].name == nameProduct) {
-            console.log(tempArray[i].name);
-            console.log(i);
             if (confirm('Bạn có muốn xóa sản phẩm này ?')) {
                 tempArray.splice(i, 1);
             }
@@ -89,6 +86,6 @@ function deleteCart(nameProduct) {
 function pushCarttoLocalStorage() {
     var btnCart = document.querySelector(".btn-Product");
     btnCart.addEventListener('click', item => {
-        console.log(btnCart)
+        console.log(tempArray)
     })
 }
