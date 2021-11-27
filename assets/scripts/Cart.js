@@ -38,14 +38,15 @@ function addCart(nameProduct) {
                             <div class="btn-cart">
                                 <div class="btn-Product">Thanh toán</div>
                             </div>`;
+                pushCarttoLocalStorage();
             }
+        }
     }
-}
 }
 
 function deleteCart(nameProduct) {
     console.log(nameProduct);
-    for (var i=0;i<tempArray.length;i++) {
+    for (var i = 0; i < tempArray.length; i++) {
         if (tempArray[i].name == nameProduct) {
             console.log(tempArray[i].name);
             console.log(i);
@@ -56,8 +57,9 @@ function deleteCart(nameProduct) {
         }
     }
 
+    // in lại tempArray
     var temp = '';
-    for (var j=0;j<tempArray.length;j++) {
+    for (var j = 0; j < tempArray.length; j++) {
         temp += `
         <li class="container__cart-Item">
             <img img src="./assets/${tempArray[j].img}" class="container__cart-img">
@@ -80,4 +82,13 @@ function deleteCart(nameProduct) {
                 <div class="btn-cart">
                     <div class="btn-Product">Thanh toán</div>
                 </div>`;
+
+    pushCarttoLocalStorage();
+}
+
+function pushCarttoLocalStorage() {
+    var btnCart = document.querySelector(".btn-Product");
+    btnCart.addEventListener('click', item => {
+        console.log(btnCart)
+    })
 }
