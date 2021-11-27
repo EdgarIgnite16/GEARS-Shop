@@ -21,6 +21,17 @@ body {
     --heade-height: 68px;
 }
 
+table, th, td{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    font-size: 1.6rem;
+    line-height: 1.6;
+}
+
+table{
+    border-collapse:collapse;
+}
+
 .is-Logout {
     opacity: 1 !important;
     pointer-events: initial !important;

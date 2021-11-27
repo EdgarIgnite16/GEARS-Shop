@@ -82,8 +82,7 @@ function CreateSubMenu_Mobile() {
 }
 
 // -------------------------------------------------- // 
-var productList = [];
-productList = JSON.parse(localStorage.getItem('product'));
+var productList = JSON.parse(localStorage.getItem('product'));
 var ShowProduct = document.querySelector('#js-product-list');
 const NumOfItem = 8; // số lượng sản phẩm trên 1 trang
 

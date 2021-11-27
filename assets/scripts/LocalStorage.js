@@ -1,7 +1,7 @@
 // --------------------------------------------------------------------------- //
 // create User
-var userArray = [];
 function createAccount() {
+    var userArray = [];
     if (localStorage.getItem('user') == null) {
         var admin = {
             username: 'admin',
@@ -69,7 +69,5 @@ function createProducts() {
 }
 
 
-window.onload = () => {
-    createAccount();
-    createProducts();
-}
+createAccount();
+createProducts();

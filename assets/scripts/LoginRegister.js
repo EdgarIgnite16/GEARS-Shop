@@ -144,7 +144,8 @@ function login() {
 					document.querySelector(".js-HandlerLR").innerHTML = `
 							<a href="./assets/Admin/index.html" style="color: black; text-decoration: none;" target="_blank">
 								<i class="header-user--icon fas fa-user-cog"></i>
-							</a> ${userArray[i].username}
+							</a>
+							<span id="js-Username">${userArray[i].username}</span>
 							<div class="header-navbar-logout is-absoluted">Đăng xuất</div>
 					`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
@@ -162,7 +163,7 @@ function login() {
 					if(userArray[i].username == username.value && userArray[i].password == password.value) {
 						document.querySelector(".js-HandlerLR").innerHTML = `
 								<i class="header-user--icon far fa-user"></i>
-								${userArray[i].username}
+								<span id="js-Username">${userArray[i].username}</span>
 								<div class="header-navbar-logout is-absoluted">Đăng xuất</div>
 						`;
 						document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
