@@ -84,9 +84,7 @@
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
     /* admin */
-    .btn-Product {
-        width: 30% !important;
-    }
+
 }
 
 /* Mobile */
@@ -160,9 +158,6 @@
         font-size: 1.8rem !important;
     }
 
-    .btn-Product {
-        width: 60% !important;
-    }
 
     /* cart */
     .cart {
@@ -214,7 +209,5 @@
         margin-right: 8px;
     }
 
-    .btn-Product {
-        width: 40% !important;
-    }
+
 }
