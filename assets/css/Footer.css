@@ -1,5 +1,5 @@
 .footer{
-    --primary-color:red;
+    --primary-color:#ffb339;
     --bd-blue:var(--footer-color);  
     min-height: 100px;
     padding-top:16px;

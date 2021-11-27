@@ -124,12 +124,17 @@ function InnerProductions(name) {
         emptyArray += `
         <div class="col l-3 m-3 c-6">
             <div class="product-item">
-                <h2>id: ${emptyObject[i].id}</h2>
-                <h3>name: ${emptyObject[i].name}</h3>
-                <h4>price: ${emptyObject[i].price}</h4>
+                <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
+                <div class="product-item-main">
+                    <h3 class="product-item--name">${emptyObject[i].name}</h3>
+                    <div class="product-item--price_type">
+                        <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                        <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
+                    </div>
+                    <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\')">Mua Hàng</button>
+                </div>
             </div>
-        </div>
-        `
+        </div>`;
     }
     ShowProduct.innerHTML = emptyArray;
 
@@ -144,13 +149,19 @@ function InnerProductions(name) {
             for (var i = begin; i < end; i++) {
                 if (i == parseInt(emptyObject.length)) break;
                 emptyArray += `
-                    <div class="col l-3 m-3 c-6">
-                        <div class="product-item">
-                            <h2>id: ${emptyObject[i].id}</h2>
-                            <h3>name: ${emptyObject[i].name}</h3>
-                            <h4>price: ${emptyObject[i].price}</h4>
+                <div class="col l-3 m-3 c-6">
+                    <div class="product-item">
+                        <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
+                        <div class="product-item-main">
+                            <h3 class="product-item--name">${emptyObject[i].name}</h3>
+                            <div class="product-item--price_type">
+                                <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                                <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
+                            </div>
+                            <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\')">Mua Hàng</button>
                         </div>
                     </div>
+                </div>
                 `
             }
             ShowProduct.innerHTML = emptyArray;
@@ -191,10 +202,15 @@ function InnerAllProductions() {
         emptyArray += `
         <div class="col l-3 m-3 c-6">
             <div class="product-item">
-                <h2>id: ${productList[i].id}</h2>
-                <h3>name: ${productList[i].name}</h3>
-                <h4>price: ${productList[i].price}</h4>
-                <button type="button" class="js-product" style="padding: 20px; font-size: 1.4rem" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
+                <img class="product-item--img" src="./assets${productList[i].img}" alt="">
+                <div class="product-item-main">
+                    <h3 class="product-item--name">${productList[i].name}</h3>
+                    <div class="product-item--price_type">
+                        <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                        <span class="product-item--type">Loại: ${productList[i].type}</span>
+                    </div>
+                    <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
+                </div>
             </div>
         </div>
         `
@@ -212,14 +228,19 @@ function InnerAllProductions() {
             for (var i = begin; i < end; i++) {
                 if (i == parseInt(productList.length)) break;
                 emptyArray += `
-                    <div class="col l-3 m-3 c-6">
-                        <div class="product-item">
-                            <h2>id: ${productList[i].id}</h2>
-                            <h3>name: ${productList[i].name}</h3>
-                            <h4>price: ${productList[i].price}</h4>
-                            <button type="button" class="js-product" style="padding: 20px; font-size: 1.4rem" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
+                <div class="col l-3 m-3 c-6">
+                    <div class="product-item">
+                        <img class="product-item--img" src="./assets${productList[i].img}" alt="">
+                        <div class="product-item-main">
+                            <h3 class="product-item--name">${productList[i].name}</h3>
+                            <div class="product-item--price_type">
+                                <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                                <span class="product-item--type">Loại: ${productList[i].type}</span>
+                            </div>
+                            <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
                         </div>
                     </div>
+                </div>
                 `
             }
             ShowProduct.innerHTML = emptyArray;
