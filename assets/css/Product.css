@@ -120,6 +120,7 @@
     margin-bottom: 12px;
     height: 380px;
     padding: 8px 6px;
+    border-radius: 8px;
     box-shadow: 0 2px 6px 0 rgb(156 156 156);
 }
 
@@ -138,8 +139,7 @@
 
 .product-item--name {
     font-size: 16px;
-    line-height: 1.6rem;
-    margin: 8px 4px 6px;
+    margin: 8px 0 4px;
     overflow: hidden;
     display: block;
     display: -webkit-box;
@@ -157,7 +157,6 @@
 
 .product-item--price {
     font-size: 1.3rem;
-    margin-left: 10px;
 }
 
 .product-item--type {
@@ -186,7 +185,7 @@
 }
 
 #js-product-list {
-    padding: 10px 12px;
+    padding: 0 12px;
 }
 
 /* pagination  */

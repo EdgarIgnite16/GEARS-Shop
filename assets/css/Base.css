@@ -26,6 +26,7 @@ table, th, td{
     border-bottom:1px solid #ccc;
     font-size: 1.6rem;
     line-height: 1.6;
+    padding: 8px 4px;
 }
 
 table{
