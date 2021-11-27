@@ -149,7 +149,7 @@ function pushCarttoLocalStorage() {
             for (var j = 0; j < totalPayment.length; j++) {
                 temp += `
                 <tr>
-                    <td style="width: 5%">${j}</td>
+                    <td style="width: 5%">${j+1}</td>
                     <td style="width: 55%">${totalPayment[j].totalProduct.join(', ')}</td>
                     <td style="width: 20%">${totalPayment[j].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
                     <td id="js-cart-status" style="width: 20%">Đang xử lí</td>
