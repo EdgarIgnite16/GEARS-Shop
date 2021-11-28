@@ -56,6 +56,10 @@
     bottom: 0;
 }
 
+.container_Mycart-Temp > p {
+    padding: 8px 0;
+}
+
 .container__cart-Item {
     display: flex;
     align-items: center;

@@ -267,4 +267,31 @@
     .container_Mycart-Temp {
         font-size: 1rem;
     }
+
+    /* footer */
+    
+    .footer__heading,
+    .footer-item_link {
+        text-align: center;
+    }
+
+    .footer__heading {
+        font-size: 0.8rem !important;
+    }
+
+    .footer-item_link {
+        justify-content: center;
+    }
+
+    .footer-list {
+        margin-bottom: 12px;
+    }
+
+    .footer__download {
+        justify-content: center;
+    }
+
+    .footer__download-apps {
+        flex: none !important;
+    }
 }

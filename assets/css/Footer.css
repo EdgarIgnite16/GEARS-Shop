@@ -7,15 +7,9 @@
 }
 
 .footer__heading {
-    font-size: large;
+    font-size: 1rem;
     text-transform: uppercase;
     color: var(--text-color);
-}
-
-.grid__column-2-4 {
-    padding-left: 5px;
-    padding-right: 5px;
-    width: 20%;
 }
 
 .footer-list {
@@ -30,7 +24,7 @@
     padding: 2px 0;
     display: flex;
     align-items: center;
-    line-height: 35px;
+    line-height: 18px;
     transition: all 0.2s;
 }
 
