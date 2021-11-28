@@ -1,4 +1,4 @@
-# Project-Web-1
+# GEARS Shop
 Web Shop Chuyên cung cấp Keycap chất lượng
 
 # Project Team Member
