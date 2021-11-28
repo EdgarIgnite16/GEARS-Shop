@@ -175,10 +175,11 @@ function login() {
 					`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 					document.getElementById("LR-form").remove();
+					showListCart(); // hiển thị giỏ hàng
 					Handler_LogOutAdmin();
 					break;
-				} 
-				else { // nếu người đăng nhập là user 
+				} else { 
+					// nếu người đăng nhập là user 
 					// kiểm tra mật khẩu đăng nhập
 					if(userArray[i].username == username.value && userArray[i].password != password.value) {
 						alert('Sai mật khẩu !');
@@ -194,12 +195,50 @@ function login() {
 						document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 						document.getElementById("LR-form").remove(); // xoá form Login/Register sau khi đăng nhập thành công
 						Handler_LogOut(); // gọi lại hàm xử lý sự kiện logout
+						showListCart(); // hiển thị giỏ hàng
 						break;
 					}
 				}
 			}
 		}
 	});
+}
+
+function showListCart() {
+	var nameUser = document.getElementById("js-Username").innerText;
+	var showPayment = JSON.parse(localStorage.getItem('cartList'));
+	var temp = '';
+	for (var i = 0; i < showPayment.length; i++) {
+		if(showPayment[i].username == nameUser) {
+			if(showPayment[i].status == 'false') {
+				value = "Đang xử lí";
+				color = "red";
+			}else {
+				value = "Đã xác nhận";
+				color = "green";
+			}
+			temp += `
+			<tr>
+				<td style="width: 5%">${i+1}</td>
+				<td style="width: 55%">${showPayment[i].totalProduct.join(', ')}</td>
+				<td style="width: 20%">${showPayment[i].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
+				<td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
+			</tr>
+			`;
+		}
+	}
+
+	document.querySelector('.container__Mycart-listItem').innerHTML = `
+		<table id="listProduct">
+		<tr>
+			<th>STT</th>
+			<th>Sản phẩm</th>
+			<th>Tổng tiền</th>
+			<th>Trạng thái</th>
+		</tr>
+		${temp}
+		</table>
+	`;    
 }
 
 login();

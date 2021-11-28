@@ -170,33 +170,36 @@ function pushCarttoLocalStorage() {
                 totalMoney: totalMoney, 
                 status: status
             }
+            
+            // đẩy đơn hàng lên localStorage
+            var totalPayment = JSON.parse(localStorage.getItem('cartList'));
             totalPayment.push(tempTemp);
-
-            // đẩy đơn hàng lên
             localStorage.setItem('cartList', JSON.stringify(totalPayment));
 
             // lấy dữ liệu từ local để show lên màn hình
-            var showPayment2 = JSON.parse(localStorage.getItem('cartList'));
+            var showPayment = JSON.parse(localStorage.getItem('cartList'));
 
             var temp = '';
-            for (var j = 0; j < showPayment2.length; j++) {
-                if(showPayment2[i].status == 'false') {
-                    value = "Đang xử lí";
-                    color = "red";
-                }else {
-                    value = "Đã xác nhận";
-                    color = "green";
+            for (var i = 0; i < showPayment.length; i++) {
+                if(showPayment[i].username == nameUser) {
+                    if(showPayment[i].status == 'false') {
+                        value = "Đang xử lí";
+                        color = "red";
+                    }else {
+                        value = "Đã xác nhận";
+                        color = "green";
+                    }
+                    temp += `
+                    <tr>
+                        <td style="width: 5%">${i+1}</td>
+                        <td style="width: 55%">${showPayment[i].totalProduct.join(', ')}</td>
+                        <td style="width: 20%">${showPayment[i].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
+                        <td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
+                    </tr>
+                    `;
                 }
-                temp += `
-                <tr>
-                    <td style="width: 5%">${j+1}</td>
-                    <td style="width: 55%">${showPayment2[j].totalProduct.join(', ')}</td>
-                    <td style="width: 20%">${showPayment2[j].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
-                    <td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
-                </tr>
-                `;
             }
-
+        
             document.querySelector('.container__Mycart-listItem').innerHTML = `
                 <table id="listProduct">
                 <tr>
@@ -207,18 +210,13 @@ function pushCarttoLocalStorage() {
                 </tr>
                 ${temp}
                 </table>
-            `;
+            `;    
 
         }
     })
 }
 
-function showListCart() {
-
-}
-
 formPayment();
-
 
 // ----------------------------------------------------------------------------------------------------------
 // Toast Notify Form 
