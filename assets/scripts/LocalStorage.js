@@ -68,6 +68,15 @@ function createProducts() {
     }
 }
 
+// --------------------------------------------------------------------------- //
+// create Products Local Storage
+function createCartEmpty() {
+    if (localStorage.getItem('cart') === null) {
+        var CartEmpty = [];
+        localStorage.setItem('cart', JSON.stringify(CartEmpty));
+    }
+}
 
 createAccount();
 createProducts();
+createCartEmpty();
