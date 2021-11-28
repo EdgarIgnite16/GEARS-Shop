@@ -52,7 +52,7 @@
     color: #ffa310;
 }
 
-.container  {
+.container {
     margin-top: var(--heade-height);
     min-height: 1200px;
     padding-top: 40px;
@@ -264,4 +264,12 @@ th {
 .reg-btn__close:hover {
     cursor: pointer;
     opacity: 1;
+}
+
+@media (max-width: 739px) {
+    .AddProduct_Wrap,
+    .ChangeProduct_Wrap {
+        transform: scale(1);
+    }
+
 }

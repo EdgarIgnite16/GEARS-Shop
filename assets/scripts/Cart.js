@@ -119,6 +119,7 @@ function pushCarttoLocalStorage() {
         if(tempArray.length == 0) {
             alert('Giỏ hàng đang trống !\nVui lòng thêm sản phẩm vào giỏ hàng trước khi ấn nút Thanh toán');
         } else {
+            sendRequire(tempArray);
             localStorage.setItem('cart', JSON.stringify(tempArray)); // đẩy dữ liệu lên Local Storage
             //tempArray = []; // sau khi gửi data lên local Storage thì reset tempArray
             // gửi thông điệp cảm ơn
@@ -174,3 +175,30 @@ function pushCarttoLocalStorage() {
 }
 
 formPayment();
+
+// Toast Notify Form 
+function addCartSuccess() {
+    var check = document.querySelector(".js-HandlerLR").classList.contains("js-isLogin");
+    if(!check) return false;
+    else {
+        toast({
+            type: 'success',
+            title: 'Giỏ hàng',
+            message: 'Đã thêm sản phẩm vào giỏ hàng !',
+            duration: 1000
+        });
+    }
+}
+
+
+function sendRequire(arr) {
+    if(arr.length == 0) return false;
+    else {
+        toast({
+            type: 'success',
+            title: 'Đơn hàng',
+            message: 'Đã gửi yêu cầu đơn hàng cho người bán\nVui lòng đợi phản hồi từ người bán !',
+            duration: 3000
+        });
+    }
+}

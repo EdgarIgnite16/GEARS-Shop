@@ -43,6 +43,11 @@
         font-size: 2rem;
     }
 
+    .js-product:hover {
+        background-color: #ffa310;
+        color: white;
+    }
+
     .product-introduce--content-contents {
         padding: 4px 8px 0;
         font-size: 1.4rem;

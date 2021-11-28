@@ -127,3 +127,59 @@ AnimationHeader();
 OpenCloseForm();
 TabHeaderAnimation();
 OpenMenuMobile();
+
+
+
+// Toast Notify 
+//show toast function
+function toast({
+    title = "",
+    message = "",
+    type = "info",
+    duration = 1000
+}) {
+    const main = document.getElementById('toast')
+    var FixDelay = duration + 1000;
+
+    if (toast) {
+        const toast = document.createElement('div');
+        const icons = {
+            success: 'fas fa-check-circle',
+            warning: 'fas fa-angry',
+            error: 'fas fa-exclamation-triangle',
+        };
+
+        const icon = icons[type];
+        const delay = (duration / 1000).toFixed(2);
+
+        // auto remove toast
+        const autoRemoveId = setTimeout(function () {
+            main.removeChild(toast);
+        }, FixDelay);
+
+        // remove toast onclick
+        toast.onclick = function (events) {
+            if (events.target.closest('.toast_close')) {
+                main.removeChild(toast);
+                clearTimeout(autoRemoveId);
+            }
+        }
+
+        // show toast
+        toast.classList.add('toast', `toast_${type}`);
+        toast.style.animation = `slideInleft ease 0.5s , fadeOut linear 1s ${delay}s forwards`;
+        toast.innerHTML = `
+           <div class="toast_icon">
+               <i class="${icon}"></i>
+           </div>
+           <div class="toast_body">
+               <h3 class="toast_title">${title}</h3>
+               <p class="toast_msg">${message}</p>
+           </div>
+           <div class="toast_close">
+               <i class="fas fa-times"></i>
+           </div>
+       `;
+        main.appendChild(toast);
+    }
+}

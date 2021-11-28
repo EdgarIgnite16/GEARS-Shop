@@ -131,7 +131,7 @@ function InnerProductions(name) {
                         <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                         <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                     </div>
-                    <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\')">Mua Hàng</button>
+                    <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                 </div>
             </div>
         </div>`;
@@ -158,7 +158,7 @@ function InnerProductions(name) {
                                 <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                                 <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                             </div>
-                            <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\')">Mua Hàng</button>
+                            <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                         </div>
                     </div>
                 </div>
@@ -209,7 +209,7 @@ function InnerAllProductions() {
                         <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                         <span class="product-item--type">Loại: ${productList[i].type}</span>
                     </div>
-                    <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
+                    <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\'); addCartSuccess()">Mua Hàng</button>
                 </div>
             </div>
         </div>
@@ -237,7 +237,7 @@ function InnerAllProductions() {
                                 <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                                 <span class="product-item--type">Loại: ${productList[i].type}</span>
                             </div>
-                            <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\')">Mua Hàng</button>
+                            <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\'); addCartSuccess()">Mua Hàng</button>
                         </div>
                     </div>
                 </div>
