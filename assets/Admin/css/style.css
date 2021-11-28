@@ -1,5 +1,5 @@
 .grid.max-Width {
-    max-width: 1500px;
+    max-width: 1800px;
     margin: 0 auto;
 }
 
@@ -86,7 +86,8 @@
 
 /* table  */
 #userlist,
-#productlist {
+#productlist,
+#confirm-order {
     width: 100%;
     font-size: 1.6rem;
     text-align: center;
@@ -101,7 +102,8 @@ th {
 }
 
 .delete,
-.fix {
+.fix,
+.apply {
     width: 45px;
     height: 45px;
     border-radius: 8px;
@@ -113,7 +115,8 @@ th {
 }
 
 .delete:hover,
-.fix:hover {
+.fix:hover,
+.apply:hover {
     background-color: rgb(90, 90, 90);
     color: white;
 }

@@ -1,5 +1,7 @@
 const userArray = [];
 const ProductArray = [];
+const OrderArray = [];
+
 //----------------------show user----------------------------------
 function showUserList(){
 	if(localStorage.getItem('user') === null) return false;
@@ -24,7 +26,7 @@ function showUserList(){
 			</tr>
 		`;
 	}
-	document.querySelector('#userlist').innerHTML=tr;
+	document.querySelector('#userlist').innerHTML = tr;
 }
 
 // su dung: push them phan tu vao cuoi mang, pop: xoa phan tu cuoi mang, 
@@ -205,6 +207,67 @@ function changeProduct(ProductName){
 	}
 }
 
+
+
+function showOrder() {
+	var orderArray = JSON.parse(localStorage.getItem('cart'));
+	//lọc ra tên username từ orderArray
+	var listUserOrder = [];
+	
+	for(var i=0;i<orderArray.length;i++){
+		var temp = {
+			username: orderArray[i].username,
+			status: orderArray[i].status,
+		}
+		listUserOrder.push(temp);
+	}
+
+	// lọc ra những phần tử trùng nhau
+	listUserOrder = Array.from(new Set(listUserOrder.map(a => a.username))).map(id => {
+   		return listUserOrder.find(a => a.username === id)
+	});
+	// console.log(listUserOrder);
+
+	var tr = `
+	<tr>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Status</th>
+		<th>Confirm</th>
+	</tr>`;
+
+	for(var i=0;i<listUserOrder.length;i++){
+		var value = "";
+		var color = "";
+
+		if(listUserOrder[i].status == 'false') {
+			value = "Chưa xác nhận";
+			color = "red";
+		}else {
+			value = "Đã xác nhận";
+			color = "green";
+		}
+		
+		tr += `
+		<tr>
+			<td>${i+1}</td>
+			<td>${listUserOrder[i].username}</td>
+			<td id="statusOrder">
+				<span style="color: ${color}">${value}</span>
+			</td>
+			<td> 
+				<button class="apply">
+				<i class="fas fa-check-circle"></i>
+				</button>
+			</td>
+		</tr>
+		`;
+	}
+
+	// in lên màn hình
+	document.querySelector('#confirm-order').innerHTML = tr;
+}
+
 window.onload = () => {
 	// user
     showUserList();
@@ -216,4 +279,7 @@ window.onload = () => {
 
 	OpenCloseForm();
 	Add_Product();
+
+	// orther
+	showOrder();
 }

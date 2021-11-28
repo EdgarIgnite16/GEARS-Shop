@@ -24,7 +24,7 @@ function addCart(nameProduct) {
                     img: productList[i].img, 
                     price: productList[i].price,
                     username: nameUser,
-                    status: false,
+                    status: 'false',
                     idPayment: tempPayment
                 }
                 tempArray.push(tempUser);
@@ -139,31 +139,60 @@ function pushCarttoLocalStorage() {
                     Bạn có thể đặt thêm sản phẩm mà bạn yêu thích
                 </div>
             `;
+        
+            // trả về những sản phẩm đã mua
             var totalProduct = tempArray.map(item => {
                 return item.name;
             })
 
+            //trả về tổng tiền của sản phẩm
             var totalMoney = tempArray.reduce((total, item) => {
                 return total + item.price;
             }, 0)
 
-            tempArray = [];
+            // lấy tên người dùng mua sản phẩm
+            var nameUser = document.getElementById("js-Username").innerText;
             
+            // lấy ra trạng thái hiện tại của đơn hàng
+            var status = tempArray.map(item => {
+                return item.status;
+            });
+
+            // remove duplocate
+            status = status.filter((item, index) => {
+                return status.indexOf(item) === index;
+            });
+            
+            tempArray = [];
             var tempTemp = {
+                username: nameUser,
                 totalProduct: totalProduct, 
                 totalMoney: totalMoney, 
+                status: status
             }
-
             totalPayment.push(tempTemp);
-            
+
+            // đẩy đơn hàng lên
+            localStorage.setItem('cartList', JSON.stringify(totalPayment));
+
+            // lấy dữ liệu từ local để show lên màn hình
+            var showPayment2 = JSON.parse(localStorage.getItem('cartList'));
+
             var temp = '';
-            for (var j = 0; j < totalPayment.length; j++) {
+            for (var j = 0; j < showPayment2.length; j++) {
+                if(showPayment2[i].status == 'false') {
+                    value = "Đang xử lí";
+                    color = "red";
+                }else {
+                    value = "Đã xác nhận";
+                    color = "green";
+                }
                 temp += `
                 <tr>
                     <td style="width: 5%">${j+1}</td>
-                    <td style="width: 55%">${totalPayment[j].totalProduct.join(', ')}</td>
-                    <td style="width: 20%">${totalPayment[j].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
-                    <td id="js-cart-status" style="width: 20%">Đang xử lí</td>
+                    <td style="width: 55%">${showPayment2[j].totalProduct.join(', ')}</td>
+                    <td style="width: 20%">${showPayment2[j].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
+                    <td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
                 </tr>
                 `;
             }
@@ -184,8 +213,14 @@ function pushCarttoLocalStorage() {
     })
 }
 
+function showListCart() {
+
+}
+
 formPayment();
 
+
+// ----------------------------------------------------------------------------------------------------------
 // Toast Notify Form 
 function addCartSuccess() {
     var check = document.querySelector(".js-HandlerLR").classList.contains("js-isLogin");
@@ -199,7 +234,6 @@ function addCartSuccess() {
         });
     }
 }
-
 
 function sendRequire(arr) {
     if(arr.length == 0) return false;
