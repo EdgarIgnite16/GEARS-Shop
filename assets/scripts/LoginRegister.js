@@ -82,6 +82,31 @@ function Handler_LogOut() {
 	var logout = document.querySelector(".header-navbar-logout");
 	var header = document.querySelector(".header");
 	var container = document.querySelector(".container");
+
+	isLogin.addEventListener("click", () => {
+		logout.classList.add('is-Logout');
+		event.stopPropagation();
+	})
+	
+	logout.onclick = () => {
+		window.location.reload(); // sau khi ấn nút thoát thì load lại trang
+	}
+
+	// click ra ngoài form logout thì ẩn button logout
+	header.addEventListener("click", () =>{
+		logout.classList.remove('is-Logout');
+	})
+
+	container.addEventListener("click", () =>{
+		logout.classList.remove('is-Logout'); //
+	})
+}
+
+function Handler_LogOutAdmin() {    
+	var isLogin = document.querySelector(".js-isLogin");
+	var logout = document.querySelector(".header-navbar-logout");
+	var header = document.querySelector(".header");
+	var container = document.querySelector(".container");
 	var temp = document.querySelector(".js-isLogin > a");
 
 	isLogin.addEventListener("click", () => {
@@ -150,7 +175,7 @@ function login() {
 					`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 					document.getElementById("LR-form").remove();
-					Handler_LogOut();
+					Handler_LogOutAdmin();
 					break;
 				} 
 				else { // nếu người đăng nhập là user 

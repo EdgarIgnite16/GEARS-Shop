@@ -144,7 +144,7 @@ function Add_Product() {
             id: maxID+1,
             type: valueType,
             name: itemName.value,
-            img: '../img/UpdatingProduct.png',
+            img: '/img/UpdatingProduct.png',
             price: Number(itemPrice.value), // đổi chuỗi thành số
         }
 
@@ -193,7 +193,7 @@ function changeProduct(ProductName){
 						productArray[i].name = itemName.value;
 						productArray[i].price = Number(itemPrice.value);
 						productArray[i].type = valueType;
-						productArray[i].img = '../img/UpdatingProduct.png';
+						productArray[i].img = '/img/UpdatingProduct.png';
 					}
 				}
 
