@@ -7,7 +7,7 @@
 }
 
 .footer__heading {
-    font-size: 1rem;
+    font-size: 14px;
     text-transform: uppercase;
     color: var(--text-color);
 }
@@ -17,14 +17,16 @@
     list-style: none;
 }
 
+
 .footer-item_link {
     text-decoration: none;
-    font-size: small;
     color: #737373;
     padding: 2px 0;
     display: flex;
     align-items: center;
     line-height: 18px;
+    font-size: 1rem;
+    font-weight: 500;
     transition: all 0.2s;
 }
 
@@ -33,9 +35,9 @@
     color: var(--primary-color);
 }
 
-.footer-item__icon {
+.footer-item_icon {
     font-size: 1.6rem;
-    margin-right: -1px 8px 0 0;
+    margin-right: 8px;
 }
 
 .footer__download {

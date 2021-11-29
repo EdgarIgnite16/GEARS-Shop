@@ -73,15 +73,15 @@
 }
 
 .mobile-category__item:nth-of-type(3n) .mobile-category__link {
-    background-color: #4fffd3;
+    background-color: #fffe8d;
 }
 
 .mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
-    background-color: #ffc9a5;
+    background-color: #ffbc70;
 }
 
 .mobile-category__item:nth-of-type(3n + 2) .mobile-category__link {
-    background-color: #fff993;
+    background-color: #ffd54b;
 }
 
 .mobile-category__link {
