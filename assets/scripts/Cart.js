@@ -3,7 +3,6 @@ var totalPayment = [];
 var productList = JSON.parse(localStorage.getItem('product'));
 var userList = JSON.parse(localStorage.getItem('user'));
 
-var tempPayment = 0;
 
 function addCart(nameProduct) {
     // kiểm tra người dùng có đăng nhập hay chưa
@@ -123,13 +122,6 @@ function pushCarttoLocalStorage() {
         } else {
             sendRequire(tempArray);
 
-            // trộn dữ liệu lại 
-            // ví dụ user mua nhiều đơn hàng
-            var PaymentArr = JSON.parse(localStorage.getItem('cart'));
-            Array.prototype.push.apply(PaymentArr, tempArray);
-
-            localStorage.setItem('cart', JSON.stringify(PaymentArr)); // đẩy dữ liệu lên Local Storage
-
             // gửi thông điệp cảm ơn
             document.querySelector('.container__cart-listItem').innerHTML = `
                 <div class="container_Mycart-Temp">
@@ -167,10 +159,8 @@ function pushCarttoLocalStorage() {
                 totalProduct: totalProduct,
                 totalMoney: totalMoney,
                 status: status,
-                idPayment: tempPayment
             }
 
-            // tempPayment++;
             // đẩy đơn hàng lên localStorage
             var totalPayment = JSON.parse(localStorage.getItem('cartList'));
             totalPayment.push(tempTemp);

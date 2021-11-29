@@ -69,14 +69,7 @@ function createProducts() {
 }
 
 // --------------------------------------------------------------------------- //
-// create Products Local Storage
-function createCartEmpty() {
-    if (localStorage.getItem('cart') === null) {
-        var CartEmpty = [];
-        localStorage.setItem('cart', JSON.stringify(CartEmpty));
-    }
-}
-
+// create cartList Local Storage
 function createCartListEmpty() {
     if (localStorage.getItem('cartList') === null) {
         var CartEmpty = [];
@@ -86,5 +79,4 @@ function createCartListEmpty() {
 
 createAccount();
 createProducts();
-createCartEmpty();
 createCartListEmpty();

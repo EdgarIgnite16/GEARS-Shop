@@ -210,7 +210,7 @@ function changeProduct(ProductName){
 
 
 function showOrder() {
-	var orderArray = JSON.parse(localStorage.getItem('cart'));
+	var orderArray = JSON.parse(localStorage.getItem('cartList'));
 	//lọc ra tên username từ orderArray
 	var listUserOrder = [];
 	
@@ -221,13 +221,8 @@ function showOrder() {
 		}
 		listUserOrder.push(temp);
 	}
-
-	// lọc ra những phần tử trùng nhau
-	listUserOrder = Array.from(new Set(listUserOrder.map(a => a.username))).map(id => {
-   		return listUserOrder.find(a => a.username === id)
-	});
-	// console.log(listUserOrder);
-
+	
+	// hiện ra danh sách user mua hàng
 	var tr = `
 	<tr>
 		<th>ID</th>
