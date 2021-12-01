@@ -7,9 +7,10 @@
 }
 
 .category {
-    background-color: #7b7b7b33;
     padding: 6px;
     border-radius: 8px;
+    background-color: #7b7b7b33;
+    box-shadow: 0 2px 4px 0 rgb(156 156 156);
 }
 
 .category-header {
@@ -116,7 +117,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
-    background-color: #7b7b7b33;
+    background-image: linear-gradient(360deg, #ffdebc 0%, #ffffff 45%);
     margin-bottom: 12px;
     height: 380px;
     padding: 8px 6px;
