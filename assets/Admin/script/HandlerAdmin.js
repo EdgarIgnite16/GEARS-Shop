@@ -235,17 +235,17 @@ function showOrder() {
 		var value = "";
 		var color = "";
 
-		if(listUserOrder[i].status == 'false') {
-			value = "Chưa xác nhận";
-			color = "red";
-		}else {
+		if(listUserOrder[i].status) {
 			value = "Đã xác nhận";
 			color = "green";
+		}else {
+			value = "Chưa xác nhận";
+			color = "red";
 		}
 		
 		tr += `
 		<tr>
-			<td>${i+1}</td>
+			<td>${i}</td>
 			<td>${listUserOrder[i].username}</td>
 			<td id="statusOrder">
 				<span style="color: ${color}">${value}</span>

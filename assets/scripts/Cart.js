@@ -1,9 +1,7 @@
-var tempArray = [];
-var totalPayment = [];
 var productList = JSON.parse(localStorage.getItem('product'));
 var userList = JSON.parse(localStorage.getItem('user'));
 
-
+var tempArray = [];
 function addCart(nameProduct) {
     // kiểm tra người dùng có đăng nhập hay chưa
     var check = document.querySelector(".js-HandlerLR").classList.contains("js-isLogin");
@@ -15,17 +13,18 @@ function addCart(nameProduct) {
             if (productList[i].name == nameProduct) {
                 // lấy username mua sản phẩm
                 var nameUser = document.getElementById("js-Username").innerText;
+    
                 // đẩy danh sách sản phẩm của người dùng đã mua vào một Obj riêng
-                var tempUser = {
+                var tempCart = {
                     id: productList[i].id,
                     type: productList[i].type,
                     name: productList[i].name,
                     img: productList[i].img,
                     price: productList[i].price,
                     username: nameUser,
-                    status: 'false',
+                    status: false,
                 }
-                tempArray.push(tempUser);
+                tempArray.push(tempCart);
 
 
                 var temp = '';
@@ -120,8 +119,6 @@ function pushCarttoLocalStorage() {
         if (tempArray.length == 0) {
             alert('Giỏ hàng đang trống !\nVui lòng thêm sản phẩm vào giỏ hàng trước khi ấn nút Thanh toán');
         } else {
-            sendRequire(tempArray);
-
             // gửi thông điệp cảm ơn
             document.querySelector('.container__cart-listItem').innerHTML = `
                 <div class="container_Mycart-Temp">
@@ -129,6 +126,9 @@ function pushCarttoLocalStorage() {
                     <p>Bạn có thể mua thêm sản phẩm mà bạn yêu thích</p>
                 </div>
             `;
+
+            // gửi Toast Message yêu cầu đặt hàng cho admin
+            sendRequire(tempArray);
 
             // trả về những sản phẩm đã mua
             var totalProduct = tempArray.map(item => {
@@ -148,8 +148,8 @@ function pushCarttoLocalStorage() {
                 return item.status;
             });
 
-            // remove duplocate
-            status = status.filter((item, index) => {
+            // loại bỏ những giá trị trùng trong mảng
+            status = status.find((item, index) => {
                 return status.indexOf(item) === index;
             });
 
@@ -168,16 +168,15 @@ function pushCarttoLocalStorage() {
 
             // lấy dữ liệu từ local để show lên màn hình
             var showPayment = JSON.parse(localStorage.getItem('cartList'));
-
             var temp = '';
             for (var i = 0; i < showPayment.length; i++) {
                 if (showPayment[i].username == nameUser) {
-                    if (showPayment[i].status == 'false') {
-                        value = "Đang xử lí";
-                        color = "red";
-                    } else {
+                    if (showPayment[i].status) {
                         value = "Đã xác nhận";
                         color = "green";
+                    } else {
+                        value = "Đang xử lí";
+                        color = "red";
                     }
                     temp += `
                     <tr>
@@ -206,6 +205,8 @@ function pushCarttoLocalStorage() {
     })
 }
 
+
+// mặc định khi vào trang chủ thì hiển thị giỏ hàng thì sẽ hiển thị ra giỏ hàng trống
 formPayment();
 
 // ----------------------------------------------------------------------------------------------------------

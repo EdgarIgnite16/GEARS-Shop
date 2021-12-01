@@ -210,12 +210,12 @@ function showListCart() {
 	var temp = '';
 	for (var i = 0; i < showPayment.length; i++) {
 		if(showPayment[i].username == nameUser) {
-			if(showPayment[i].status == 'false') {
-				value = "Đang xử lí";
-				color = "red";
-			}else {
+			if(showPayment[i].status) {
 				value = "Đã xác nhận";
 				color = "green";
+			}else {
+				value = "Đang xử lí";
+				color = "red";
 			}
 			temp += `
 			<tr>
