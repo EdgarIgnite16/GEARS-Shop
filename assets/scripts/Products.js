@@ -122,7 +122,7 @@ function InnerProductions(name) {
     // in ra trang đầu tiên khi ấn vào danh mục
     for (var i = 0; i < numItemPage; i++) {
         emptyArray += `
-        <div class="col l-3 m-3 c-6">
+        <div class="col l-3 m-4 c-6">
             <div class="product-item">
                 <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
                 <div class="product-item-main">
@@ -149,7 +149,7 @@ function InnerProductions(name) {
             for (var i = begin; i < end; i++) {
                 if (i == parseInt(emptyObject.length)) break;
                 emptyArray += `
-                <div class="col l-3 m-3 c-6">
+                <div class="col l-3 m-4 c-6">
                     <div class="product-item">
                         <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
                         <div class="product-item-main">
@@ -200,7 +200,7 @@ function InnerAllProductions() {
     // in ra trang đầu tiên khi ấn vào danh mục
     for (var i = 0; i < numItemPage; i++) {
         emptyArray += `
-        <div class="col l-3 m-3 c-6">
+        <div class="col l-3 m-4 c-6">
             <div class="product-item">
                 <img class="product-item--img" src="./assets${productList[i].img}" alt="">
                 <div class="product-item-main">
@@ -228,7 +228,7 @@ function InnerAllProductions() {
             for (var i = begin; i < end; i++) {
                 if (i == parseInt(productList.length)) break;
                 emptyArray += `
-                <div class="col l-3 m-3 c-6">
+                <div class="col l-3 m-4 c-6">
                     <div class="product-item">
                         <img class="product-item--img" src="./assets${productList[i].img}" alt="">
                         <div class="product-item-main">

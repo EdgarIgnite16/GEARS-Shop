@@ -57,6 +57,7 @@
     /* Category Mobie and Tablet */
     .mobile-category {
         display: block;
+        padding: 0 12px;
     }
 
     /* Container */
@@ -243,7 +244,7 @@
 
     .product-item {
         padding: 8px 4px;
-        height: 350px;
+        height: 380px;
     }
 
     .product-item-main {
