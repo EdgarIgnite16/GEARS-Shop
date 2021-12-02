@@ -229,8 +229,7 @@ function pushCarttoLocalStorage() {
                         <th>Trạng thái</th>
                     </tr>
                     ${temp}
-                </table>
-                `;
+                </table>`;
             }
         }
     })
