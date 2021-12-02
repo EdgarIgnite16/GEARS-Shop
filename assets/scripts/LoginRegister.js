@@ -228,7 +228,7 @@ function showListCart() {
 			temp += `
 			<tr>
 				<td style="width: 5%">${i+1}</td>
-				<td style="width: 55%">${showPayment[i].totalProduct.join(', ')}</td>
+				<td style="width: 55%">${showPayment[i].totalProduct.join('</br>')}</td>
 				<td style="width: 20%">${showPayment[i].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
 				<td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
 			</tr>

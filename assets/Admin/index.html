@@ -36,13 +36,26 @@
         <div class="container">
             <div class="grid max-Width">
                 <div class="row sm-gutter">
-                    <div class="col l-8">
+                    
+                    <div class="col l-8 m-12 c-12">
                         <div class="container-main">
                             <div class="container-title">Manager Account</div>
                             <div class="container-table" style="max-height: 35vh;">
                                 <table id="userlist"></table>
                             </div>
                         </div>
+                    </div>
+                    
+                    <div class="col l-4 m-12 c-12">
+                        <div class="container-main">
+                            <div class="container-title">Manager Order</div>
+                            <div class="container-table" style="max-height: 35vh;">
+                                <table id="confirm-order"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col l-8 m-12 c-12">
                         <div class="container-main">
                             <div class="container-title">Manager Product</div>
                             <div class="container-table" style="max-height: 80vh;">
@@ -53,14 +66,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col l-4 ">
-                        <div class="container-main">
-                            <div class="container-title">Manager Order</div>
-                            <div class="container-table" style="max-height: 35vh;">
-                                <table id="confirm-order"></table>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -119,6 +125,25 @@
             </div>
         </div>
         
+
+        <!-- form xác nhận thông tin sản phẩm -->
+        <div class="ConfirmListCart_Wrap">
+            <div class="ConfirmListCart_main">
+                <div class="ConfirmListCart_header">Xác nhận sản phẩm</div>
+                <div class="reg-btn__close js-close-btn3">
+                    <i class="fas fa-times"></i>
+                </div>
+                <!-- in ra sản phẩm của người mua ở đây -->
+                <div class="container-table" style="min-height: 35vh;">
+                    <table id="product-list"></table>
+                </div>
+                <div id="product-list--price"></div>
+                <div class="flex-wrap">
+                    <button id="unconfirm" type="button" class="confirm-btn" onclick="unConfirmOrder()">Huỷ đơn hàng</button>
+                    <button id="confirm" type="button" class="confirm-btn" onclick="ConfirmOrder()">Chấp nhận đơn hàng</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

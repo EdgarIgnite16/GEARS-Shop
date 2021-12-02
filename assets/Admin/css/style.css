@@ -87,7 +87,8 @@
 /* table  */
 #userlist,
 #productlist,
-#confirm-order {
+#confirm-order,
+#product-list {
     width: 100%;
     font-size: 1.6rem;
     text-align: center;
@@ -95,6 +96,10 @@
     padding: 16px 0;
     border-radius: 12px;
     font-weight: 500;
+}
+
+#product-list td {
+    padding: 12px 32px;
 }
 
 th {
@@ -151,7 +156,8 @@ th {
 }
 
 .AddProduct_Wrap,
-.ChangeProduct_Wrap {
+.ChangeProduct_Wrap,
+.ConfirmListCart_Wrap {
     position: fixed;
     display: none;
     justify-content: center;
@@ -178,7 +184,8 @@ th {
 }
 
 .Add_Product_main,
-.Change_Product_main {
+.Change_Product_main,
+.ConfirmListCart_main {
     position: relative;
     overflow: hidden;
     background-color: white;
@@ -191,7 +198,8 @@ th {
 }
 
 .Add_Product_header,
-.Change_Product_header {
+.Change_Product_header,
+.ConfirmListCart_header {
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
@@ -210,6 +218,15 @@ th {
     align-content: center;
     justify-content: center;
     margin-top: 12px;
+}
+
+.ConfirmListCart_Wrap {
+    transform: scale(1) !important;
+}
+
+.ConfirmListCart_main {
+    padding: 30px 32px !important;
+
 }
 
 .input-field {
@@ -268,6 +285,40 @@ th {
     cursor: pointer;
     opacity: 1;
 }
+
+.flex-wrap {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.confirm-btn {
+    background-color: #ffa310;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 3rem;
+    color: white;
+    margin-left: 8px;
+    padding: 0 8px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px #8f8f8f;
+    transition: all 0.2s;
+    border: none;
+}
+
+.confirm-btn:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #ffa310;
+}
+
+#product-list--price {
+    margin-top: 12px;
+    padding-left: 12px;
+    font-size: 1.6rem;
+}
+
 
 @media (max-width: 739px) {
     .AddProduct_Wrap,
