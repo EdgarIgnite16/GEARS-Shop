@@ -161,10 +161,7 @@ function pushCarttoLocalStorage() {
                 var totalMoney = tempArray.reduce((total, item) => {
                     return total + item.price;
                 }, 0)
-    
-                // lấy tên người dùng mua sản phẩm
-                var nameUser = document.getElementById("js-Username").innerText;
-    
+        
                 // lấy ra trạng thái hiện tại của đơn hàng
                 var status = tempArray.map(item => {
                     return item.status;
@@ -174,6 +171,9 @@ function pushCarttoLocalStorage() {
                 status = status.find((item, index) => {
                     return status.indexOf(item) === index;
                 });
+
+                // lấy tên người dùng mua sản phẩm
+                var nameUser = document.getElementById("js-Username").innerText;
     
                 tempArray = [];
                 var tempTemp = {
@@ -234,10 +234,6 @@ function pushCarttoLocalStorage() {
         }
     })
 }
-
-
-// mặc định khi vào trang chủ thì hiển thị giỏ hàng thì sẽ hiển thị ra giỏ hàng trống
-formPayment();
 
 // ----------------------------------------------------------------------------------------------------------
 // Toast Notify Form 

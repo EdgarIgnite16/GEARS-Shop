@@ -175,6 +175,7 @@ function login() {
 					`;
 					document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 					document.getElementById("LR-form").remove();
+					formPayment()// hiển thị form đặt hàng
 					showListCart(); // hiển thị giỏ hàng
 					Handler_LogOutAdmin();
 					break;
@@ -195,6 +196,7 @@ function login() {
 						document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 						document.getElementById("LR-form").remove(); // xoá form Login/Register sau khi đăng nhập thành công
 						Handler_LogOut(); // gọi lại hàm xử lý sự kiện logout
+						formPayment()// hiển thị form đặt hàng
 						showListCart(); // hiển thị giỏ hàng
 						break;
 					}
@@ -204,6 +206,8 @@ function login() {
 	});
 }
 
+// -----------------------------------------------------------------
+// form sẽ hiện ra sau khi đăng nhập thành công
 function showListCart() {
 	var nameUser = document.getElementById("js-Username").innerText;
 	var showPayment = JSON.parse(localStorage.getItem('cartList'));
@@ -249,5 +253,19 @@ function showListCart() {
 	`;    
 }
 
+
+function formPayment() {
+    document.querySelector('.cartPayment').innerHTML = `
+    <div class="container__cart-title">Đơn Hàng hiện tại</div>
+    <div class="container__Mycart-wrap">
+        <ul class="container__Mycart-listItem">
+            <div class="container_Mycart-Temp">
+                Hiện tại bạn chưa đặt đơn hàng nào cả :(
+            </div>
+        </ul>
+    </div>`;
+}
+
+// -----------------------------------------------------------------
 login();
 register();
