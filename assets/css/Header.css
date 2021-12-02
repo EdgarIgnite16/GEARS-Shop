@@ -82,7 +82,7 @@
     width: 0;
     height: 6px;
     border-radius: 24px;
-    background-color: #ffb339;
+    background-color: var(--primary-color);
     transition: all 0.2s ease;
 }
 
