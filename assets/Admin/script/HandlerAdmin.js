@@ -211,16 +211,6 @@ function changeProduct(ProductName){
 
 function showOrder() {
 	var orderArray = JSON.parse(localStorage.getItem('cartList'));
-	//lọc ra tên username từ orderArray
-	var listUserOrder = [];
-	
-	for(var i=0;i<orderArray.length;i++){
-		var temp = {
-			username: orderArray[i].username,
-			status: orderArray[i].status,
-		}
-		listUserOrder.push(temp);
-	}
 	
 	// hiện ra danh sách user mua hàng
 	var tr = `
@@ -231,22 +221,29 @@ function showOrder() {
 		<th>Confirm</th>
 	</tr>`;
 
-	for(var i=0;i<listUserOrder.length;i++){
+	for(var i=0;i<orderArray.length;i++){
 		var value = "";
 		var color = "";
 
-		if(listUserOrder[i].status) {
+		if(orderArray[i].status == 'confirmed') {
 			value = "Đã xác nhận";
 			color = "green";
-		}else {
-			value = "Chưa xác nhận";
+		} 
+
+		if(orderArray[i].status == 'pending') {
+			value = "Đang xử lí";
+			color = "orange";
+		}
+
+		if(orderArray[i].status == 'unconfirmed') {
+			value = "Đã huỷ";
 			color = "red";
 		}
 		
 		tr += `
 		<tr>
 			<td>${i}</td>
-			<td>${listUserOrder[i].username}</td>
+			<td>${orderArray[i].username}</td>
 			<td id="statusOrder">
 				<span style="color: ${color}">${value}</span>
 			</td>
