@@ -27,7 +27,7 @@
             <div class="grid wide">
                 <div class="header-content">
                     <div class="header-logo">
-                        GE∆RS
+                        GE∆RS - Administrator
                     </div>
                 </div>
             </div>
@@ -36,33 +36,34 @@
         <div class="container">
             <div class="grid max-Width">
                 <div class="row sm-gutter">
-                    
+
                     <div class="col l-8 m-12 c-12">
                         <div class="container-main">
-                            <div class="container-title">Manager Account</div>
+                            <div class="container-title">Account</div>
                             <div class="container-table" style="max-height: 35vh;">
                                 <table id="userlist"></table>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="col l-4 m-12 c-12">
                         <div class="container-main">
-                            <div class="container-title">Manager Order</div>
+                            <div class="container-title">Order</div>
                             <div class="container-table" style="max-height: 35vh;">
                                 <table id="confirm-order"></table>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col l-8 m-12 c-12">
+                    <div class="col l-12 m-12 c-12">
                         <div class="container-main">
-                            <div class="container-title">Manager Product</div>
+                            <div class="container-title">Product</div>
                             <div class="container-table" style="max-height: 80vh;">
                                 <table id="productlist"></table>
                             </div>
-                            <div class="btn_Admin js-HandlerAP">
-                                <div class="btn-Product">Thêm sản phẩm</div>
+                            <div class="btn_Admin">
+                                <div class="btn-Product js-addTypeProduct">Thêm thể loại</div>
+                                <div class="btn-Product js-addProduct">Thêm sản phẩm</div>
                             </div>
                         </div>
                     </div>
@@ -78,19 +79,35 @@
                 <div class="reg-btn__close js-close-btn">
                     <i class="fas fa-times"></i>
                 </div>
-    
+
                 <form id="addProduct" class="AP-container--item" method="get">
                     <div class="AP-body">
                         <div class="add-group">
-                            <input id="js-item-name" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
-                            <input id="js-item-price" type="number" class="input-field" placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
-                            <select id="AddOption" class="input-field" name="option">
-                                <option value="Artisan">Artisan</option>
-                                <option value="Anime">Anime</option>
-                                <option value="Pudding">Pudding</option>
-                                <option value="Other">Other</option>
-                            </select>
+                            <input id="js-item-name" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm"
+                                required>
+                            <input id="js-item-price" type="number" class="input-field"
+                                placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
+                            <select id="AddOption" class="input-field js-addOption" name="option"></select>
                             <input type="file" class="input-field" required>
+                            <button id="js-btn-product" type="button" class="add-btn">Thêm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- form thêm loại sản phẩm  -->
+        <div class="AddTypeProduct_Wrap">
+            <div class="AddType_Product_main">
+                <div class="AddType_Product_header">Thêm loại sản phẩm</div>
+                <div class="reg-btn__close js-close-btn4">
+                    <i class="fas fa-times"></i>
+                </div>
+
+                <form id="addTypeProduct" class="AP-container--item" method="get">
+                    <div class="AP-body">
+                        <div class="add-group">
+                            <input id="js-item-name" type="text" class="input-field" placeholder="Nhập vào loại sản phẩm"required>
                             <button id="js-btn-product" type="button" class="add-btn">Thêm</button>
                         </div>
                     </div>
@@ -105,18 +122,13 @@
                 <div class="reg-btn__close js-close-btn2">
                     <i class="fas fa-times"></i>
                 </div>
-    
+
                 <form id="changeProduct" class="change-container--item" method="get">
                     <div class="CP-body">
                         <div class="change-group">
                             <input id="js-item-nameC" type="text" class="input-field" placeholder="Nhập vào tên sản phẩm" required>
                             <input id="js-item-priceC" type="number" class="input-field" placeholder="Nhập vào giá sản phẩm (VNĐ)" required>
-                            <select id="AddOptionC" class="input-field" name="option">
-                                <option value="Artisan">Artisan</option>
-                                <option value="Anime">Anime</option>
-                                <option value="Pudding">Pudding</option>
-                                <option value="Other">Other</option>
-                            </select>
+                            <select id="AddOptionC" class="input-field" name="option"></select>
                             <input type="file" class="input-field" required>
                             <button id="js-btn-productC" type="button" class="change-btn">Thay đổi</button>
                         </div>
@@ -124,7 +136,7 @@
                 </form>
             </div>
         </div>
-        
+
 
         <!-- form xác nhận thông tin sản phẩm -->
         <div class="ConfirmListCart_Wrap">
@@ -139,12 +151,15 @@
                 </div>
                 <div id="product-list--price"></div>
                 <div class="flex-wrap">
-                    <button id="unconfirm" type="button" class="confirm-btn" onclick="unConfirmOrder()">Huỷ đơn hàng</button>
-                    <button id="confirm" type="button" class="confirm-btn" onclick="ConfirmOrder()">Chấp nhận đơn hàng</button>
+                    <button id="unconfirm" type="button" class="confirm-btn" onclick="unConfirmOrder()">Huỷ đơn
+                        hàng</button>
+                    <button id="confirm" type="button" class="confirm-btn" onclick="ConfirmOrder()">Chấp nhận đơn
+                        hàng</button>
                 </div>
             </div>
         </div>
     </div>
 
 </body>
+
 </html>

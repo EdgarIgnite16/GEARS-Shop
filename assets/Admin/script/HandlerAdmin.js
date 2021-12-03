@@ -52,20 +52,27 @@ function deleteuser(usernamedelete) {
 // ---------------------------------------------------------------------------- //
 // xử lí công việc đóng form Add Product
 function OpenCloseForm() {
-	var btnAdd = document.querySelector('.js-HandlerAP');
+	var btnAdd = document.querySelector('.js-addProduct');
+	var btnAddType = document.querySelector('.js-addTypeProduct');
 	var AP_wrap = document.querySelector('.AddProduct_Wrap');
+	var ATP_wrap = document.querySelector('.AddTypeProduct_Wrap');
 	var closeBtn = document.querySelector('.js-close-btn');
 	var closeBtn2 = document.querySelector('.js-close-btn2');
 	var closeBtn3 = document.querySelector('.js-close-btn3');
+	var closeBtn4 = document.querySelector('.js-close-btn4');
 
+	// event mở form
 	btnAdd.addEventListener('click', () => {
 		AP_wrap.classList.add('isOpenAP');
+		RenderOptionType();
 	});
 
-	btnAdd.addEventListener('click', () => {
-		AP_wrap.classList.add('isOpenAP');
-	});
+	btnAddType.addEventListener('click', () => {
+		ATP_wrap.classList.add('isOpenAP');
+	})
 
+
+	// event đóng form
 	closeBtn.addEventListener('click', () => {
 		AP_wrap.classList.remove('isOpenAP');
 	});
@@ -76,6 +83,10 @@ function OpenCloseForm() {
 
 	closeBtn3.addEventListener('click', () => {
 		document.querySelector(".ConfirmListCart_Wrap").classList.remove('isOpenAP')
+	})
+
+	closeBtn4.addEventListener('click', () => {
+		document.querySelector(".AddTypeProduct_Wrap").classList.remove('isOpenAP')
 	})
 }
 
@@ -101,7 +112,7 @@ function showProductList() {
 				<td>${ProductArray[i].type}</td>
 				<td>${ProductArray[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
 				<td><img src="..${ProductArray[i].img}" class="container-img"></td>
-				<td><button id="js-fix" class="fix" onClick="changeProduct(\'${ProductArray[i].name}\')"><i class="fas fa-wrench"></i></button></td>
+				<td><button id="js-fix" class="fix" onClick="changeProduct(\'${ProductArray[i].name}\'); RenderOptionTypeC();"><i class="fas fa-wrench"></i></button></td>
 				<td><button class="delete" onClick="deleteProduct(\'${ProductArray[i].name}\')"><i class="fas fa-times-circle"></i></button></td>
 			</tr>
 		`;
@@ -120,6 +131,31 @@ function deleteProduct(ProductName) {
 		}
 	}
 	localStorage.setItem('product', JSON.stringify(ProductArray));
+}
+
+// hàm in danh sách thể loại lên Form
+function RenderOptionType() {
+	// in ra danh sách loại sản phẩm
+	var typesArray = JSON.parse(localStorage.getItem('types'))
+	var tempArr = '';
+	for(var i = 0; i<typesArray.length;i++) {
+		if(typesArray[i].id != 'All') {
+			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
+		}
+	}
+	document.querySelector("#AddOption").innerHTML = tempArr;
+}
+
+function RenderOptionTypeC() {
+	// in ra danh sách loại sản phẩm
+	var typesArray = JSON.parse(localStorage.getItem('types'))
+	var tempArr = '';
+	for(var i = 0; i<typesArray.length;i++) {
+		if(typesArray[i].id != 'All') {
+			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
+		}
+	}
+	document.querySelector("#AddOptionC").innerHTML = tempArr;
 }
 
 function Add_Product() {
@@ -141,6 +177,7 @@ function Add_Product() {
 			itemPrice.focus();
 			return false;
 		}
+		
 		// tìm thể loại của sản phẩm
 		var OptionSelect = document.querySelector("#AddOption");
 		var valueType = OptionSelect.options[OptionSelect.selectedIndex].text;
@@ -172,7 +209,7 @@ function changeProduct(ProductName) {
 	for (var i = 0; i < ProductArray.length; i++) {
 		if (ProductArray[i].name == ProductName) {
 			document.querySelector(".ChangeProduct_Wrap").classList.add("isOpenAP");
-
+			
 			document.querySelector("#js-btn-productC").addEventListener('click', () => {
 				var productArray = JSON.parse(localStorage.getItem('product'));
 				var itemName = document.getElementById("js-item-nameC");
@@ -192,7 +229,7 @@ function changeProduct(ProductName) {
 				}
 
 				// tìm thể loại của sản phẩm
-				var OptionSelect = document.querySelector("#AddOption");
+				var OptionSelect = document.querySelector("#AddOptionC");
 				var valueType = OptionSelect.options[OptionSelect.selectedIndex].text;
 
 				for (var i = 0; i < ProductArray.length; i++) {
@@ -216,7 +253,6 @@ function showOrder() {
 	// lấy dữ liệu từ localStorage
 	// hiện ra danh sách user mua hàng
 	var orderArray = JSON.parse(localStorage.getItem('cartList'));
-
 	var tr = `
 	<tr>
 		<th>ID</th>

@@ -12,6 +12,22 @@ var types = [
     new typeConstructor("All", "Xem tất cả...."),
 ];
 
+// đẩy mảng thể loại lên Local Storage
+function PushTypetoLocalStorage() {
+    var tempArray = [];
+    if (localStorage.getItem('types') == null) {
+        for(var i=0;i<types.length;i++) {
+            var temp =  {
+                id: types[i].id,
+                name: types[i].name
+            }
+            tempArray.push(temp);
+        }
+        localStorage.setItem('types', JSON.stringify(tempArray)); // đẩy dữ liệu lên Local Storage
+    }
+}
+PushTypetoLocalStorage();
+
 // -------------------------------------------------- // 
 // js animation
 function categoryActive() {
@@ -115,8 +131,8 @@ function InnerProductions(name) {
     document.querySelector('#page-num').innerHTML = tempArray;
 
     // --------------------------------------- // 
-    const numItemPage = emptyObject.length > NumOfItem ? NumOfItem : emptyObject.length; // kiểm tra số lượng phần tử mảng đã lọc
     // nếu bé hơn 8 thì lấy luôn chiều dài của obj còn không thì mặc định max là 8 sản phẩm 1 trang
+    const numItemPage = emptyObject.length > NumOfItem ? NumOfItem : emptyObject.length; // kiểm tra số lượng phần tử mảng đã lọc
 
     // --------------------------------------- // 
     // in ra trang đầu tiên khi ấn vào danh mục
@@ -252,38 +268,23 @@ function ShowProductItem() {
     var ListOPT = document.querySelectorAll(".js-category-item");
     ListOPT.forEach(items => {
         items.addEventListener('click', (item) => {
-            var innerID = item.target.id;
-            // console.log(innerID);
-            switch (innerID) {
-                case 'Anime':
-                    InnerProductions(innerID);
-                    paginationActive();
-                    break;
-
-                case 'Artisan':
-                    InnerProductions(innerID);
-                    paginationActive();
-                    break;
-
-                case 'Pudding':
-                    InnerProductions(innerID);
-                    paginationActive();
-                    break;
-
-                case 'Other':
-                    InnerProductions(innerID);
-                    paginationActive();
-                    break;
-
-                case 'All':
-                    InnerAllProductions();
-                    paginationActive();
-                    break;
+            var innerID = item.target.id;  
+            // in số sản phẩm trong danh mục thông qua số lượng types có trong local storage
+            var typesArray = JSON.parse(localStorage.getItem('types'));
+            for(var i = 0; i < typesArray.length; i++) {
+                if(innerID == typesArray[i].id) {
+                    if(typesArray[i].id == 'All') {
+                        InnerAllProductions();
+                        paginationActive();
+                    }else {
+                        InnerProductions(innerID);
+                        paginationActive();
+                    }
+                }
             }
         })
     })
 }
-
 
 CreateSubMenu();
 CreateSubMenu_Mobile();

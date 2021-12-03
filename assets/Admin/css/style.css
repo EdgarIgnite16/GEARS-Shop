@@ -1,5 +1,5 @@
 .grid.max-Width {
-    max-width: 1800px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -143,6 +143,7 @@ th {
     right: 0;
     top: 0;
     padding: 0 8px;
+    margin: 0 4px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 4px 8px #8f8f8f;
@@ -156,6 +157,7 @@ th {
 }
 
 .AddProduct_Wrap,
+.AddTypeProduct_Wrap,
 .ChangeProduct_Wrap,
 .ConfirmListCart_Wrap {
     position: fixed;
@@ -184,6 +186,7 @@ th {
 }
 
 .Add_Product_main,
+.AddType_Product_main,
 .Change_Product_main,
 .ConfirmListCart_main {
     position: relative;
@@ -198,6 +201,7 @@ th {
 }
 
 .Add_Product_header,
+.AddType_Product_header,
 .Change_Product_header,
 .ConfirmListCart_header {
     text-align: center;
