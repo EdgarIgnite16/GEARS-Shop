@@ -15,12 +15,13 @@
     align-items: center;
 }
 
-.header-logo {
+.header-logo--link {
+    display: block;
     font-size: 1.9rem;
+    text-decoration: none;
     line-height: var(--heade-height);
     color: var(--text-color);
-    font-weight: 500;
-    cursor: default;
+    font-weight: 600;
 }
 
 .header-navbar--list {
