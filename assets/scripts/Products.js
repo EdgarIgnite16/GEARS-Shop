@@ -4,6 +4,7 @@ function typeConstructor(id, name) {
     this.name = name;
 }
 
+// mảng thể loại
 var types = [
     new typeConstructor("Anime", "Anime keycap"),
     new typeConstructor("Artisan", "Artisan keycap"),
@@ -14,16 +15,9 @@ var types = [
 
 // đẩy mảng thể loại lên Local Storage
 function PushTypetoLocalStorage() {
-    var tempArray = [];
+    // nếu trong local Storage ko có types thì khởi tạo 
     if (localStorage.getItem('types') == null) {
-        for(var i=0;i<types.length;i++) {
-            var temp =  {
-                id: types[i].id,
-                name: types[i].name
-            }
-            tempArray.push(temp);
-        }
-        localStorage.setItem('types', JSON.stringify(tempArray)); // đẩy dữ liệu lên Local Storage
+        localStorage.setItem('types', JSON.stringify(types)); // đẩy dữ liệu lên Local Storage
     }
 }
 PushTypetoLocalStorage();
@@ -59,17 +53,18 @@ function paginationActive() {
 // -------------------------------------------------- // 
 function CreateSubMenu() {
     var tempArray = "";
-    for (var i = 0; i < types.length; i++) {
-        if (i != types.length - 1) {
+    var typesArray = JSON.parse(localStorage.getItem('types'));
+    for (var i = 0; i < typesArray.length; i++) {
+        if (typesArray[i].id != 'All') {
             tempArray += `
             <li class="category-list--item js-category-item">
-                <a id=${types[i].id} class="category-list--item-link" href="#">${types[i].name}</a>
+                <a id=${typesArray[i].id} class="category-list--item-link" href="#">${typesArray[i].name}</a>
             </li>
             `;
         } else {
             tempArray += `
             <li class="category-list--item js-category-item">
-                <a id=${types[i].id} class="category-list--item-link catagory-Active" href="#">${types[i].name}</a>
+                <a id=${typesArray[i].id} class="category-list--item-link catagory-Active" href="#">${typesArray[i].name}</a>
             </li>
             `;
         }
@@ -79,17 +74,18 @@ function CreateSubMenu() {
 
 function CreateSubMenu_Mobile() {
     var tempArray = "";
-    for (var i = 0; i < types.length; i++) {
-        if (i != types.length - 1) {
+    var typesArray = JSON.parse(localStorage.getItem('types'));
+    for (var i = 0; i < typesArray.length; i++) {
+        if (typesArray[i].id != 'All') {
             tempArray += `
             <li class="mobile-category__item js-category-item">
-                <a id=${types[i].id} href="#" class="mobile-category__link">${types[i].name}</a>
+                <a id=${typesArray[i].id} href="#" class="mobile-category__link">${typesArray[i].name}</a>
             </li>
             `;
         } else {
             tempArray += `
             <li class="mobile-category__item js-category-item">
-                <a id=${types[i].id} href="#" class="mobile-category__link">${types[i].name}</a>
+                <a id=${typesArray[i].id} href="#" class="mobile-category__link">${typesArray[i].name}</a>
             </li>
             `;
         }

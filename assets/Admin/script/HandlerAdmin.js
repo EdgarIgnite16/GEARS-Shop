@@ -204,6 +204,41 @@ function Add_Product() {
 	})
 }
 
+
+function Add_TypeProduct() {
+	var add_btn = document.querySelector("#js-btn-product--typpe");
+	add_btn.addEventListener('click', () => {
+		var itemID = document.getElementById("js-item-Type--id");
+		var itemName = document.getElementById("js-item-Type--name");
+		var typeArray = JSON.parse(localStorage.getItem('types'));
+
+		if (itemID.value.length === 0) {
+			alert("vui lòng nhập id dòng sản phẩn !");
+			itemID.focus();
+			return false;
+		}
+
+		if (itemName.value.length === 0) {
+			alert("vui lòng nhập tên dòng sản phẩm !");
+			itemName.focus();
+			return false;
+		}
+
+		var item = {
+			id: itemID.value,
+			name: itemName.value,
+		}
+		typeArray.unshift(item);
+		localStorage.setItem('types', JSON.stringify(typeArray));
+		alert("Thêm dòng sản phẩm thành công !");
+
+		// đóng form lẫn reset value trong form input
+		document.querySelector(".AddTypeProduct_Wrap").classList.remove('isOpenAP');
+		itemID.value = "";
+		itemName.value = "";
+	})
+}
+
 function changeProduct(ProductName) {
 	var ProductArray = JSON.parse(localStorage.getItem('product'));
 	for (var i = 0; i < ProductArray.length; i++) {
@@ -394,6 +429,7 @@ window.onload = () => {
 
 	OpenCloseForm();
 	Add_Product();
+	Add_TypeProduct();
 
 	// Show sản phẩm mà khách hàng đã đặt
 	showOrder();
