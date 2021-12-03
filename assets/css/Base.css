@@ -110,6 +110,7 @@ table {
 /* container  */
 .container {
     margin-top: var(--heade-height);
+    min-height: 70vh;
 }
 
 .container-Introduce,
@@ -118,8 +119,6 @@ table {
     display: none;
     margin: 0 auto;
 }
-
-
 
 /* normalize.css v8.0.1 */
 main {
