@@ -1,56 +1,5 @@
-const userArray = [];
-const ProductArray = [];
-const OrderArray = [];
-
-//----------------------show user----------------------------------
-function showUserList() {
-	if (localStorage.getItem('user') === null) return false;
-	var userArray = JSON.parse(localStorage.getItem('user'));
-	var tr = `<tr>
-				<th>ID</th>
-				<th>Username</th>
-				<th>Gmail</th>
-				<th>Register Day</th>
-				<th>Permission</th>
-				<th>Delete</th>
-			</tr>`;
-	for (var i = 0; i < userArray.length; i++) {
-		tr += `
-			<tr>
-				<td>${i}</td>
-				<td>${userArray[i].username}</td>
-				<td>${userArray[i].gmail}</td>
-				<td>${userArray[i].RegisterDay}</td>
-				<td>${userArray[i].userType}</td>
-				<td><button class="delete" onClick="deleteuser(\'${userArray[i].username}\')"><i class="fas fa-times-circle"></i></button></td>
-			</tr>
-		`;
-	}
-	document.querySelector('#userlist').innerHTML = tr;
-}
-
-// su dung: push them phan tu vao cuoi mang, pop: xoa phan tu cuoi mang, 
-// unshit: them phan tu vao dau mang, shit: xoa phtu nam dau mang-----
-//----------------------delete user-------------------------------
-function deleteuser(usernamedelete) {
-	var userArray = JSON.parse(localStorage.getItem('user'));
-	for (var i = 0; i < userArray.length; i++) {
-		if (userArray[i].username == usernamedelete) {
-			if (userArray[i].userType === 'admin') {
-				alert('Bạn không thể xoá tài khoản này !\nVì đây là tài khoản Quản Trị !');
-				break;
-			}
-			if (confirm('Bạn có muốn xóa tài khoản này?')) {
-				userArray.splice(i, 1);
-				window.location.reload(); // reset lại web sau khi nhập xong
-			}
-		}
-	}
-	localStorage.setItem('user', JSON.stringify(userArray));
-}
-
 // ---------------------------------------------------------------------------- //
-// xử lí công việc đóng form Add Product
+// xử lí các sự kiện đóng mở form chung
 function OpenCloseForm() {
 	var btnAdd = document.querySelector('.js-addProduct');
 	var btnAddType = document.querySelector('.js-addTypeProduct');
@@ -88,6 +37,57 @@ function OpenCloseForm() {
 	closeBtn4.addEventListener('click', () => {
 		document.querySelector(".AddTypeProduct_Wrap").classList.remove('isOpenAP')
 	})
+}
+
+//----------------------show user----------------------------------
+function showUserList() {
+	if (localStorage.getItem('user') === null) return false;
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	var tr = `<tr>
+				<th>ID</th>
+				<th>Username</th>
+				<th>Gmail</th>
+				<th>Register Day</th>
+				<th>Permission</th>
+				<th>Delete</th>
+			</tr>`;
+	for (var i = 0; i < userArray.length; i++) {
+		tr += `
+			<tr>
+				<td>${i}</td>
+				<td>${userArray[i].username}</td>
+				<td>${userArray[i].gmail}</td>
+				<td>${userArray[i].RegisterDay}</td>
+				<td>${userArray[i].userType}</td>
+				<td>
+					<button class="delete" onClick="deleteuser(\'${userArray[i].username}\')">
+						<i class="fas fa-times-circle"></i>
+					</button>
+				</td>
+			</tr>
+		`;
+	}
+	document.querySelector('#userlist').innerHTML = tr;
+}
+
+// su dung: push them phan tu vao cuoi mang, pop: xoa phan tu cuoi mang, 
+// unshit: them phan tu vao dau mang, shit: xoa phtu nam dau mang
+//----------------------delete user-------------------------------
+function deleteuser(usernamedelete) {
+	var userArray = JSON.parse(localStorage.getItem('user'));
+	for (var i = 0; i < userArray.length; i++) {
+		if (userArray[i].username == usernamedelete) {
+			if (userArray[i].userType === 'admin') {
+				alert('Bạn không thể xoá tài khoản này !\nVì đây là tài khoản Quản Trị !');
+				break;
+			}
+			if (confirm('Bạn có muốn xóa tài khoản này?')) {
+				userArray.splice(i, 1);
+				window.location.reload(); // reload lại trang web sau khi xoá
+			}
+		}
+	}
+	localStorage.setItem('user', JSON.stringify(userArray));
 }
 
 //----------------------show products----------------------------------
@@ -133,31 +133,6 @@ function deleteProduct(ProductName) {
 	localStorage.setItem('product', JSON.stringify(ProductArray));
 }
 
-// hàm in danh sách thể loại lên Form
-function RenderOptionType() {
-	// in ra danh sách loại sản phẩm
-	var typesArray = JSON.parse(localStorage.getItem('types'))
-	var tempArr = '';
-	for(var i = 0; i<typesArray.length;i++) {
-		if(typesArray[i].id != 'All') {
-			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
-		}
-	}
-	document.querySelector("#AddOption").innerHTML = tempArr;
-}
-
-function RenderOptionTypeC() {
-	// in ra danh sách loại sản phẩm
-	var typesArray = JSON.parse(localStorage.getItem('types'))
-	var tempArr = '';
-	for(var i = 0; i<typesArray.length;i++) {
-		if(typesArray[i].id != 'All') {
-			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
-		}
-	}
-	document.querySelector("#AddOptionC").innerHTML = tempArr;
-}
-
 function Add_Product() {
 	var add_btn = document.querySelector("#js-btn-product");
 	add_btn.addEventListener('click', () => {
@@ -177,7 +152,7 @@ function Add_Product() {
 			itemPrice.focus();
 			return false;
 		}
-		
+
 		// tìm thể loại của sản phẩm
 		var OptionSelect = document.querySelector("#AddOption");
 		var valueType = OptionSelect.options[OptionSelect.selectedIndex].text;
@@ -204,6 +179,30 @@ function Add_Product() {
 	})
 }
 
+// hàm in danh sách thể loại lên Form
+function RenderOptionType() {
+	// in ra danh sách loại sản phẩm
+	var typesArray = JSON.parse(localStorage.getItem('types'))
+	var tempArr = '';
+	for (var i = 0; i < typesArray.length; i++) {
+		if (typesArray[i].id != 'All') {
+			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
+		}
+	}
+	document.querySelector("#AddOption").innerHTML = tempArr;
+}
+
+function RenderOptionTypeC() {
+	// in ra danh sách loại sản phẩm
+	var typesArray = JSON.parse(localStorage.getItem('types'))
+	var tempArr = '';
+	for (var i = 0; i < typesArray.length; i++) {
+		if (typesArray[i].id != 'All') {
+			tempArr += `<option value="${typesArray[i].id}">${typesArray[i].id}</option>`;
+		}
+	}
+	document.querySelector("#AddOptionC").innerHTML = tempArr;
+}
 
 function Add_TypeProduct() {
 	var add_btn = document.querySelector("#js-btn-product--typpe");
@@ -243,8 +242,8 @@ function changeProduct(ProductName) {
 	var ProductArray = JSON.parse(localStorage.getItem('product'));
 	for (var i = 0; i < ProductArray.length; i++) {
 		if (ProductArray[i].name == ProductName) {
+			// ấn vào nút thay đổi thì mở form đổi thông tin sản phẩm
 			document.querySelector(".ChangeProduct_Wrap").classList.add("isOpenAP");
-			
 			document.querySelector("#js-btn-productC").addEventListener('click', () => {
 				var productArray = JSON.parse(localStorage.getItem('product'));
 				var itemName = document.getElementById("js-item-nameC");
@@ -284,6 +283,7 @@ function changeProduct(ProductName) {
 	}
 }
 
+// hiển thị ra danh sách đơn đặt hàng từ khách hàng
 function showOrder() {
 	// lấy dữ liệu từ localStorage
 	// hiện ra danh sách user mua hàng
@@ -313,7 +313,7 @@ function showOrder() {
 			<button class="apply" onClick="showListCartUser(\'${i}\')">
 				<i class="fas fa-clipboard-list"></i>
 			</button>`;
-		} else  {
+		} else {
 			form = ``;
 		}
 
@@ -341,7 +341,6 @@ function showOrder() {
 function showListCartUser(id) {
 	document.querySelector(".ConfirmListCart_Wrap").classList.add("isOpenAP");
 	var orderArray = JSON.parse(localStorage.getItem('cartList'));
-
 	var tr = `<tr>
 				<th>ID</th>
 				<th>Name</th>
@@ -350,9 +349,8 @@ function showListCartUser(id) {
 				<th>Image</th>
 			</tr>`;
 
-
 	// lấy ra danh sách sản phẩm mà user đã mua
-	var ListCart = orderArray[id].products;
+	var ListCart = orderArray[id].products; // id là id của đơn hàng mà user đã mua
 	for (var i = 0; i < ListCart.length; i++) {
 		tr += `
 			<tr>
@@ -389,7 +387,6 @@ function showListCartUser(id) {
 		<p style="padding: 12px 0;">Tổng tiền: <strong>${orderArray[id].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</strong></p>
 		<p style="padding: 12px 0;">Tình trạng đơn hàng: <span style="color: ${color}">${value}</span></p>
 	`;
-	return id;
 }
 
 function unConfirmOrder() {
@@ -399,9 +396,12 @@ function unConfirmOrder() {
 
 		// thay đổi status trong loacalStorage -> đơn hàng xem như đã bị huỷ
 		var orderArray = JSON.parse(localStorage.getItem('cartList'));
-		orderArray[id].status = 'unconfirmed';
-		localStorage.setItem('cartList', JSON.stringify(orderArray));
-		window.location.reload();
+		orderArray[id].status = 'unconfirmed'; // chuyển đổi trạng thái của đơn hàng
+		localStorage.setItem('cartList', JSON.stringify(orderArray)); // update dữ liệu
+
+		// sau khi ấn vào nút xác nhận thì đóng form và chuyển trạng thái hiện thị
+		document.querySelector(".ConfirmListCart_Wrap").classList.remove('isOpenAP')
+		showOrder(); // chạy lại hàm showOrder() để hiển thị lại danh sách đặt hàng
 	}
 }
 
@@ -412,9 +412,12 @@ function ConfirmOrder() {
 
 		// thay đổi status trong loacalStorage -> đơn hàng xem như đã bị huỷ
 		var orderArray = JSON.parse(localStorage.getItem('cartList'));
-		orderArray[id].status = 'confirmed';
-		localStorage.setItem('cartList', JSON.stringify(orderArray));
-		window.location.reload();
+		orderArray[id].status = 'confirmed'; // chuyển đổi trạng thái của đơn hàng
+		localStorage.setItem('cartList', JSON.stringify(orderArray)); // update dữ liệu
+
+		// sau khi ấn vào nút xác nhận thì đóng form và chuyển trạng thái hiện thị
+		document.querySelector(".ConfirmListCart_Wrap").classList.remove('isOpenAP')
+		showOrder(); // chạy lại hàm showOrder() để hiển thị lại danh sách đặt hàng
 	}
 }
 
@@ -426,11 +429,10 @@ window.onload = () => {
 	// product
 	showProductList();
 	deleteProduct();
-
 	OpenCloseForm();
 	Add_Product();
 	Add_TypeProduct();
 
-	// Show sản phẩm mà khách hàng đã đặt
+	// order
 	showOrder();
 }
