@@ -1,19 +1,31 @@
 var productList = JSON.parse(localStorage.getItem('product'));
 var userList = JSON.parse(localStorage.getItem('user'));
+var tempArray = []; // mảng chứa thông tin đơn hàng của user
 
-var tempArray = [];
+function formPayment() {
+    document.querySelector('.cartPayment').innerHTML = `
+    <div class="container__cart-title">Đơn Hàng hiện tại</div>
+    <div class="container__Mycart-wrap">
+        <ul class="container__Mycart-listItem">
+            <div class="container_Mycart-Temp">
+                Hiện tại bạn chưa đặt đơn hàng nào cả :(
+            </div>
+        </ul>
+    </div>
+    `;
+}
+
 function addCart(nameProduct) {
     // kiểm tra người dùng có đăng nhập hay chưa
     var check = document.querySelector(".js-HandlerLR").classList.contains("js-isLogin");
-    if (!check) {
-        alert("Hãy đăng nhập để có thể mua sắm\nNếu bạn chưa có tài khoản thì hãy nhanh tay tạo cho mình một tài khoản đi nào.");
-    } else {
+    if (!check) alert("Hãy đăng nhập để có thể mua sắm\nNếu bạn chưa có tài khoản thì hãy nhanh tay tạo cho mình một tài khoản đi nào.");
+    else {
         // nếu đã đăng nhập rồi thì
         for (var i = 0; i < productList.length; i++) {
             if (productList[i].name == nameProduct) {
                 // lấy username mua sản phẩm
                 var nameUser = document.getElementById("js-Username").innerText;
-    
+
                 // đẩy danh sách sản phẩm của người dùng đã mua vào một Obj riêng
                 var tempCart = {
                     id: productList[i].id,
@@ -22,10 +34,8 @@ function addCart(nameProduct) {
                     img: productList[i].img,
                     price: productList[i].price,
                     username: nameUser,
-                    status: 'pending',
                 }
                 tempArray.push(tempCart);
-
 
                 var temp = '';
                 for (var j = 0; j < tempArray.length; j++) {
@@ -53,6 +63,9 @@ function addCart(nameProduct) {
                             <div class="btn-cart">
                                 <div class="btn-Product">Thanh toán</div>
                             </div>`;
+
+                // hàm này ở đây vì lí do trang Giỏ hàng phải có nút đặt hàng thì mới chạy lệnh được
+                // bthg nếu ko làm gì thì nút đặt hàng k tồn tại do chưa inner ra
                 pushCarttoLocalStorage();
             }
         }
@@ -68,7 +81,6 @@ function deleteCart(nameProduct) {
             break;
         }
     }
-
     // in lại tempArray
     var temp = '';
     for (var j = 0; j < tempArray.length; j++) {
@@ -106,47 +118,34 @@ function deleteCart(nameProduct) {
                 </div>
                 `;
 
+    // hàm này ở đây vì lí do trang Giỏ hàng phải có nút đặt hàng thì mới chạy lệnh được
+    // bthg nếu ko làm gì thì nút đặt hàng k tồn tại do chưa inner ra
     pushCarttoLocalStorage();
 }
 
-function formPayment() {
-    document.querySelector('.cartPayment').innerHTML = `
-    <div class="container__cart-title">Đơn Hàng hiện tại</div>
-    <div class="container__Mycart-wrap">
-        <ul class="container__Mycart-listItem">
-            <div class="container_Mycart-Temp">
-                Hiện tại bạn chưa đặt đơn hàng nào cả :(
-            </div>
-        </ul>
-    </div>`;
-}
-
 function pushCarttoLocalStorage() {
-    var btnCart = document.querySelector(".btn-Product");
-    btnCart.addEventListener('click', () => {
-        if(confirm('Xác nhận đặt hàng ?')) {
+    document.querySelector(".btn-Product").addEventListener('click', () => {
+        if (confirm('Xác nhận đặt hàng ?')) {
             if (tempArray.length == 0) {
                 alert('Giỏ hàng đang trống !\nVui lòng thêm sản phẩm vào giỏ hàng trước khi ấn nút Thanh toán');
             } else {
-                // gửi thông điệp cảm ơn
-                document.querySelector('.container__cart-listItem').innerHTML = `
-                    <div class="container_Mycart-Temp">
-                        <p>Cảm ơn vì đã mua sắm :)</p>
-                        <p>Bạn có thể mua thêm sản phẩm mà bạn yêu thích</p>
-                    </div>
-                `;
-    
-                // gửi Toast Message yêu cầu đặt hàng cho admin
-                sendRequire(tempArray);
-    
-                // trả về những sản phẩm đã mua
+                // lấy tên người dùng mua sản phẩm
+                // lấy từ cái ô đăng nhập
+                var nameUser = document.getElementById("js-Username").innerText;
+
+                // trả về danh sách những tên sản phẩm đã mua
                 var totalProduct = tempArray.map(item => {
                     return item.name;
                 })
-    
+
+                // trả về tổng tiền của sản phẩm
+                var totalMoney = tempArray.reduce((total, item) => {
+                    return total + item.price;
+                }, 0)
+
                 // trả về chi tiết những sản phẩm đã mua
                 var Products = [];
-                for(var i=0; i<tempArray.length; i++) {
+                for (var i = 0; i < tempArray.length; i++) {
                     var tempA = {
                         id: tempArray[i].id,
                         type: tempArray[i].type,
@@ -156,59 +155,41 @@ function pushCarttoLocalStorage() {
                     };
                     Products.push(tempA);
                 }
-    
-                //trả về tổng tiền của sản phẩm
-                var totalMoney = tempArray.reduce((total, item) => {
-                    return total + item.price;
-                }, 0)
-        
-                // lấy ra trạng thái hiện tại của đơn hàng
-                var status = tempArray.map(item => {
-                    return item.status;
-                });
-    
-                // loại bỏ những giá trị trùng trong mảng
-                status = status.find((item, index) => {
-                    return status.indexOf(item) === index;
-                });
 
-                // lấy tên người dùng mua sản phẩm
-                var nameUser = document.getElementById("js-Username").innerText;
-    
-                tempArray = [];
+                // lọc dữ liệu
                 var tempTemp = {
                     username: nameUser,
                     products: Products,
                     totalProduct: totalProduct,
                     totalMoney: totalMoney,
-                    status: status,
+                    status: 'pending', // mặc định sau khi đặt hàng xong thì trạng thái đơn hàng sẽ là đang chờ cho admin duyệt
                 }
-    
+
                 // đẩy đơn hàng lên localStorage
                 var totalPayment = JSON.parse(localStorage.getItem('cartList'));
                 totalPayment.push(tempTemp);
                 localStorage.setItem('cartList', JSON.stringify(totalPayment));
-    
-                // lấy dữ liệu từ local để show lên màn hình
-                var showPayment = JSON.parse(localStorage.getItem('cartList'));
+
+                // xử lí in ra màn hình 
                 var temp = '';
+                var showPayment = JSON.parse(localStorage.getItem('cartList')); // lấy dữ liệu từ local để show lên màn hình
                 for (var i = 0; i < showPayment.length; i++) {
                     if (showPayment[i].username == nameUser) {
-                        if(showPayment[i].status == 'confirmed') {
+                        if (showPayment[i].status == 'confirmed') {
                             value = "Đã xác nhận";
                             color = "green";
-                        } 
-    
-                        if(showPayment[i].status == 'pending') {
+                        }
+
+                        if (showPayment[i].status == 'pending') {
                             value = "Đang xử lí";
                             color = "orange";
                         }
-    
-                        if(showPayment[i].status == 'unconfirmed') {
+
+                        if (showPayment[i].status == 'unconfirmed') {
                             value = "Đã huỷ";
                             color = "red";
                         }
-    
+
                         temp += `
                         <tr>
                             <td style="width: 5%">${i+1}</td>
@@ -219,7 +200,7 @@ function pushCarttoLocalStorage() {
                         `;
                     }
                 }
-    
+
                 document.querySelector('.container__Mycart-listItem').innerHTML = `
                 <table id="listProduct">
                     <tr>
@@ -230,10 +211,23 @@ function pushCarttoLocalStorage() {
                     </tr>
                     ${temp}
                 </table>`;
+
+                // xử lí hậu sự kiện gửi data lên Local Storage
+                tempArray = []; // reset lại tempArray 
+                sendRequire(tempArray);  // gửi Toast Message thông báo rằng yêu cầu đặt hàng đã được gửi cho admin
+
+                // gửi thông điệp cảm ơn
+                document.querySelector('.container__cart-listItem').innerHTML = `
+                    <div class="container_Mycart-Temp">
+                        <p>Cảm ơn vì đã mua sắm :)</p>
+                        <p>Bạn có thể mua thêm sản phẩm mà bạn yêu thích</p>
+                    </div>
+                `;
             }
         }
     })
 }
+
 
 // ----------------------------------------------------------------------------------------------------------
 // Toast Notify Form 
