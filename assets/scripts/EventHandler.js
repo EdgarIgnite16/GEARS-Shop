@@ -14,7 +14,7 @@ function AnimationHeader() {
 
     header_item.forEach((header_item, index) => {
         var pane = container_item[index];
-        
+
         header_item.onclick = function () {
             // gỡ class đã có trước khi add vào
             $('.LR-header--item.isActive.isHoverBG').classList.remove('isActive', 'isHoverBG');
@@ -30,7 +30,7 @@ function AnimationHeader() {
 
         document.querySelector(".isActive").addEventListener('click', (e) => {
             e.preventDefault();
-        })    
+        })
     })
 
 
@@ -44,17 +44,17 @@ function OpenCloseForm() {
     var LR_main = document.querySelector('.LR-main');
     var closeBtn = document.querySelector('.js-close-btn');
     var HeaderMobileBtn = document.querySelector('.js-mobile-bars');
-   
+
     btnLR.addEventListener('click', () => {
-        LR_wrap.classList.add('isOpenLR'); 
+        LR_wrap.classList.add('isOpenLR');
     });
 
     closeBtn.addEventListener('click', () => {
         LR_wrap.classList.remove('isOpenLR');
     });
-    
+
     HeaderMobileBtn.addEventListener('click', () => {
-        LR_wrap.classList.remove('isOpenLR'); 
+        LR_wrap.classList.remove('isOpenLR');
     })
 
     // sử lí việc user bấm ra ngoài form => đóng form
@@ -97,7 +97,7 @@ function TabHeaderAnimation() {
 
     document.querySelector(".headerActive").addEventListener('click', (e) => {
         e.preventDefault();
-    })   
+    })
 }
 
 // ---------------------------------------------------------------------------- //
@@ -110,7 +110,7 @@ function OpenMenuMobile() {
     // đóng mở mobile menu
     mobileMenu.onclick = function () {
         const is_Closed = header.clientHeight === headerHeight;
-        is_Closed ? header.style.height = 'auto' : header.style.height = null;  
+        is_Closed ? header.style.height = 'auto' : header.style.height = null;
     }
 
     // tự đỘng đóng khi chọn phần từ trong menu
@@ -128,8 +128,7 @@ OpenCloseForm();
 TabHeaderAnimation();
 OpenMenuMobile();
 
-
-
+// ---------------------------------------------------------------------------- //
 // Toast Notify 
 //show toast function
 function toast({

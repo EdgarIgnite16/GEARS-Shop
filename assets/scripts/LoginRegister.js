@@ -253,7 +253,6 @@ function showListCart() {
 	`;    
 }
 
-
 function formPayment() {
     document.querySelector('.cartPayment').innerHTML = `
     <div class="container__cart-title">Đơn Hàng hiện tại</div>
