@@ -372,12 +372,14 @@ function InnerProductBySearch() {
     document.querySelector("#search-btn").addEventListener('click', () =>{
         var search_Value = document.querySelector('.category-search--input');
         InnerProductions_Search(search_Value.value);
+        paginationActive();
     });
 
     // lấy dữ liệu bằng cách nhập xong rồi ấn enter
     document.querySelector('.category-search--input').addEventListener('change', () => {
         var search_Value = document.querySelector('.category-search--input');
         InnerProductions_Search(search_Value.value);
+        paginationActive();
     })
 }
 
