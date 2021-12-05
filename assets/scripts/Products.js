@@ -283,9 +283,108 @@ function ShowProductItem() {
     })
 }
 
+// search
+function InnerProductions_Search(name) {
+    var tempArray = '';
+    var emptyArray = '';
+
+    // lọc ra các phần tử thoả mãn điều khiện -> trả về một obj chứa các phần tử thoả mãn
+    var emptyObject = productList.filter((item) => {
+        return item.name.toLowerCase().search(name.toLowerCase()) != -1;
+    })
+
+    // --------------------------------------- // 
+    // in ra số trang
+    for (var i = 0; i < emptyObject.length / NumOfItem; i++) {
+        if (i == 0) {
+            tempArray += `
+            <li class="pagination-item">
+                <a id="${i}" href="#" class="pagination-item--link paginationActive">${i+1}</a>
+            </li>
+            `
+        } else {
+            tempArray += `
+            <li class="pagination-item">
+                <a id="${i}" href="#" class="pagination-item--link">${i+1}</a>
+            </li>
+            `
+        }
+    }
+    document.querySelector('#page-num').innerHTML = tempArray;
+
+    // --------------------------------------- // 
+    // nếu bé hơn 8 thì lấy luôn chiều dài của obj còn không thì mặc định max là 8 sản phẩm 1 trang
+    const numItemPage = emptyObject.length > NumOfItem ? NumOfItem : emptyObject.length; // kiểm tra số lượng phần tử mảng đã lọc
+
+    // --------------------------------------- // 
+    // in ra trang đầu tiên khi ấn vào danh mục
+    for (var i = 0; i < numItemPage; i++) {
+        emptyArray += `
+        <div class="col l-3 m-4 c-6">
+            <div class="product-item">
+                <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
+                <div class="product-item-main">
+                    <h3 class="product-item--name">${emptyObject[i].name}</h3>
+                    <div class="product-item--price_type">
+                        <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                        <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
+                    </div>
+                    <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
+                </div>
+            </div>
+        </div>`;
+    }
+    ShowProduct.innerHTML = emptyArray;
+
+    // --------------------------------------- // 
+    // in ra sản phẩm khi ấn vào số trang bất kì
+    document.querySelectorAll(".pagination-item--link").forEach(items => {
+        items.addEventListener('click', (item) => {
+            var emptyArray = '';
+            var values = item.target.id;
+            var begin = parseInt(values) * numItemPage;
+            var end = (parseInt(values) + 1) * numItemPage;
+            for (var i = begin; i < end; i++) {
+                if (i == parseInt(emptyObject.length)) break;
+                emptyArray += `
+                <div class="col l-3 m-4 c-6">
+                    <div class="product-item">
+                        <img class="product-item--img" src="./assets${emptyObject[i].img}" alt="">
+                        <div class="product-item-main">
+                            <h3 class="product-item--name">${emptyObject[i].name}</h3>
+                            <div class="product-item--price_type">
+                                <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
+                                <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
+                            </div>
+                            <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
+                        </div>
+                    </div>
+                </div>
+                `
+            }
+            ShowProduct.innerHTML = emptyArray;
+        })
+    })
+}
+
+function InnerProductBySearch() {
+    // lấy dữ liệu bằng cách ấn vào nút search
+    document.querySelector("#search-btn").addEventListener('click', () =>{
+        var search_Value = document.querySelector('.category-search--input');
+        InnerProductions_Search(search_Value.value);
+    });
+
+    // lấy dữ liệu bằng cách nhập xong rồi ấn enter
+    document.querySelector('.category-search--input').addEventListener('change', () => {
+        var search_Value = document.querySelector('.category-search--input');
+        InnerProductions_Search(search_Value.value);
+    })
+}
+
 CreateSubMenu();
 CreateSubMenu_Mobile();
 ShowProductItem();
 InnerAllProductions();
 paginationActive();
 categoryActive();
+InnerProductBySearch();

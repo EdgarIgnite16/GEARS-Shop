@@ -30,6 +30,7 @@
     display: flex;
     align-content: center;
     justify-content: center;
+    padding: 4px 6px;
 }
 
 .category-search--input {
