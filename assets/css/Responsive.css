@@ -242,7 +242,7 @@
 
 
     .container__cart-Item-name {
-        font-size: 1.2rem;
+        font-size: 1rem;
         line-height: 1.6rem;
         padding: 0;
     }
@@ -252,7 +252,7 @@
     }
 
     .container__cart-Item-desciption {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .container__cart-Item-remove {
@@ -264,11 +264,9 @@
         margin-right: 8px;
     }
 
-
-
     .product-item {
         padding: 8px 4px;
-        height: 350px;
+        height: 335px;
     }
 
     .product-item-main {
@@ -325,6 +323,17 @@
         font-size: 1.6rem;
     }
 
+    .container__cart-wrap {
+        padding: 12px 4px;
+    }
+
+    .container__cart-listItem {
+        padding: 4px;
+    }
+
+    .container__Mycart-wrap {
+        padding: 8px 4px;
+    }
     /* toast */
     #toast {
         top: 75px !important;
