@@ -74,7 +74,8 @@
     display: flex;
     align-items: center;
     background-color: white;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     margin: 12px 0;
     padding: 12px;
     box-shadow: 0 4px 8px #ccc;
@@ -188,7 +189,8 @@
     font-size: 1.6rem;
     text-align: center;
     background: white;
-    border-radius: 12px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
     font-weight: 500;
 }
 
