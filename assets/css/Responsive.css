@@ -60,6 +60,10 @@
         padding: 0 12px;
     }
 
+    .mobile-search {
+        display: flex;
+    }
+    
     /* Container */
     .container-Product {
         padding-top: 16px;
@@ -266,7 +270,7 @@
 
     .product-item {
         padding: 8px 4px;
-        height: 335px;
+        height: 320px;
     }
 
     .product-item-main {
@@ -274,7 +278,7 @@
     }
 
     .product-item--price {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     .product-item--type {
@@ -334,6 +338,11 @@
     .container__Mycart-wrap {
         padding: 8px 4px;
     }
+
+    .product-item--name {
+        font-size: 12px;
+    }
+
     /* toast */
     #toast {
         top: 75px !important;

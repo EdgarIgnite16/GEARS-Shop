@@ -367,7 +367,10 @@ function InnerProductions_Search(name) {
     })
 }
 
+// xử lí thanh tìm kiếm
+// PC
 function InnerProductBySearch() {
+    // lấy dữ liệu bằng cách ấn vào nút search
     // lấy dữ liệu bằng cách ấn vào nút search
     document.querySelector("#search-btn").addEventListener('click', () =>{
         var search_Value = document.querySelector('.category-search--input');
@@ -383,6 +386,23 @@ function InnerProductBySearch() {
     })
 }
 
+// Tablet - Mobile
+function InnerProductBySearch_Mobile() {
+    // lấy dữ liệu bằng cách ấn vào nút search
+    document.querySelector("#search-btn--mobile").addEventListener('click', () =>{
+        var search_Value = document.querySelector('.mobile-search--input');
+        InnerProductions_Search(search_Value.value);
+        paginationActive();
+    });
+
+    // lấy dữ liệu bằng cách nhập xong rồi ấn enter
+    document.querySelector('.mobile-search--input').addEventListener('change', () => {
+        var search_Value = document.querySelector('.mobile-search--input');
+        InnerProductions_Search(search_Value.value);
+        paginationActive();
+    })
+}
+
 CreateSubMenu();
 CreateSubMenu_Mobile();
 ShowProductItem();
@@ -390,3 +410,4 @@ InnerAllProductions();
 paginationActive();
 categoryActive();
 InnerProductBySearch();
+InnerProductBySearch_Mobile();
