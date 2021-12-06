@@ -10,6 +10,9 @@
     font-size: 14px;
     text-transform: uppercase;
     color: var(--text-color);
+    margin-right:100px ;
+    display: flex;
+    align-items: center;
 }
 
 .footer-list {
@@ -39,34 +42,6 @@
     font-size: 1.6rem;
     margin-right: 8px;
 }
-
-.footer__download {
-    display: flex;
-}
-
-.footer__download-qr {
-    width: 80px;
-    height: 80px;
-    border: 1px solid var(--border-color);
-}
-
-.footer__download-apps {
-    flex: 1px;
-    margin-left: 16px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.footer__download-app-img {
-    height: 16px;
-}
-
-.footer__download-app-link {
-    color: transparent;
-    text-decoration: none;
-}
-
 .footer__bottom {
     padding: 8px 0;
     background-color: #F5F5F5;

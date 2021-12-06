@@ -9,7 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href=" https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/font/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+        integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="./assets/img/ShortCut_Icon.png">
     <link rel="stylesheet" href="./assets/css/Base.css"> <!-- CSS Base -->
     <link rel="stylesheet" href="./assets/css/Grid.css"> <!-- Grid System -->
@@ -30,14 +35,12 @@
     <div class="main_body">
         <!-- toast message  -->
         <div id="toast"></div>
-
+        
         <!-- Phần Header -->
         <div class="header js-OpenHeaderForMobile">
             <div class="grid wide">
                 <div class="header-content">
-                    <div class="header-logo">
-                        <a href="#" class="header-logo--link">GE∆RS</a>
-                    </div>
+                    <div class="header-logo">GE∆RS</div>
                     <div class="header-navbar--list">
                         <div class="header-navbar--item js-TabHeader headerActive">Trang chủ</div>
                         <div class="header-navbar--item js-TabHeader">Sản phẩm</div>
@@ -123,29 +126,12 @@
                     <div class="row sm-gutter">
                         <div class="col l-2 m-0 c-0">
                             <div class="category">
-                                <h3 class="category-header">Tìm kiếm</h3>
-                                <form class="category-search" method="get" onsubmit="return false">
-                                    <input type="text" class="category-search--input" placeholder="Tìm kiếm">
-                                    <button id="search-btn" type="button" class="category-search--btn" maxlength="40">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </form>
-                            </div>
-                            <div class="category">
                                 <h3 class="category-header">Danh Mục</h3>
                                 <ul class="category-list"></ul>
                             </div>
                         </div>
 
                         <div class="col l-10 m-12 c-12">
-                            <!-- search mobile -->
-                            <form class="mobile-search" method="get" onsubmit="return false">
-                                <input type="text" class="mobile-search--input" placeholder="Tìm kiếm">
-                                <button id="search-btn--mobile" type="button" class="mobile-search--btn" maxlength="40">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-
                             <!-- category mobile -->
                             <div class="mobile-category">
                                 <ul class="mobile-category-list"></ul>
@@ -176,98 +162,77 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Phần Footer -->
-        <div class="footer">
-            <div class="grid wide">
-                <div class="row sm-gutter">
-                    <div class="col l-2-4 m-4 c-6">
-                        <h3 class="footer__heading">Logo</h3>
-                        <ul class="footer-list">
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Gear-shop</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Hướng dẫn mua hàng </a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Trung tâm trợ giúp</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col l-2-4 m-4 c-6">
-                        <h3 class="footer__heading">Giới thiệu</h3>
-                        <ul class="footer-list">
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Giới thiệu</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Tuyển dụng</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Điều khoản</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col l-2-4 m-4 c-6">
-                        <h3 class="footer__heading">Danh mục</h3>
-                        <ul class="footer-list">
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Anime keycap</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Artisan keycap</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Pudding keycap</a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link">Keycap khác</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col l-2-4 m-4 c-6">
-                        <h3 class="footer__heading">Theo dõi</h3>
-                        <ul class="footer-list">
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-facebook"></i>
-                                    Facebook
-                                </a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-instagram"></i>
-                                    Instagram
-                                </a>
-                            </li>
-                            <li class="footer__list-item">
-                                <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-github"></i>
-                                    Github
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col l-2-4 m-4 c-12">
-                        <h3 class="footer__heading">Vào cửa hàng trên ứng dụng</h3>
-                        <div class="footer__download">
-                            <img src="./assets/img/QRcode.png" alt="Download QR" class="footer__download-qr">
-                            <div class="footer__download-apps">
-                                <a href="#" class="footer__download-app-link">
-                                    <img src="./assets/img/appstoreicon.png" alt="App store"
-                                        class="footer__download-app-img">
-                                </a>
-                                <a href="#" class="footer__download-app-link">
-                                    <img src="./assets/img/ggplaystoreicon.png" alt="Google play"
-                                        class="footer__download-app-img">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Phần Footer -->
+    <div class="footer">
+        <div class="grid wide">
+            <div class="row sm-gutter">
+                <div class="col l-6 m-4 c-6">
+                    <h3 class="footer__heading">LOGO</h3>
+                    <ul class="footer-list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">We are a young company always looking for new 
+                            and creative ideas to help you with our products in your everyday work.</a>
+                        </li>
+                        <!-- <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Our team</a>
+                        </li> -->
+                    </ul>
+                </div>
 
+                <div class="col l-2 m-4 c-6">
+                    <h3 class="footer__heading">Chăm sóc khách hàng</h3>
+                    <ul class="footer-list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Gear-shop</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Hướng dẫn mua hàng </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Trung tâm trợ giúp</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2 m-4 c-6">
+                    <h3 class="footer__heading">Giới thiệu</h3>
+                    <ul class="footer-list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Giới thiệu</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Tuyển dụng</a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link">Điều khoản</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col l-2 m-4 c-6">
+                    <h3 class="footer__heading">Theo dõi</h3>
+                    <ul class="footer-list">
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-facebook"></i>
+                                Facebook
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-instagram"></i>
+                                Instagram
+                            </a>
+                        </li>
+                        <li class="footer__list-item">
+                            <a href="#" class="footer-item_link"><i class="footer-item_icon fab fa-github"></i>
+                                Github
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p class="footer__text">© 2021 - Made by GEARS Team with Love 💖.</p>
-            </div>
+        </div>
+        <div class="footer__bottom">
+            <p class="footer__text">© 2021 - Made by GEARS Team with Love 💖.</p>
         </div>
     </div>
 
@@ -353,6 +318,7 @@
     <script src="./assets/scripts/LoginRegister.js"></script>
     <script src="./assets/scripts/Products.js"></script>
     <script src="./assets/scripts/Cart.js"></script>
+
 </body>
 
 </html>
