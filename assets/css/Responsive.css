@@ -314,12 +314,9 @@
         margin-bottom: 12px;
     }
 
-    .footer__download {
-        justify-content: center;
-    }
-
-    .footer__download-apps {
-        flex: none !important;
+    .footer__content {
+        padding: 0 12px;
+        margin-bottom: 16px;
     }
 
     .pagination-item--link {
@@ -342,6 +339,8 @@
     .product-item--name {
         font-size: 12px;
     }
+
+    
 
     /* toast */
     #toast {
