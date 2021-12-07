@@ -350,7 +350,7 @@ function showListCartUser(id) {
 			</tr>`;
 
 	// lấy ra danh sách sản phẩm mà user đã mua
-	var ListCart = orderArray[id].products; // id là id của đơn hàng mà user đã mua
+	var ListCart = orderArray[id].totalProducts; // id là id của đơn hàng mà user đã mua
 	for (var i = 0; i < ListCart.length; i++) {
 		tr += `
 			<tr>

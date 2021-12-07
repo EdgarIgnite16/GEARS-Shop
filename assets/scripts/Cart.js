@@ -33,7 +33,6 @@ function addCart(nameProduct) {
                     name: productList[i].name,
                     img: productList[i].img,
                     price: productList[i].price,
-                    username: nameUser,
                 }
                 tempArray.push(tempCart);
 
@@ -134,7 +133,7 @@ function pushCarttoLocalStorage() {
                 var nameUser = document.getElementById("js-Username").innerText;
 
                 // trả về danh sách những tên sản phẩm đã mua
-                var totalProduct = tempArray.map(item => {
+                var ListNameProducts = tempArray.map(item => {
                     return item.name;
                 })
 
@@ -144,7 +143,7 @@ function pushCarttoLocalStorage() {
                 }, 0)
 
                 // trả về chi tiết những sản phẩm đã mua
-                var Products = [];
+                var totalProducts = [];
                 for (var i = 0; i < tempArray.length; i++) {
                     var tempA = {
                         id: tempArray[i].id,
@@ -153,14 +152,14 @@ function pushCarttoLocalStorage() {
                         img: tempArray[i].img,
                         price: tempArray[i].price,
                     };
-                    Products.push(tempA);
+                    totalProducts.push(tempA);
                 }
 
                 // lọc dữ liệu
                 var tempTemp = {
                     username: nameUser,
-                    products: Products,
-                    totalProduct: totalProduct,
+                    totalProducts: totalProducts,
+                    ListNameProducts: ListNameProducts,
                     totalMoney: totalMoney,
                     status: 'pending', // mặc định sau khi đặt hàng xong thì trạng thái đơn hàng sẽ là đang chờ cho admin duyệt
                 }
@@ -193,7 +192,7 @@ function pushCarttoLocalStorage() {
                         temp += `
                         <tr>
                             <td style="width: 5%">${i+1}</td>
-                            <td style="width: 55%">${showPayment[i].totalProduct.join('</br>')}</td>
+                            <td style="width: 55%">${showPayment[i].ListNameProducts.join('</br>')}</td>
                             <td style="width: 20%">${showPayment[i].totalMoney.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</td>
                             <td id="js-cart-status" style="width: 20%; color: ${color}">${value}</td>
                         </tr>
