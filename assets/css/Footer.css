@@ -10,9 +10,12 @@
     font-size: 14px;
     text-transform: uppercase;
     color: var(--text-color);
+<<<<<<< HEAD
     margin-right:100px ;
     margin: 0;
     text-align: center;
+=======
+>>>>>>> 6626ea5b1d310a53bd22e5e475f22717d43b380e
 }
 
 .footer-list {
@@ -41,6 +44,7 @@
     font-size: 1.6rem;
     margin-right: 8px;
 }
+
 .footer__bottom {
     padding: 8px 0;
     background-color: #F5F5F5;
@@ -52,4 +56,8 @@
     text-align: center;
     font-size: small;
     color: #737373;
+}
+
+.footer__content {
+    font-size: 16px;
 }
