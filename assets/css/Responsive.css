@@ -40,7 +40,7 @@
     }
 
     .product-introduce--content-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
 
     .js-product:hover {
@@ -50,8 +50,8 @@
 
     .product-introduce--content-contents {
         padding: 4px 8px 0;
-        font-size: 1.4rem;
-        line-height: 1.6rem;
+        font-size: 1rem;
+        line-height: 1.3rem;
     }
 
     /* Category Mobie and Tablet */
