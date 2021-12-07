@@ -300,10 +300,13 @@
     .footer__heading,
     .footer-item_link {
         text-align: center;
+        line-height: 14px;
+        font-size: 0.9rem;
     }
 
     .footer__heading {
         font-size: 0.8rem !important;
+        margin-bottom: 4px;
     }
 
     .footer-item_link {
@@ -314,12 +317,12 @@
         margin-bottom: 12px;
     }
 
-    .footer__download {
-        justify-content: center;
-    }
-
-    .footer__download-apps {
-        flex: none !important;
+    .footer__content {
+        padding: 0 12px;
+        margin-bottom: 16px;
+        line-height: 1.6;
+        font-size: 14px !important;
+        text-align: center;
     }
 
     .pagination-item--link {
@@ -341,6 +344,10 @@
 
     .product-item--name {
         font-size: 12px;
+    }
+
+    .footer__bottom {
+        margin-top: 8px !important;
     }
 
     /* toast */
