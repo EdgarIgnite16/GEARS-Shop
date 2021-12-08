@@ -1,3 +1,4 @@
+// ---------------------------------------------------------------------------- //
 var productList = JSON.parse(localStorage.getItem('product'));
 var userList = JSON.parse(localStorage.getItem('user'));
 var tempArray = []; // mảng chứa thông tin đơn hàng của user
@@ -15,6 +16,8 @@ function formPayment() {
     `;
 }
 
+// ---------------------------------------------------------------------------- //
+// function xử lí công việc thêm sản phẩm vào giỏ hàng
 function addCart(nameProduct) {
     // kiểm tra người dùng có đăng nhập hay chưa
     var check = document.querySelector(".js-HandlerLR").classList.contains("js-isLogin");
@@ -122,6 +125,8 @@ function deleteCart(nameProduct) {
     pushCarttoLocalStorage();
 }
 
+// ---------------------------------------------------------------------------- //
+// function xử lí công việc xử lí và gửi đơn hàng mà user đã đặt lên Local Storage
 function pushCarttoLocalStorage() {
     document.querySelector(".btn-Product").addEventListener('click', () => {
         if (confirm('Xác nhận đặt hàng ?')) {
@@ -212,8 +217,8 @@ function pushCarttoLocalStorage() {
                 </table>`;
 
                 // xử lí hậu sự kiện gửi data lên Local Storage
-                tempArray = []; // reset lại tempArray 
                 sendRequire(tempArray);  // gửi Toast Message thông báo rằng yêu cầu đặt hàng đã được gửi cho admin
+                tempArray = []; // reset lại tempArray 
 
                 // gửi thông điệp cảm ơn
                 document.querySelector('.container__cart-listItem').innerHTML = `

@@ -1,3 +1,4 @@
+// --------------------------------------------------------------------------- //
 // Xử lí form đăng kí
 function register() {
 	var btnRegister = document.querySelector('#js-btn-register');
@@ -76,8 +77,8 @@ function register() {
 }
 
 // --------------------------------------------------------------------------- //
-// xử lí sự kiện logout
-function Handler_LogOut() {
+// xử lí sự kiện logout của user
+function Handle_LogOut() {
     var isLogin = document.querySelector(".js-isLogin");
 	var logout = document.querySelector(".header-navbar-logout");
 	var header = document.querySelector(".header");
@@ -102,7 +103,9 @@ function Handler_LogOut() {
 	})
 }
 
-function Handler_LogOutAdmin() {    
+// --------------------------------------------------------------------------- //
+// xử lí sự kiện logout của admin
+function Handle_LogOutAdmin() {    
 	var isLogin = document.querySelector(".js-isLogin");
 	var logout = document.querySelector(".header-navbar-logout");
 	var header = document.querySelector(".header");
@@ -177,7 +180,7 @@ function login() {
 					document.getElementById("LR-form").remove();
 					formPayment()// hiển thị form đặt hàng
 					showListCart(); // hiển thị giỏ hàng
-					Handler_LogOutAdmin();
+					Handle_LogOutAdmin();
 					break;
 				} else { 
 					// nếu người đăng nhập là user 
@@ -195,7 +198,7 @@ function login() {
 						`;
 						document.querySelector(".js-HandlerLR").classList.add('js-isLogin'); // thêm class is_Login
 						document.getElementById("LR-form").remove(); // xoá form Login/Register sau khi đăng nhập thành công
-						Handler_LogOut(); // gọi lại hàm xử lý sự kiện logout
+						Handle_LogOut(); // gọi lại hàm xử lý sự kiện logout
 						formPayment()// hiển thị form đặt hàng
 						showListCart(); // hiển thị giỏ hàng
 						break;
@@ -252,7 +255,8 @@ function showListCart() {
 		</table>
 	`;    
 }
-
+// --------------------------------------------------------------------------- //
+// function hiển thị giỏ hàng trống
 function formPayment() {
     document.querySelector('.cartPayment').innerHTML = `
     <div class="container__cart-title">Đơn Hàng hiện tại</div>

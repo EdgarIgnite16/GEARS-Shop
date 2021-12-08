@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------- //
-// create User
+// khởi tạo user
 function createAccount() {
     var userArray = [];
     if (localStorage.getItem('user') == null) {
@@ -28,7 +28,7 @@ function createAccount() {
 }
 
 // --------------------------------------------------------------------------- //
-// create Products Local Storage
+//  khởi tạo dữ liệu sản phẩm
 function createProducts() {
     if (localStorage.getItem('product') === null) {
         var productArray = [
@@ -63,13 +63,12 @@ function createProducts() {
             { id: 24, type: 'Anime', name: 'Pokemon Squirtle set keycap', img: '/img/Products/Anime/018.png', price: 790000 },
             { id: 25, type: 'Anime', name: 'Hatsune Miku set keycap', img: '/img/Products/Anime/019.jpeg', price: 690000 },
         ];
-
         localStorage.setItem('product', JSON.stringify(productArray));
     }
 }
 
 // --------------------------------------------------------------------------- //
-// create cartList Local Storage
+// khởi tạo cartList rỗng
 function createCartListEmpty() {
     if (localStorage.getItem('cartList') === null) {
         var CartEmpty = [];

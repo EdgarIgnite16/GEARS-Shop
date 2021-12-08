@@ -1,9 +1,10 @@
+// --------------------------------------------------------------------------- //
 // create Constructor
 function typeConstructor(id, name) {
     this.id = id;
     this.name = name;
 }
-
+// --------------------------------------------------------------------------- //
 // mảng thể loại
 var types = [
     new typeConstructor("Anime", "Anime keycap"),
@@ -13,6 +14,7 @@ var types = [
     new typeConstructor("All", "Xem tất cả...."),
 ];
 
+// --------------------------------------------------------------------------- //
 // đẩy mảng thể loại lên Local Storage
 function PushTypetoLocalStorage() {
     // nếu trong local Storage ko có types thì khởi tạo 
@@ -22,7 +24,7 @@ function PushTypetoLocalStorage() {
 }
 PushTypetoLocalStorage();
 
-// -------------------------------------------------- // 
+// --------------------------------------------------------------------------- //
 // js animation
 function categoryActive() {
     const $ = document.querySelector.bind(document);
@@ -44,14 +46,16 @@ function paginationActive() {
 
     temp.forEach(item => {
         item.onclick = function () {
+            // cơ chế là khi ấn vào element thì sẽ tự huỷ hết đối tượng element cùng class có chứ class đó
+            // rồi sau đó mới add class Active vào cho element được click
             $('.pagination-item--link.paginationActive').classList.remove('paginationActive');
-
             this.classList.add('paginationActive');
         }
     })
 }
 
 // -------------------------------------------------- // 
+// tạo thanh danh mục trên pc
 function CreateSubMenu() {
     var tempArray = "";
     var typesArray = JSON.parse(localStorage.getItem('types'));
@@ -73,6 +77,8 @@ function CreateSubMenu() {
     document.querySelector(".category-list").innerHTML = tempArray;
 }
 
+// --------------------------------------------------------------------------- //
+// tạo thanh danh mục trên mobile
 function CreateSubMenu_Mobile() {
     var tempArray = "";
     var typesArray = JSON.parse(localStorage.getItem('types'));
@@ -95,6 +101,7 @@ function CreateSubMenu_Mobile() {
 }
 
 // -------------------------------------------------- // 
+// xử lí phần sản phẩm
 var productList = JSON.parse(localStorage.getItem('product'));
 var ShowProduct = document.querySelector('#js-product-list');
 const NumOfItem = 8; // số lượng sản phẩm trên 1 trang
@@ -182,6 +189,8 @@ function InnerProductions(name) {
     })
 }
 
+// --------------------------------------------------------------------------- //
+// function in ra tất cả sản phẩm
 function InnerAllProductions() {
     var tempArray = '';
     var emptyArray = '';
@@ -261,6 +270,8 @@ function InnerAllProductions() {
     })
 }
 
+// --------------------------------------------------------------------------- //
+// in ra sản phẩm khi ấn vào 1 option trong phần danh mục
 function ShowProductItem() {
     var ListOPT = document.querySelectorAll(".js-category-item");
     ListOPT.forEach(items => {
@@ -283,7 +294,8 @@ function ShowProductItem() {
     })
 }
 
-// search
+// --------------------------------------------------------------------------- //
+// sử lí tìm kiếm
 function InnerProductions_Search(name) {
     var tempArray = '';
     var emptyArray = '';
@@ -367,6 +379,7 @@ function InnerProductions_Search(name) {
     })
 }
 
+// --------------------------------------------------------------------------- //
 // xử lí thanh tìm kiếm
 // PC
 function InnerProductBySearch() {
@@ -403,6 +416,7 @@ function InnerProductBySearch_Mobile() {
     })
 }
 
+// --------------------------------------------------------------------------- //
 CreateSubMenu();
 CreateSubMenu_Mobile();
 ShowProductItem();
