@@ -20,11 +20,19 @@ function register() {
 			return item.gmail == gmail.value;
 		});
 
-		if( checkGmail) {
+		if(checkGmail) {
 			alert("Đã có có người sử dụng gmail này để đăng kí !\n Vui lòng sử dụng gmail khác !");
 		} else if(checkAcc) {
 			alert("Đã có người sử dụng tên đăng nhập này rồi !");
 		} else {
+			// sử dụng Regular Expressions kiểm tra email có hợp lệ hay không
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+			if (!filter.test(gmail.value)) { 
+				alert('Địa chỉ Email không hợp lệ.\nVí dụ: Example@gmail.com');
+				gmail.focus; 
+				return false; 
+	   		}	
+
 			if(gmail.value.length == 0) {
 				alert("gmail ko được để trống !");
 				gmail.focus();
