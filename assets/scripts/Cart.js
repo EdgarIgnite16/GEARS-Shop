@@ -26,9 +26,6 @@ function addCart(nameProduct) {
         // nếu đã đăng nhập rồi thì
         for (var i = 0; i < productList.length; i++) {
             if (productList[i].name == nameProduct) {
-                // lấy username mua sản phẩm
-                var nameUser = document.getElementById("js-Username").innerText;
-
                 // đẩy danh sách sản phẩm của người dùng đã mua vào một Obj riêng
                 var tempCart = {
                     id: productList[i].id,
