@@ -136,23 +136,10 @@ function pushCarttoLocalStorage() {
                     return total + item.price;
                 }, 0)
 
-                // trả về chi tiết những sản phẩm đã mua
-                var totalProducts = [];
-                for (var i = 0; i < tempArray.length; i++) {
-                    var tempA = {
-                        id: tempArray[i].id,
-                        type: tempArray[i].type,
-                        name: tempArray[i].name,
-                        img: tempArray[i].img,
-                        price: tempArray[i].price,
-                    };
-                    totalProducts.push(tempA);
-                }
-
                 // lọc dữ liệu
                 var tempTemp = {
                     username: nameUser,
-                    totalProducts: totalProducts,
+                    totalProducts: tempArray,
                     ListNameProducts: ListNameProducts,
                     totalMoney: totalMoney,
                     status: 'pending', // mặc định sau khi đặt hàng xong thì trạng thái đơn hàng sẽ là đang chờ cho admin duyệt
@@ -168,14 +155,14 @@ function pushCarttoLocalStorage() {
                 var showPayment = JSON.parse(localStorage.getItem('cartList')); // lấy dữ liệu từ local để show lên màn hình
                 for (var i = 0; i < showPayment.length; i++) {
                     if (showPayment[i].username == nameUser) {
-                        if (showPayment[i].status == 'confirmed') {
-                            value = "Đã xác nhận";
-                            color = "green";
-                        }
-
                         if (showPayment[i].status == 'pending') {
                             value = "Đang xử lí";
                             color = "orange";
+                        }
+                        
+                        if (showPayment[i].status == 'confirmed') {
+                            value = "Đã xác nhận";
+                            color = "green";
                         }
 
                         if (showPayment[i].status == 'unconfirmed') {
@@ -232,7 +219,7 @@ function addCartSuccess() {
             type: 'success',
             title: 'Giỏ hàng',
             message: 'Đã thêm sản phẩm vào giỏ hàng !',
-            duration: 1000
+            duration: 1300
         });
     }
 }
