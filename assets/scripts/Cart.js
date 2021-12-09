@@ -110,14 +110,6 @@ function deleteCart(nameProduct) {
                 <div class="btn-cart">
                     <div class="btn-Product">Thanh toán</div>
                 </div>
-                <div class="container__cart-title">Đơn Hàng hiện tại</div>
-                <div class="container__Mycart-wrap">
-                    <ul class="container__Mycart-listItem">
-                        <div class="container_Mycart-Temp">
-                            Hiện tại bạn chưa đặt đơn hàng nào cả :(
-                        </div>
-                    </ul>
-                </div>
                 `;
 
     // hàm này ở đây vì lí do trang Giỏ hàng phải có nút đặt hàng thì mới chạy lệnh được
