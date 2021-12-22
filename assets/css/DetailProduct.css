@@ -78,8 +78,10 @@
 
 .Detail_Product_img {
     width: 250px;
+    height: 250px;
     object-fit: contain;
-    margin-right: 8px;
+    margin-right: 16px;
+    border-radius: 2px;
 }
 
 .Detail_Product__Description {

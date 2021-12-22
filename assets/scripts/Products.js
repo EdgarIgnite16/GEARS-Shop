@@ -443,7 +443,7 @@ function showDetail(name) {
             document.querySelector('.Detail_Product_main_form').innerHTML = `
                 <img class="Detail_Product_img" src="./assets${productList[i].img}" alt="${productList[i].name}">
                 <div class="Detail_Product_Sub_form">
-                    <div class="Detail_Product__Description"><strong>Giới thiệu:</strong> ${productList[i].description}</div>
+                    <div class="Detail_Product__Description"><strong>Mô tả:</strong> ${productList[i].description}</div>
                     <div class="Detail_Product_Sub2">
                         <div class="Detail_Product_type"><strong>Loại:</strong> ${productList[i].type}</div>
                         <div class="Detail_Product_price"><strong>Giá:</strong> ${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
