@@ -4,6 +4,7 @@ function typeConstructor(id, name) {
     this.id = id;
     this.name = name;
 }
+
 // --------------------------------------------------------------------------- //
 // mảng thể loại
 var types = [
