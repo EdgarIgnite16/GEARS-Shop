@@ -437,7 +437,6 @@ function HandleEventDetailProduct() {
 // xử lí công việc mở form Detail Product và show thông tin sản phẩm
 function showDetail(name) {
     document.querySelector(".DetailProduct_Wrap").classList.add("isOpenDP");
-    console.log(name)
     for (var i = 0; i < productList.length; i++) {
         if (productList[i].name == name) {
             document.querySelector('.Detail_Product_main_form').innerHTML = `

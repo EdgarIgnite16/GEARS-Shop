@@ -364,4 +364,8 @@
         top: 75px !important;
         right: 12px !important;
     }
+
+    .Detail_Product_main_form {
+        flex-direction: column;
+    }
 }
