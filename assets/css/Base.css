@@ -98,7 +98,8 @@ table {
 }
 
 .isOpenLR,
-.isOpenAP {
+.isOpenAP,
+.isOpenDP {
     display: flex !important;
     opacity: 1 !important;
 }

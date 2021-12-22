@@ -151,6 +151,7 @@ function InnerProductions(name) {
                         <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                         <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                     </div>
+                    <button type="button" class="js-product-detail" onClick="showDetail(\'${emptyObject[i].name}\');">Chi tiết</button>
                     <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                 </div>
             </div>
@@ -178,6 +179,7 @@ function InnerProductions(name) {
                                 <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                                 <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                             </div>
+                            <button type="button" class="js-product-detail" onClick="showDetail(\'${emptyObject[i].name}\');">Chi tiết</button>
                             <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                         </div>
                     </div>
@@ -231,6 +233,7 @@ function InnerAllProductions() {
                         <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                         <span class="product-item--type">Loại: ${productList[i].type}</span>
                     </div>
+                    <button type="button" class="js-product-detail" onClick="showDetail(\'${productList[i].name}\');">Chi tiết</button>
                     <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\'); addCartSuccess()">Mua Hàng</button>
                 </div>
             </div>
@@ -259,6 +262,7 @@ function InnerAllProductions() {
                                 <span class="product-item--price">${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                                 <span class="product-item--type">Loại: ${productList[i].type}</span>
                             </div>
+                            <button type="button" class="js-product-detail" onClick="showDetail(\'${productList[i].name}\');">Chi tiết</button>
                             <button type="button" class="js-product" onClick="addCart(\'${productList[i].name}\'); addCartSuccess()">Mua Hàng</button>
                         </div>
                     </div>
@@ -341,6 +345,7 @@ function InnerProductions_Search(name) {
                         <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                         <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                     </div>
+                    <button type="button" class="js-product-detail" onClick="showDetail(\'${emptyObject[i].name}\');">Chi tiết</button>
                     <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                 </div>
             </div>
@@ -368,6 +373,7 @@ function InnerProductions_Search(name) {
                                 <span class="product-item--price">${emptyObject[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</span>
                                 <span class="product-item--type">Loại: ${emptyObject[i].type}</span>
                             </div>
+                            <button type="button" class="js-product-detail" onClick="showDetail(\'${emptyObject[i].name}\');">Chi tiết</button>
                             <button type="button" class="js-product" onClick="addCart(\'${emptyObject[i].name}\'); addCartSuccess()">Mua Hàng</button>
                         </div>
                     </div>
@@ -416,6 +422,37 @@ function InnerProductBySearch_Mobile() {
     })
 }
 
+// ---------------------------------------------------------------------------- //
+// xử lí công việc đóng form Detail Product 
+function HandleEventDetailProduct() {
+    var closeBTN = document.querySelector(".js-D-close-btn");
+
+    closeBTN.addEventListener('click', () => {
+        document.querySelector(".DetailProduct_Wrap").classList.remove("isOpenDP")
+    })  
+}
+
+
+// ---------------------------------------------------------------------------- //
+// xử lí công việc mở form Detail Product và show thông tin sản phẩm
+function showDetail(name) {
+    document.querySelector(".DetailProduct_Wrap").classList.add("isOpenDP");
+    console.log(name)
+    for (var i = 0; i < productList.length; i++) {
+        if (productList[i].name == name) {
+            document.querySelector('.Detail_Product_main_form').innerHTML = `
+                <img class="Detail_Product_img" src="./assets${productList[i].img}" alt="${productList[i].name}">
+                <div class="Detail_Product_Sub_form">
+                    <div class="Detail_Product__Description"><strong>Giới thiệu:</strong> ${productList[i].description}</div>
+                    <div class="Detail_Product_Sub2">
+                        <div class="Detail_Product_type"><strong>Loại:</strong> ${productList[i].type}</div>
+                        <div class="Detail_Product_price"><strong>Giá:</strong> ${productList[i].price.toLocaleString('vi', {style : 'currency', currency : 'VND'})}</div>
+                    </div>
+                </div>
+            `
+        }
+    }
+}
 // --------------------------------------------------------------------------- //
 CreateSubMenu();
 CreateSubMenu_Mobile();
@@ -425,3 +462,4 @@ paginationActive();
 categoryActive();
 InnerProductBySearch();
 InnerProductBySearch_Mobile();
+HandleEventDetailProduct();

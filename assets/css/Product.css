@@ -183,7 +183,7 @@
     align-content: center;
     background-image: linear-gradient(360deg, #ffdebc 0%, #ffffff 45%);
     margin-bottom: 12px;
-    height: 380px;
+    height: 420px;
     padding: 8px 6px;
     border-radius: 8px;
     box-shadow: 0 2px 6px 0 rgb(156 156 156);
@@ -247,6 +247,27 @@
     cursor: pointer;
     background-color: white;
     color: #ffa310;
+}
+
+.js-product-detail {
+    background-color: #ff5810;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    color: white;
+    right: 0;
+    top: 0;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin-bottom: 4px;
+}
+
+.js-product-detail:hover {
+    cursor: pointer;
+    background-color: white;
+    color: #ff5810;
 }
 
 #js-product-list {
