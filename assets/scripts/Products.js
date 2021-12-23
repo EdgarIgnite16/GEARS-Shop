@@ -453,6 +453,7 @@ function showDetail(name) {
         }
     }
 }
+
 // --------------------------------------------------------------------------- //
 CreateSubMenu();
 CreateSubMenu_Mobile();
